@@ -69,7 +69,7 @@ export default function AdminHeader({
             />
             <div className="leading-tight text-right">
               <h1 className="font-black text-base sm:text-lg">مطعم السرايا</h1>
-              <p className="text-[11px] text-orange-100 font-medium">
+              <p className="text-[11px] text-orange-100 font-medium hidden sm:block">
                 {isCashierPage
                   ? "أشهى المأكولات والمشروبات"
                   : "لوحة تحكم المشرف وإدارة المطبخ"}
@@ -78,12 +78,12 @@ export default function AdminHeader({
           </Link>
 
           {!isStoreOpen && (
-            <span className="bg-rose-600 text-white text-[11px] font-extrabold px-3 py-1 rounded-full animate-pulse">
+            <span className="bg-rose-600 text-white text-[11px] font-extrabold px-3 py-1 rounded-full animate-pulse hidden md:inline">
               المطعم مغلق للعملاء
             </span>
           )}
         </div>
-        <nav className="sm:flex items-center gap-1 hidden sm:gap-2 ">
+        <nav className="md:flex items-center gap-1 hidden sm:gap-2 ">
           {ADMIN_NAV_ITEMS.map((item) => {
             const Icon = item.icon;
             const isActive =

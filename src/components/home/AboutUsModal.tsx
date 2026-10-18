@@ -59,7 +59,8 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
                 وحتى 2:00 ظهراً.
               </li>
               <li>
-                • <strong>العنوان:</strong> الأقصر/العوامية (ميدان الصنايع) بجوار القرعاني .
+                • <strong>العنوان:</strong> الأقصر/العوامية (ميدان الصنايع)
+                بجوار القرعاني .
               </li>
               <li>
                 • <strong>خدمة التوصيل:</strong> تغطية سريعة لجميع المناطق
@@ -84,6 +85,22 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
               <li>
                 <strong>احفظ رقم الطلب:</strong> بعد الإرسال، احتفظ برقم الطلب
                 لتتمكن من معرفة حالته عبر قسم «تتبع طلبك».
+              </li>
+            </ol>
+          </div>
+
+          <div className="bg-orange-50 border border-[#D55304]/20 p-4 rounded-2xl">
+            <h3 className="font-extrabold text-[#9A3412] flex items-center gap-2 mb-2 text-base">
+              <span>📲</span> كيفية تثبيت التطبيق؟
+            </h3>
+            <ol className="space-y-2 text-xs md:text-sm text-slate-800 list-decimal list-inside">
+              <li>الضغط على الثلاث نقاط التي في أعلى المتصفح.</li>
+              <li>
+                النزول والضغط على <strong>«التثبيت وإنشاء اختصار»</strong> (أو
+                «إضافة إلى الشاشة الرئيسية»).
+              </li>
+              <li>
+                الضغط على <strong>«تثبيت»</strong>.
               </li>
             </ol>
           </div>

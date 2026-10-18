@@ -3,7 +3,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { CartProvider } from "@/src/context/CartContext";
 import Footer from "../components/layout/Footer";
-import InstallPWAButton from "../components/layout/InstallPWAButton";
 
 const tajawal = localFont({
   src: [
@@ -112,7 +111,6 @@ export default function RootLayout({
           {children}
           <Footer />
         </CartProvider>
-        <InstallPWAButton />
       </body>
     </html>
   );
