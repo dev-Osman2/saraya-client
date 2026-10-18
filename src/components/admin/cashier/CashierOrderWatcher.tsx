@@ -46,7 +46,7 @@ export default function CashierOrderWatcher() {
                     : "توصيل للمنازل";
 
               toast.success(`طلب جديد من عميل #${order.orderNumber}`, {
-                description: `${order.customerName || "عميل السرايا"} (${typeLabel}) — الإجمالي: ${Number(order.totalPrice || 0)} ج.م`,
+                description: `${order.customerName || "عميل السرايا"} (${typeLabel}) — الإجمالي: ${Number(order.totalPrice || 0)} ج`,
                 duration: 9000,
                 action: {
                   label: "عرض الطلب",

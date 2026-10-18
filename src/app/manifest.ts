@@ -2,12 +2,12 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "مطعم السرايا | أشهى المأكولات والمشويات",
+    name: "مطعم سرايا",
     short_name: "السرايا",
-    description: "أشهى المأكولات والمشويات الطازجة. اطلب وجبتك المفضلة أونلاين بسهولة.",
+    description: "أشهى المأكولات والمشويات الطازجة.",
     start_url: "/",
     display: "standalone",
-    background_color: "#ffffff",
+    background_color: "#F3F4F6",
     theme_color: "#ea580c",
     icons: [
       {

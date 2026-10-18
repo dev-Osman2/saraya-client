@@ -1,7 +1,5 @@
 "use client";
 
- 
-
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Search, X } from "lucide-react";
 import { Product } from "@/src/types";
@@ -120,7 +118,6 @@ export default function SearchBar({
     }
   };
 
-  
   const searchDropdown = isOpen && (
     <div className="absolute top-14 left-0 z-50 w-72 sm:w-84 bg-white rounded-2xl shadow-2xl border border-slate-100 p-3 text-slate-800 animate-in fade-in zoom-in duration-150">
       <div className="relative flex items-center border-2 border-orange-500/80 rounded-2xl px-3 py-2 bg-white">
@@ -167,7 +164,7 @@ export default function SearchBar({
                   {product.name}
                 </p>
                 <span className="text-[10px] text-slate-400 block">
-                  {product.price.toFixed(2)} ج.م
+                  {product.price.toFixed(2)} ج
                 </span>
               </div>
             </button>
@@ -183,7 +180,6 @@ export default function SearchBar({
     </div>
   );
 
-  
   if (isControlled) {
     if (!isOpen) return null;
 
@@ -193,7 +189,6 @@ export default function SearchBar({
         dir="rtl"
       >
         <div className="container mx-auto px-4 h-16 flex items-center justify-end">
-          
           <div
             ref={wrapperRef}
             className="relative ml-12 w-10 h-10 pointer-events-auto"

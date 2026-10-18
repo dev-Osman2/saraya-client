@@ -288,7 +288,7 @@ export default function OrderCard({
                     {qty} ×
                   </div>
                   <div className="col-span-3 text-left font-extrabold text-slate-900">
-                    {(unitPrice * qty).toFixed(2)} ج.م
+                    {(unitPrice * qty).toFixed(2)} ج
                   </div>
                 </div>
               );
@@ -305,7 +305,7 @@ export default function OrderCard({
             </span>
             <span className="text-lg sm:text-xl font-black text-slate-900">
               {Number(order.totalPrice || 0).toFixed(2)}{" "}
-              <span className="text-xs font-bold">ج.م</span>
+              <span className="text-xs font-bold">ج</span>
             </span>
           </div>
 

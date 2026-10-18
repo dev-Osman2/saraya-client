@@ -70,7 +70,7 @@ export default function SummaryStatsCards({
             قيد التحصيل (كاش معلق)
           </span>
           <span className="text-base sm:text-lg font-black text-amber-600 font-mono block">
-            {pendingCash.toFixed(2)} ج.م
+            {pendingCash.toFixed(2)} ج
           </span>
         </div>
       </div>
@@ -84,7 +84,7 @@ export default function SummaryStatsCards({
             متوسط الفاتورة
           </span>
           <span className="text-base sm:text-lg font-black text-indigo-600 font-mono block">
-            {averageOrderValue.toFixed(2)} ج.م
+            {averageOrderValue.toFixed(2)} ج
           </span>
         </div>
       </div>

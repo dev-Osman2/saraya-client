@@ -194,7 +194,7 @@ export default function OrderTable({
                     المبلغ الإجمالي
                   </span>
                   <span className="text-base font-black text-slate-900 font-mono">
-                    {order.totalAmount.toFixed(2)} ج.م
+                    {order.totalAmount.toFixed(2)} ج
                   </span>
                 </div>
 

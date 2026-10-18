@@ -234,6 +234,7 @@ function CheckoutFormContent() {
           error={error}
           isCartEmpty={cart.length === 0 || !isStoreOpen}
           onSubmit={handleSubmit}
+          finalTotal={finalTotal}
         />
       </div>
 

@@ -9,7 +9,7 @@ import SearchBar from "./SearchBar";
 
 export default function Header() {
   const router = useRouter();
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
   const clickCount = useRef(0);

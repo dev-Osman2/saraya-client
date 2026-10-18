@@ -1,4 +1,3 @@
- 
 "use client";
 
 import { Product } from "@/src/types";
@@ -37,9 +36,7 @@ export default function ProductsTable({
           <thead>
             <tr className="bg-[#FFF7ED] border-b border-orange-100/80 text-slate-700 text-xs sm:text-sm font-extrabold">
               <th className="py-4 px-6 w-[36%]">الوجبة</th>
-              <th className="py-4 px-4 text-center w-[34%]">
-                الأحجام والأسعار
-              </th>
+              <th className="py-4 px-4 text-center w-[34%]">الأحجام والأسعار</th>
               <th className="py-4 px-4 text-center w-[16%]">حالة التوفر</th>
               <th className="py-4 px-6 text-left w-[14%]">الإجراءات</th>
             </tr>
@@ -109,12 +106,12 @@ export default function ProductsTable({
                                     {sz.name}
                                   </span>
                                   <span className="block text-xs sm:text-sm font-black text-slate-900">
-                                    {Number(sz.price).toFixed(2)} ج.م
+                                    {Number(sz.price).toFixed(2)} ج
                                   </span>
 
                                   {sizeName === "صغير" && product.oldPrice ? (
                                     <span className="block text-[10px] text-slate-400 line-through">
-                                      {Number(product.oldPrice).toFixed(2)} ج.م
+                                      {Number(product.oldPrice).toFixed(2)} ج
                                     </span>
                                   ) : null}
                                 </div>
@@ -128,11 +125,11 @@ export default function ProductsTable({
                             عادي
                           </span>
                           <span className="block text-xs sm:text-sm font-black text-slate-900">
-                            {Number(product.price).toFixed(2)} ج.م
+                            {Number(product.price).toFixed(2)} ج
                           </span>
                           {product.oldPrice ? (
                             <span className="block text-[10px] text-slate-400 line-through">
-                              {Number(product.oldPrice).toFixed(2)} ج.م
+                              {Number(product.oldPrice).toFixed(2)} ج
                             </span>
                           ) : null}
                         </div>

@@ -1,4 +1,3 @@
- 
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -58,7 +57,7 @@ export default function ProductImageBadge({
       )}
 
       <div className="absolute top-2.5 left-2.5 z-10 bg-slate-900/85 backdrop-blur-md text-white px-2.5 py-1 rounded-lg flex items-center gap-1.5 shadow-sm">
-        <span className="text-xs font-extrabold">{Number(price)} ج.م</span>
+        <span className="text-xs font-extrabold">{Number(price)} ج</span>
         {oldPrice && oldPrice > price ? (
           <span className="text-[10px] text-slate-300 line-through">
             {Number(oldPrice)} ج

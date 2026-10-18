@@ -1,4 +1,3 @@
- 
 "use client";
 
 export interface PrintedOrderSnapshot {
@@ -77,7 +76,7 @@ export default function CashierThermalReceipt({
                 </td>
                 <td className="py-1 text-center">{item.quantity}</td>
                 <td className="py-1 text-left font-bold">
-                  {item.price * item.quantity} ج.م
+                  {item.price * item.quantity} ج
                 </td>
               </tr>
             ))}
@@ -87,7 +86,7 @@ export default function CashierThermalReceipt({
         <div className="space-y-1 text-xs font-bold pb-1">
           <div className="flex justify-between text-sm font-black">
             <span>الإجمالي المطلوب:</span>
-            <span>{receipt.totalPrice} ج.م</span>
+            <span>{receipt.totalPrice} ج</span>
           </div>
           <div className="flex justify-between text-[11px]">
             <span>طريقة الدفع:</span>

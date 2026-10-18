@@ -110,7 +110,7 @@ export default function AdminOrdersSummaryPage() {
           </div>
           <p className="text-2xl font-black text-slate-900">
             {summary.totalRevenue.toFixed(2)}{" "}
-            <span className="text-xs font-bold text-slate-500">ج.م</span>
+            <span className="text-xs font-bold text-slate-500">ج</span>
           </p>
         </div>
 
@@ -123,7 +123,7 @@ export default function AdminOrdersSummaryPage() {
           </div>
           <p className="text-2xl font-black text-[#D55304]">
             {summary.averageBill.toFixed(2)}{" "}
-            <span className="text-xs font-bold">ج.م</span>
+            <span className="text-xs font-bold">ج</span>
           </p>
         </div>
 
@@ -266,7 +266,7 @@ export default function AdminOrdersSummaryPage() {
                       {item.totalQuantity} وجبة
                     </td>
                     <td className="py-3.5 px-6 text-left font-black text-emerald-700">
-                      {item.totalRevenue.toFixed(2)} ج.م
+                      {item.totalRevenue.toFixed(2)} ج
                     </td>
                   </tr>
                 ))}

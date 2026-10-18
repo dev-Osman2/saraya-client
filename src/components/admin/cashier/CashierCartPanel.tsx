@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
- 
+
 "use client";
 
 import { useCart, getCartItemKey } from "@/src/context/CartContext";
@@ -145,7 +145,7 @@ export default function CashierCartPanel({
                   </div>
 
                   <span className="font-extrabold text-slate-900 text-xs sm:text-sm min-w-[65px] text-left">
-                    {price * item.cartQuantity} ج.م
+                    {price * item.cartQuantity} ج
                   </span>
 
                   <button
@@ -184,7 +184,7 @@ export default function CashierCartPanel({
             <span>الإجمالي النهائي:</span>
           </span>
           <span className="text-xl font-black text-[#D55304]">
-            {totalPrice} ج.م
+            {totalPrice} ج
           </span>
         </div>
       </div>

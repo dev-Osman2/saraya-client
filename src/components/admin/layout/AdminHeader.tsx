@@ -1,7 +1,5 @@
 "use client";
 
- 
-
 import Link from "next/link";
 import { Menu, LogOut, Search } from "lucide-react";
 
@@ -13,6 +11,38 @@ interface AdminHeaderProps {
   onOpenSearch?: () => void;
 }
 
+import { usePathname } from "next/navigation";
+import {
+  Calculator,
+  ClipboardList,
+  UtensilsCrossed,
+  BarChart3,
+} from "lucide-react";
+
+// تعريف عناصر شريط التنقل
+const ADMIN_NAV_ITEMS = [
+  {
+    name: "الكاشير",
+    href: "/admin/cashier",
+    icon: Calculator,
+  },
+  {
+    name: "الطلبات",
+    href: "/admin/orders",
+    icon: ClipboardList,
+  },
+  {
+    name: "المنيو",
+    href: "/admin/products",
+    icon: UtensilsCrossed,
+  },
+  {
+    name: "الملخص",
+    href: "/admin/orders-summary",
+    icon: BarChart3,
+  },
+];
+
 export default function AdminHeader({
   isCashierPage,
   isStoreOpen,
@@ -20,6 +50,7 @@ export default function AdminHeader({
   onLogout,
   onOpenSearch,
 }: AdminHeaderProps) {
+  const pathname = usePathname();
   return (
     <header
       className="sticky top-0 z-40 bg-[#D55304] text-white shadow-md print:hidden"
@@ -52,7 +83,30 @@ export default function AdminHeader({
             </span>
           )}
         </div>
+        <nav className="sm:flex items-center gap-1 hidden sm:gap-2 ">
+          {ADMIN_NAV_ITEMS.map((item) => {
+            const Icon = item.icon;
+            const isActive =
+              item.href === "/admin/orders"
+                ? pathname === "/admin/orders"
+                : pathname.startsWith(item.href);
 
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
+                  isActive
+                    ? "bg-white text-[#D55304] shadow-xs"
+                    : "text-white/90 hover:bg-white/15 hover:text-white"
+                }`}
+              >
+                <Icon className="w-4 h-4 shrink-0" />
+                <span>{item.name}</span>
+              </Link>
+            );
+          })}
+        </nav>
         <div className="flex items-center gap-2">
           {isCashierPage && (
             <button

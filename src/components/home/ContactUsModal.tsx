@@ -16,9 +16,9 @@ interface ContactUsModalProps {
   onClose: () => void;
 }
 
-const CONTACT_PHONE = "01080859921";
-const WHATSAPP_URL = "https://wa.me/201080859921";
-const TELEGRAM_URL = "https://t.me/+201080859921";
+const CONTACT_PHONE = process.env.NEXT_PUBLIC_CONTACT_PHONE || "01080859921";
+const WHATSAPP_URL  = process.env.NEXT_PUBLIC_WHATSAPP_URL || "https://wa.me/201080859921";
+const TELEGRAM_URL  = process.env.NEXT_PUBLIC_TELEGRAM_URL || "https://t.me/+201080859921";
 
 export default function ContactUsModal({
   isOpen,

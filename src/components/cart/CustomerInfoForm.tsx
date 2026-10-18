@@ -39,13 +39,18 @@ interface CustomerInfoFormProps {
   error: string | null;
   isCartEmpty: boolean;
   onSubmit: (e: React.FormEvent) => void;
+  finalTotal: number;
 }
 
-const INSTAPAY_DISPLAY = "saraya@instapay / 01080859921";
-const INSTAPAY_LINK = "https://ipn.eg/S/aswany2030/instapay/4hwJiI";
+const INSTAPAY_LINK =
+  process.env.NEXT_PUBLIC_INSTAPAY_LINK ||
+  "https://ipn.eg/S/aswany2030/instapay/4hwJiI";
 
-const VODAFONE_CASH_DISPLAY = "01080859921";
-const VODAFONE_CASH_LINK = "http://vf.eg/vfcash?id=mt&qrId=HKeNQu";
+const VODAFONE_CASH_DISPLAY =
+  process.env.NEXT_PUBLIC_VODAFONE_CASH || "01080859921";
+const VODAFONE_CASH_LINK =
+  process.env.NEXT_PUBLIC_VODAFONE_CASH_LINK ||
+  "http://vf.eg/vfcash?id=mt&qrId=HKeNQu";
 
 export default function CustomerInfoForm({
   name,
@@ -66,25 +71,17 @@ export default function CustomerInfoForm({
   loading,
   error,
   isCartEmpty,
+  finalTotal,
   onSubmit,
 }: CustomerInfoFormProps) {
   const isDineIn = Boolean(tableNumber);
-  const [copied, setCopied] = useState(false);
 
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText("*9*7*01080859921#");
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error("فشل في نسخ رقم الطلب:", err);
-    }
-  };
 
   useEffect(() => {
     if (phone) {
       setTransferNumber(phone);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phone]);
   return (
     <form onSubmit={onSubmit} className="space-y-4 pt-1" dir="rtl">
@@ -176,41 +173,43 @@ export default function CustomerInfoForm({
       {!isDineIn && (
         <div className="flex flex-col gap-3 pt-1">
           <div className="grid grid-cols-2 gap-2.5">
+            {/* زر توصيل للمنازل */}
             <button
               type="button"
               onClick={() => setIsPickup(false)}
               className={`flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs transition-all duration-300 cursor-pointer border active:scale-[0.98] ${
                 !isPickup
-                  ? "bg-primary text-white border-primary shadow-md shadow-orange-500/20"
-                  : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50 hover:border-slate-300"
+                  ? "bg-[#D55304] text-white border-[#D55304] shadow-lg shadow-[#D55304]/30 ring-2 ring-[#D55304]/20"
+                  : "bg-slate-100/80 text-slate-400 border-slate-200/90 hover:bg-slate-200/60 hover:text-slate-600 shadow-none"
               }`}
             >
               <Truck
                 className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
-                  !isPickup ? "scale-110" : ""
+                  !isPickup ? "scale-110 text-white" : "text-slate-400"
                 }`}
               />
               <span>توصيل للمنازل</span>
             </button>
 
+            {/* زر الاستلام من الفرع */}
             <button
               type="button"
               onClick={() => setIsPickup(true)}
               className={`flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs transition-all duration-300 cursor-pointer border active:scale-[0.98] ${
                 isPickup
-                  ? "bg-[#D55304] text-white border-[#D55304] shadow-md shadow-orange-500/20"
-                  : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50 hover:border-slate-300"
+                  ? "bg-[#D55304] text-white border-[#D55304] shadow-lg shadow-[#D55304]/30 ring-2 ring-[#D55304]/20"
+                  : "bg-slate-100/80 text-slate-400 border-slate-200/90 hover:bg-slate-200/60 hover:text-slate-600 shadow-none"
               }`}
             >
               <Store
                 className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
-                  isPickup ? "scale-110" : ""
+                  isPickup ? "scale-110 text-white" : "text-slate-400"
                 }`}
               />
               <div className="flex flex-col items-start leading-tight">
                 <span>الإستلام من الفرع</span>
                 <span
-                  className={`text-[9px] font-normal transition-colors duration-300 ${
+                  className={`text-[9px] font-medium transition-colors duration-300 ${
                     isPickup ? "text-orange-100" : "text-slate-400"
                   }`}
                 >
@@ -286,7 +285,7 @@ export default function CustomerInfoForm({
             <span
               className={`w-4 h-4 rounded-full border flex items-center justify-center ${
                 paymentMethod === "instapay"
-                  ? "border-[#D55304]"
+                  ? "border-primary"
                   : "border-slate-300"
               }`}
             >
@@ -332,7 +331,7 @@ export default function CustomerInfoForm({
               اضغط هنا للتحويل مباشرة عبر تطبيق إنستاباي:
             </p>
             <div className="inline-flex items-center justify-center gap-1.5 font-extrabold text-[#D55304] text-sm font-mono dir-ltr group-hover:underline">
-              <span>{INSTAPAY_DISPLAY}</span>
+              <span>{VODAFONE_CASH_DISPLAY}</span>
               <ExternalLink className="w-4 h-4 shrink-0" />
             </div>
           </a>
@@ -352,37 +351,17 @@ export default function CustomerInfoForm({
             </div>
           </a>
         )}
-        
+
         {paymentMethod !== "instapay" && (
           <div className="flex items-center justify-center gap-2 bg-orange-50/60 border border-[#D55304]/25 rounded-xl py-2.5 px-3 max-w-xs mx-auto">
-          <span className="text-xs text-slate-600 font-bold">رقم الطلب:</span>
-          <span className="font-extrabold text-[#D55304] font-mono text-base" dir="ltr">
-            *9*7*01080859921#
-          </span>
-
-          <button
-            type="button"
-            onClick={handleCopy}
-            title="نسخ رقم الطلب"
-            className={`flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-lg border transition-all cursor-pointer ${
-              copied
-                ? "bg-emerald-50 text-emerald-700 border-emerald-200"
-                : "bg-white text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-slate-900 active:scale-95"
-            }`}
-          >
-            {copied ? (
-              <>
-                <Check className="w-3.5 h-3.5 text-emerald-600" />
-                <span>تم النسخ!</span>
-              </>
-            ) : (
-              <>
-                <Copy className="w-3.5 h-3.5 text-slate-400" />
-                <span>نسخ</span>
-              </>
-            )}
-          </button>
-        </div>
+            <span className="text-xs text-slate-600 font-bold">إتصل:</span>
+            <span
+              className="font-extrabold text-[#D55304] font-mono text-base"
+              dir="ltr"
+            >
+              <a href={`tel:*9*7*01080859921*${finalTotal}#`}>{`*9*7*01080859921*${finalTotal}#`}</a>
+            </span>
+          </div>
         )}
 
         <div>
@@ -392,7 +371,7 @@ export default function CustomerInfoForm({
           </label>
           <div className="relative">
             <span className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400">
-              <Smartphone className="w-4 h-4 text-[#D55304]" />
+              <Smartphone className="w-4 h-4 text-primary" />
             </span>
             <input
               type="tel"

@@ -17,7 +17,7 @@ export default function ProductsHeader({ onAddClick }: ProductsHeaderProps) {
           إدارة قائمة الطعام والوجبات
         </h1>
         <p className="text-xs sm:text-sm text-slate-500 font-medium">
-          إضافة الوجبات، تحديد أحجام وأسعار كل وجبة، والتحكم الفوري في توفر
+          إضافة الوجبات، تحديد أحج وأسعار كل وجبة، والتحكم الفوري في توفر
           الأصناف بالمطبخ
         </p>
       </div>

@@ -1,7 +1,5 @@
 "use client";
 
- 
-
 export interface AggregatedSummaryItem {
   name: string;
   image?: string;
@@ -51,7 +49,7 @@ export default function SummaryDesktopTable({
                 {item.totalQty}
               </td>
               <td className="py-4 px-6 text-left font-bold font-mono text-slate-900">
-                {item.totalPrice.toFixed(2)} ج.م
+                {item.totalPrice.toFixed(2)} ج
               </td>
             </tr>
           ))}

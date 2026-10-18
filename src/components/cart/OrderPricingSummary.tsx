@@ -21,18 +21,16 @@ export default function OrderPricingSummary({
     <div className="bg-slate-50/90 p-4 rounded-xl space-y-2.5 border border-slate-100">
       <div className="flex justify-between items-center text-slate-600 text-xs sm:text-sm">
         <span>مجموع الوجبات:</span>
-        <span className="font-bold text-slate-800">{totalPrice} ج.م</span>
+        <span className="font-bold text-slate-800">{totalPrice} ج</span>
       </div>
 
       {!isDineIn && (
         <div className="flex justify-between items-center text-slate-600 text-xs sm:text-sm">
           <span>رسوم التوصيل:</span>
           {isPickup ? (
-            <span className="font-bold text-emerald-600">
-              مجاناً
-            </span>
+            <span className="font-bold text-emerald-600">مجاناً</span>
           ) : (
-            <span className="font-bold text-slate-800">{deliveryFee} ج.م</span>
+            <span className="font-bold text-slate-800">{deliveryFee} ج</span>
           )}
         </div>
       )}
@@ -43,7 +41,7 @@ export default function OrderPricingSummary({
           <span>الإجمالي النهائي:</span>
         </span>
         <span className="text-lg sm:text-xl text-[#D55304]">
-          {finalTotal} ج.م
+          {finalTotal} ج
         </span>
       </div>
     </div>

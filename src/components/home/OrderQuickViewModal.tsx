@@ -130,7 +130,7 @@ export default function OrderQuickViewModal({
                 <span className="text-slate-600 shrink-0 font-medium">
                   {qty} × {unitPrice.toFixed(2)} ={" "}
                   <strong className="text-slate-900 font-extrabold">
-                    {lineTotal.toFixed(2)} ج.م
+                    {lineTotal.toFixed(2)} ج
                   </strong>
                 </span>
               </div>
@@ -141,17 +141,17 @@ export default function OrderQuickViewModal({
         <div className="border-t border-gray-100 pt-3 space-y-1.5 text-sm">
           <div className="flex justify-between text-gray-600 text-xs md:text-sm">
             <span>مجموع الوجبات:</span>
-            <span className="font-bold">{subtotal.toFixed(2)} ج.م</span>
+            <span className="font-bold">{subtotal.toFixed(2)} ج</span>
           </div>
           {deliveryFee > 0 && (
             <div className="flex justify-between text-gray-600 text-xs md:text-sm">
               <span>رسوم التوصيل:</span>
-              <span className="font-bold">{deliveryFee.toFixed(2)} ج.م</span>
+              <span className="font-bold">{deliveryFee.toFixed(2)} ج</span>
             </div>
           )}
           <div className="flex justify-between font-black text-base text-gray-900 pt-1">
             <span>الإجمالي النهائي:</span>
-            <span className="text-[#D55304]">{totalPrice.toFixed(2)} ج.م</span>
+            <span className="text-[#D55304]">{totalPrice.toFixed(2)} ج</span>
           </div>
         </div>
 

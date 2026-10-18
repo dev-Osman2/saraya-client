@@ -73,7 +73,7 @@ export function SizeSelector({
               {currentSizeObj?.name}
             </span>
             <span className="text-[10px] font-bold text-[#D55304] shrink-0">
-              ({Number(currentSizeObj?.price || 0)} ج.م)
+              ({Number(currentSizeObj?.price || 0)} ج)
             </span>
           </div>
 
@@ -110,7 +110,7 @@ export function SizeSelector({
                       isSelected ? "text-[#D55304]" : "text-slate-500"
                     }`}
                   >
-                    {Number(s.price)} ج.م
+                    {Number(s.price)} ج
                   </span>
                 </button>
               );

@@ -7,6 +7,7 @@ import QuickServicesBar from "@/src/components/home/QuickServicesBar";
 import { Flame, UtensilsCrossed } from "lucide-react";
 import HomeCategoryBar from "@/src/components/home/HomeCategoryBar";
 import { CATEGORIES } from "@/src/constants/categories";
+import MobileCheckoutFloatingButton from "../components/cart/MobileCheckoutFloatingButton";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
@@ -74,10 +75,10 @@ export default async function HomePage({
               </div>
               <div>
                 <p className="text-sm font-extrabold text-slate-900">
-                  طلب داخل الصالة — ترابيزة رقم ({currentTable})
+                  ترابيزة رقم ({currentTable})
                 </p>
                 <p className="text-xs text-slate-600">
-                  اختر وجباتك المفضلة وسيتم تحضيرها وتقديمها لترابيزتك مباشرة
+                  اختر وجباتك  وسيتم تحضيرها <br/> وتقديمها لترابيزتك مباشرة
                 </p>
               </div>
             </div>
@@ -147,6 +148,7 @@ export default async function HomePage({
         </div>
       </main>
       <QuickServicesBar />
+      <MobileCheckoutFloatingButton />
     </>
   );
 }
