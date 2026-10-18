@@ -1,9 +1,12 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { X, UtensilsCrossed, Flame, Receipt } from "lucide-react";
+import { X, UtensilsCrossed, Flame, Receipt, ImagePlus } from "lucide-react";
 import { CATEGORIES } from "@/src/constants/categories";
+import MenuGalleryModal from "@/src/components/menu/MenuGalleryModal";
+import { MENU_IMAGES } from "@/src/constants/menuImages";
 import { useCart } from "@/src/context/CartContext";
+import { useState } from "react";
 
 interface MenuBarProps {
   isOpen: boolean;
@@ -14,6 +17,7 @@ export default function MenuBar({ isOpen, onClose }: MenuBarProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { totalItems } = useCart();
+  const [isMenuGalleryOpen, setIsMenuGalleryOpen] = useState(false);
   const currentCategory = searchParams.get("category")?.trim() || null;
 
   if (!isOpen) return null;
@@ -74,8 +78,31 @@ export default function MenuBar({ isOpen, onClose }: MenuBarProps) {
         <div className="mb-3 shrink-0">
           <button
             type="button"
-            onClick={handleScrollToOrderSummary}
+            onClick={() => setIsMenuGalleryOpen(true)}
             className="w-full px-4 py-3 rounded-xl bg-orange-50 hover:bg-orange-100 border border-[#D55304]/30 text-[#D55304] font-extrabold text-xs sm:text-sm flex items-center justify-between transition cursor-pointer shadow-2xs"
+          >
+            <div className="flex items-center gap-2">
+              <ImagePlus className="w-4 h-4 shrink-0" />
+              <span>صور المنيو</span>
+            </div>
+            <span className="bg-[#D55304] text-white text-[11px] font-black px-2 py-0.5 rounded-full">
+              {MENU_IMAGES.length}
+            </span>
+          </button>
+        </div>
+
+        {/* استدعاء المودال */}
+        <MenuGalleryModal
+          isOpen={isMenuGalleryOpen}
+          onClose={() => setIsMenuGalleryOpen(false)}
+          images={MENU_IMAGES}
+        />
+
+        <div className="mb-3 shrink-0">
+          <button
+            type="button"
+            onClick={handleScrollToOrderSummary}
+            className="w-full px-4 py-3 rounded-xl bg-orange-50 hover:bg-orange-100 border border-primary/30 text-primary font-extrabold text-xs sm:text-sm flex items-center justify-between transition cursor-pointer shadow-2xs"
           >
             <div className="flex items-center gap-2">
               <Receipt className="w-4 h-4 shrink-0" />

@@ -30,7 +30,6 @@ const tajawal = localFont({
   display: "swap",
 });
 
-// إعدادات المتصفح ولون الثيم (مهم للـ PWA وشريط المتصفح على الهواتف)
 export const viewport: Viewport = {
   themeColor: "#ea580c",
   width: "device-width",
@@ -61,12 +60,10 @@ export const metadata: Metadata = {
     canonical: "/",
   },
 
-  // كود التحقق من ملكية Google Search Console
   verification: {
     google: "SG56LKgfX5LA3jQGAVaIks0hoCdhXLe4Dr0P18r6N3k",
   },
 
-  // إعدادات المشاركة عبر واتساب وفيسبوك (Open Graph)
   openGraph: {
     title: "مطعم السرايا | أشهى المأكولات والمشويات",
     description:
@@ -85,7 +82,6 @@ export const metadata: Metadata = {
     type: "website",
   },
 
-  // إعدادات تويتر / منصة X
   twitter: {
     card: "summary_large_image",
     title: "مطعم السرايا | أشهى المأكولات والمشويات",
@@ -93,7 +89,6 @@ export const metadata: Metadata = {
     images: ["/logo.png"],
   },
 
-  // إعدادات الـ PWA والأيقونات
   manifest: "/manifest.json",
   icons: {
     icon: "/logo.png",

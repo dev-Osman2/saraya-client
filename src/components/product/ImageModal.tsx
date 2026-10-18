@@ -1,7 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
- 
-
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 
 interface ImageModalProps {
@@ -17,11 +18,18 @@ export default function ImageModal({
   imageAlt,
   onClose,
 }: ImageModalProps) {
-  if (!isOpen) return null;
+  const [mounted, setMounted] = useState(false);
 
-  return (
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
+
+  if (!isOpen || !mounted) return null;
+
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-xs p-4 animate-in fade-in duration-200"
+      className="fixed inset-0 z-100 flex items-center justify-center bg-black/80 backdrop-blur-xs p-4 animate-in fade-in duration-200"
       onClick={onClose}
     >
       <div
@@ -42,6 +50,7 @@ export default function ImageModal({
           className="w-full h-auto max-h-[75vh] object-contain rounded-xl bg-white"
         />
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

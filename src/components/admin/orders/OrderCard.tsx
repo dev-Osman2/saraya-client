@@ -83,7 +83,7 @@ export default function OrderCard({
     if (order.orderType === "dine_in") {
       return (
         <span className="inline-flex items-center gap-1.5 text-slate-600 font-bold truncate max-w-full">
-          <Store className="w-3.5 h-3.5 text-[#D55304] shrink-0" />
+          <Store className="w-3.5 h-3.5 text-primary shrink-0" />
           <span className="truncate">
             الطاولة {order.tableNumber} - صالة المطعم
           </span>
@@ -93,7 +93,7 @@ export default function OrderCard({
     if (order.orderType === "pickup") {
       return (
         <span className="inline-flex items-center gap-1.5 text-slate-600 font-bold truncate max-w-full">
-          <ShoppingBag className="w-3.5 h-3.5 text-[#D55304] shrink-0" />
+          <ShoppingBag className="w-3.5 h-3.5 text-primary shrink-0" />
           <span className="truncate">استلام من المطعم</span>
         </span>
       );
@@ -101,14 +101,14 @@ export default function OrderCard({
     if (order.orderType === "cashier") {
       return (
         <span className="inline-flex items-center gap-1.5 text-slate-600 font-bold truncate max-w-full">
-          <Calculator className="w-3.5 h-3.5 text-[#D55304] shrink-0" />
+          <Calculator className="w-3.5 h-3.5 text-primary shrink-0" />
           <span className="truncate">طلب كاشير مباشر</span>
         </span>
       );
     }
     return (
       <span className="inline-flex items-center gap-1.5 text-slate-600 font-bold truncate max-w-full">
-        <Truck className="w-3.5 h-3.5 text-[#D55304] shrink-0" />
+        <Truck className="w-3.5 h-3.5 text-primary shrink-0" />
         <span className="truncate">
           توصيل - {order.address || "عنوان غير محدد"}
         </span>
@@ -140,7 +140,7 @@ export default function OrderCard({
       <div className="space-y-3">
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2.5 min-w-0">
-            <span className="bg-orange-50 text-[#D55304] border border-[#D55304]/20 font-black text-xs sm:text-sm px-3 py-1 rounded-xl font-mono shrink-0">
+            <span className="bg-orange-50 text-primary border border-primary/20 font-black text-xs sm:text-sm px-3 py-1 rounded-xl font-mono shrink-0">
               #{order.orderNumber}
             </span>
             <h3 className="font-black text-slate-900 text-base sm:text-lg truncate">
@@ -164,7 +164,7 @@ export default function OrderCard({
           {order.phone && (
             <a
               href={`tel:${order.phone}`}
-              className="inline-flex items-center gap-1 font-mono font-bold text-slate-600 hover:text-[#D55304] transition shrink-0"
+              className="inline-flex items-center gap-1 font-mono font-bold text-slate-600 hover:text-primary transition shrink-0"
             >
               <Phone className="w-3.5 h-3.5 text-slate-400" />
               <span>{order.phone}</span>
@@ -233,7 +233,7 @@ export default function OrderCard({
               value={adminNoteText}
               onChange={(e) => setAdminNoteText(e.target.value)}
               placeholder="اكتب ملاحظات المطبخ أو النواقص أو باقي المبلغ..."
-              className="w-full p-3 bg-white border border-amber-200 rounded-xl text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-[#D55304] resize-none"
+              className="w-full p-3 bg-white border border-amber-200 rounded-xl text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-primary resize-none"
             />
             <div className="flex items-center justify-end gap-3">
               <button
@@ -250,7 +250,7 @@ export default function OrderCard({
                 type="button"
                 disabled={savingNote}
                 onClick={handleSaveNote}
-                className="px-4 py-2 rounded-xl bg-[#D55304] hover:bg-[#b84403] disabled:opacity-60 text-white text-xs font-extrabold flex items-center gap-1.5 transition cursor-pointer shadow-2xs"
+                className="px-4 py-2 rounded-xl bg-primary hover:bg-primary-hover disabled:opacity-60 text-white text-xs font-extrabold flex items-center gap-1.5 transition cursor-pointer shadow-2xs"
               >
                 {savingNote && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
                 <span>حفظ الملاحظة</span>
@@ -318,7 +318,7 @@ export default function OrderCard({
                 {getPaymentLabel()}
               </span>
               {order.paymentReceipt && (
-                <span className="text-[11px] font-mono font-bold bg-orange-50 text-[#D55304] px-2 py-0.5 rounded-md border border-[#D55304]/20">
+                <span className="text-[11px] font-mono font-bold bg-orange-50 text-primary px-2 py-0.5 rounded-md border border-[#D55304]/20">
                   {order.paymentReceipt}
                 </span>
               )}

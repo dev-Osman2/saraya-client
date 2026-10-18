@@ -1,15 +1,15 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
-
- 
 
 import { useState, Suspense, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { useCart } from "@/src/context/CartContext";
-import { Receipt, X } from "lucide-react";
+import { Receipt } from "lucide-react";
 import CartItemList from "./CartItemList";
 import OrderPricingSummary from "./OrderPricingSummary";
 import CustomerInfoForm from "./CustomerInfoForm";
 import OrderSuccessCard from "./OrderSuccessCard";
+import ImageModal from "@/src/components/product/ImageModal";
 
 const DELIVERY_FEE = 15;
 
@@ -237,29 +237,14 @@ function CheckoutFormContent() {
         />
       </div>
 
+      {/* استخدام مكون ImageModal */}
       {zoomedImage && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-xs p-4 animate-in fade-in duration-200"
-          onClick={() => setZoomedImage(null)}
-        >
-          <div
-            className="relative max-w-xl rounded-2xl overflow-hidden shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              type="button"
-              className="absolute top-3 left-3 z-10 bg-white/90 hover:bg-[#D55304] hover:text-white text-slate-800 rounded-full p-2 transition-colors cursor-pointer"
-              onClick={() => setZoomedImage(null)}
-            >
-              <X className="w-4 h-4" />
-            </button>
-            <img
-              src={zoomedImage.src}
-              alt={zoomedImage.name}
-              className="w-full h-auto max-h-[75vh] object-contain rounded-xl bg-white"
-            />
-          </div>
-        </div>
+        <ImageModal
+          isOpen={Boolean(zoomedImage)}
+          imageSrc={zoomedImage.src}
+          imageAlt={zoomedImage.name}
+          onClose={() => setZoomedImage(null)}
+        />
       )}
     </>
   );

@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/admin", "/admin/"], // منع جوجل من فهرسة لوحة الإدارة
+        disallow: ["/admin", "/admin/"], 
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,

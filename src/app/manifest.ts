@@ -14,19 +14,19 @@ export default function manifest(): MetadataRoute.Manifest {
         src: "/logo.png",
         sizes: "192x192",
         type: "image/png",
-        purpose: "maskable", // تجعل الصورة تملأ مساحة الأيقونة بالكامل
+        purpose: "maskable", 
       },
       {
         src: "/logo.png",
         sizes: "512x512",
         type: "image/png",
-        purpose: "maskable", // تملأ المساحة لشاشات العرض العالية
+        purpose: "maskable", 
       },
       {
         src: "/logo.png",
         sizes: "512x512",
         type: "image/png",
-        purpose: "any", // للتوافق مع الأنظمة التي لا تدعم maskable
+        purpose: "any", 
       },
     ],
   };

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   User,
   Phone,
@@ -15,6 +15,8 @@ import {
   UtensilsCrossed,
   ExternalLink,
   Smartphone,
+  Copy,
+  Check,
 } from "lucide-react";
 
 interface CustomerInfoFormProps {
@@ -67,6 +69,17 @@ export default function CustomerInfoForm({
   onSubmit,
 }: CustomerInfoFormProps) {
   const isDineIn = Boolean(tableNumber);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText("*9*7*01080859921#");
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("فشل في نسخ رقم الطلب:", err);
+    }
+  };
 
   useEffect(() => {
     if (phone) {
@@ -338,6 +351,38 @@ export default function CustomerInfoForm({
               <ExternalLink className="w-4 h-4 shrink-0" />
             </div>
           </a>
+        )}
+        
+        {paymentMethod !== "instapay" && (
+          <div className="flex items-center justify-center gap-2 bg-orange-50/60 border border-[#D55304]/25 rounded-xl py-2.5 px-3 max-w-xs mx-auto">
+          <span className="text-xs text-slate-600 font-bold">رقم الطلب:</span>
+          <span className="font-extrabold text-[#D55304] font-mono text-base" dir="ltr">
+            *9*7*01080859921#
+          </span>
+
+          <button
+            type="button"
+            onClick={handleCopy}
+            title="نسخ رقم الطلب"
+            className={`flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-lg border transition-all cursor-pointer ${
+              copied
+                ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                : "bg-white text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-slate-900 active:scale-95"
+            }`}
+          >
+            {copied ? (
+              <>
+                <Check className="w-3.5 h-3.5 text-emerald-600" />
+                <span>تم النسخ!</span>
+              </>
+            ) : (
+              <>
+                <Copy className="w-3.5 h-3.5 text-slate-400" />
+                <span>نسخ</span>
+              </>
+            )}
+          </button>
+        </div>
         )}
 
         <div>

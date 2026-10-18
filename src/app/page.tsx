@@ -3,23 +3,10 @@ import Header from "@/src/components/layout/Header";
 import CheckoutForm from "@/src/components/cart/CheckoutForm";
 import { Product } from "@/src/types";
 import Link from "next/link";
-import QuickServicesBar from "../components/home/QuickServicesBar";
+import QuickServicesBar from "@/src/components/home/QuickServicesBar";
 import { Flame, UtensilsCrossed } from "lucide-react";
-
-const CATEGORY_ORDER = [
-  "المشويات على الفحم",
-  "البيتزا",
-  "الأكل الإيطالي",
-  "الطواجن والأطباق الشرقية",
-  "الوجبات والصواني",
-  "السندوتشات والبرجر",
-  "المأكولات البحرية (سي فود)",
-  "الشوربة",
-  "السلطات والمقبلات الباردة",
-  "المقبلات الساخنة والأطباق الجانبية",
-  "الحلويات",
-  "المشروبات",
-];
+import HomeCategoryBar from "@/src/components/home/HomeCategoryBar";
+import { CATEGORIES } from "@/src/constants/categories";
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
 
@@ -43,8 +30,10 @@ export default async function HomePage({
 }) {
   const params = await searchParams;
   const allProducts = await getProducts();
-  const currentCategory = params.category?.trim();
-  const currentTable = params.table?.trim();
+  
+  // تحويل undefined إلى null لحل مشكلة الـ TypeScript بدقة
+  const currentCategory = params.category?.trim() || null;
+  const currentTable = params.table?.trim() || undefined;
 
   const displayedProducts = currentCategory
     ? allProducts.filter((p) => (p.category ?? "").trim() === currentCategory)
@@ -52,7 +41,7 @@ export default async function HomePage({
 
   const categoriesWithProducts = Array.from(
     new Set([
-      ...CATEGORY_ORDER,
+      ...CATEGORIES,
       ...displayedProducts.map((product) => product.category?.trim()),
     ]),
   )
@@ -71,6 +60,12 @@ export default async function HomePage({
     <>
       <Header />
       <main className="container mx-auto px-4 py-4">
+        {/* استدعاء المكون الوسيط بدون تمرير أي دوال برمجية من السيرفر */}
+        <HomeCategoryBar
+          currentCategory={currentCategory}
+          currentTable={currentTable}
+        />
+
         {currentTable && (
           <div className="mb-5 flex items-center justify-between rounded-2xl bg-orange-50 border border-[#D55304]/30 px-4 py-3 text-[#D55304] shadow-xs">
             <div className="flex items-center gap-3">
@@ -131,7 +126,7 @@ export default async function HomePage({
                 {categoriesWithProducts.map((group) => (
                   <section key={group.name}>
                     {categoriesWithProducts.length > 1 && (
-                      <h3 className="mb-3 border-r-4 border-primary pr-3 text-base font-extrabold text-slate-800">
+                      <h3 className="mb-3 border-r-4 border-[#D55304] pr-3 text-base font-extrabold text-slate-800">
                         {group.name}
                       </h3>
                     )}

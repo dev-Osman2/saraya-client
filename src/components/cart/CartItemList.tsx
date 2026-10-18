@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
  
 "use client";
 
@@ -9,7 +10,7 @@ interface CartItemListProps {
 }
 
 export default function CartItemList({ onZoomImage }: CartItemListProps) {
-  const { cart, removeFromCart } = useCart();
+  const { cart, updateQuantity, removeFromCart } = useCart();
 
   if (cart.length === 0) {
     return (
@@ -72,19 +73,52 @@ export default function CartItemList({ onZoomImage }: CartItemListProps) {
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
-              <span className="font-extrabold text-slate-900 whitespace-nowrap">
-                {price * qty} ج.م
-              </span>
-              <button
-                type="button"
-                onClick={() => removeFromCart(item._id, item.selectedSize)}
-                className="text-rose-500 hover:text-rose-700 p-1.5 hover:bg-rose-50 rounded-lg transition-colors cursor-pointer"
-                title="حذف الوجبة"
-              >
-                <Trash2 className="w-4 h-4" />
-              </button>
-            </div>
+            <div className="flex items-center gap-2 shrink-0">
+                  <div className="flex items-center gap-1 bg-slate-50 border border-slate-200 rounded-lg px-1.5 py-0.5">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        updateQuantity(
+                          item._id,
+                          item.cartQuantity + 1,
+                          item.selectedSize,
+                        )
+                      }
+                      className="w-5 h-5 rounded bg-[#D55304] text-white text-xs font-bold flex items-center justify-center cursor-pointer"
+                    >
+                      +
+                    </button>
+                    <span className="px-1.5 text-xs font-extrabold text-[#D55304]">
+                      {item.cartQuantity}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        updateQuantity(
+                          item._id,
+                          item.cartQuantity - 1,
+                          item.selectedSize,
+                        )
+                      }
+                      className="w-5 h-5 rounded bg-white border border-slate-200 text-slate-600 text-xs font-bold flex items-center justify-center cursor-pointer"
+                    >
+                      -
+                    </button>
+                  </div>
+
+                  <span className="font-extrabold text-slate-900 text-xs sm:text-sm min-w-[65px] text-left">
+                    {price * item.cartQuantity} ج.م
+                  </span>
+
+                  <button
+                    type="button"
+                    onClick={() => removeFromCart(item._id, item.selectedSize)}
+                    className="text-rose-500 hover:text-rose-700 p-1 transition cursor-pointer"
+                    title="حذف الصنف"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </button>
+                </div>
           </div>
         );
       })}
