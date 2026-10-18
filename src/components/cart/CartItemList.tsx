@@ -1,9 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
-
 "use client";
 
 import { useCart, getCartItemKey } from "@/src/context/CartContext";
-import { ShoppingCart} from "lucide-react";
+import { ShoppingCart } from "lucide-react";
+import CartItemRow from "./components/CartItemRow";
 
 interface CartItemListProps {
   onZoomImage: (item: { src: string; name: string }) => void;
@@ -26,93 +25,14 @@ export default function CartItemList({ onZoomImage }: CartItemListProps) {
   return (
     <div className="max-h-60 overflow-y-auto divide-y divide-slate-100 pr-1 custom-scrollbar">
       {cart.map((item) => {
-        const price = Number(item.price || 0);
-        const qty = Number(item.cartQuantity || 0);
-        const itemKey =
-          item.cartItemId || getCartItemKey(item._id, item.selectedSize);
-
+        const itemKey = item.cartItemId || getCartItemKey(item._id, item.selectedSize);
         return (
-          <div
+          <CartItemRow
             key={itemKey}
-            className="py-3 flex justify-between items-center gap-3 text-xs sm:text-sm"
-          >
-            <div className="flex items-center gap-2.5 flex-1 min-w-0">
-              <div
-                className="relative w-12 h-12 rounded-xl overflow-hidden bg-orange-50/50 border border-slate-200/80 shrink-0 cursor-pointer group"
-                onClick={() =>
-                  onZoomImage({ src: item.image, name: item.name })
-                }
-              >
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-200"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src =
-                      "https://placehold.co/100x100/fff7ed/D55304?text=?";
-                  }}
-                />
-              </div>
-
-              <div className="flex-1 min-w-0 text-right">
-                <div className="flex items-center gap-1.5 flex-wrap">
-                  <p className="font-bold text-slate-800 truncate">
-                    {item.name}
-                  </p>
-                  {item.selectedSize && (
-                    <span className="inline-block text-[10px] font-extrabold bg-orange-50 text-[#D55304] border border-[#D55304]/25 px-1.5 py-0.5 rounded-md">
-                      {item.selectedSize}
-                    </span>
-                  )}
-                </div>
-                <p className="text-[11px] text-slate-500 mt-0.5">
-                  الكمية:{" "}
-                  <span className="font-extrabold text-[#D55304]">{qty}</span> ×{" "}
-                  {price} ج
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-center flex-wrap gap-2 shrink-0">
-              <div className="flex items-center gap-1 bg-slate-50 border border-slate-200 rounded-lg px-1.5 py-0.5">
-                <button
-                  type="button"
-                  onClick={() =>
-                    updateQuantity(
-                      item._id,
-                      item.cartQuantity + 1,
-                      item.selectedSize,
-                    )
-                  }
-                  className="w-5 h-5 rounded bg-[#D55304] text-white text-xs font-bold flex items-center justify-center cursor-pointer"
-                >
-                  +
-                </button>
-                <span className="px-1.5 text-xs font-extrabold text-[#D55304]">
-                  {item.cartQuantity}
-                </span>
-                <button
-                  type="button"
-                  onClick={() =>
-                    updateQuantity(
-                      item._id,
-                      item.cartQuantity - 1,
-                      item.selectedSize,
-                    )
-                  }
-                  className="w-5 h-5 rounded bg-white border border-slate-200 text-slate-600 text-xs font-bold flex items-center justify-center cursor-pointer"
-                >
-                  -
-                </button>
-              </div>
-
-              <div>
-                <span className="font-extrabold text-slate-900 text-xs sm:text-sm min-w-[65px] text-left">
-                  {price * item.cartQuantity} ج
-                </span>
-              </div>
-            </div>
-          </div>
+            item={item}
+            onZoomImage={onZoomImage}
+            onUpdateQuantity={updateQuantity}
+          />
         );
       })}
     </div>

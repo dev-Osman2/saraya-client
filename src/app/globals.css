@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #D55304;
+  --color-primary: #d55304;
   --color-primary-hover: #b84403;
-  --color-secondary: #FFC107;
-  --color-dark: #1E1E2D;
-  --color-lightBg: #F3F4F6;
+  --color-secondary: #ffc107;
+  --color-dark: #1e1e2d;
+  --color-lightBg: #f3f4f6;
 }
 
 @utility container {
@@ -31,9 +31,18 @@
 }
 
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  20%, 60% { transform: translateX(-8px); }
-  40%, 80% { transform: translateX(8px); }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-8px);
+  }
+  40%,
+  80% {
+    transform: translateX(8px);
+  }
 }
 
 .animate-shake {
@@ -48,7 +57,6 @@ body {
   @apply bg-lightBg text-gray-800;
 }
 
-/* Custom Slim Scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
   width: 5px;
   height: 5px;
@@ -59,63 +67,52 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #cbd5e1; /* slate-300 */
+  background-color: #cbd5e1;
   border-radius: 9999px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #94a3b8; /* slate-400 */
+  background-color: #94a3b8;
 }
 
-/* Firefox */
 .custom-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: #cbd5e1 transparent;
 }
 
-.bording{
+.bording {
   border: 2px dashed red;
 }
 
-
-/* ---------- */
-
-/* 1. تحديد النصوص: خلفية داكنة فخمة (برتقالي محروق / Rust) مع نص أبيض ناصع */
 ::selection {
-  background-color: #FFF7ED; /* اللون الكريمي المطلوب */
-  color: #D55304; /* جعل النص باللون البرتقالي ليبقى مقروءاً بوضوح فوق الخلفية الفاتحة */
+  background-color: #fff7ed;
+  color: #d55304;
 }
 
-/* 2. شريط التمرير لمتصفح Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #B44605 #F1F5F9;
+  scrollbar-color: #b44605 #f1f5f9;
 }
 
-/* 3. شريط التمرير لمتصفحات WebKit (Chrome, Edge, Brave, Safari) */
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;
 }
 
-/* مسار التمرير (خلفية ناعمة ونظيفة) */
 ::-webkit-scrollbar-track {
-  background: #F8FAFC;
+  background: #f8fafc;
 }
 
-/* مقبض شريط التمرير (درجة داكنة متناسقة مع الموقع) */
 ::-webkit-scrollbar-thumb {
-  background-color: #B44605;
+  background-color: #b44605;
   border-radius: 9999px;
   transition: background-color 0.2s ease;
 }
 
-/* درجة أدكن للمقبض عند الوقوف بالماوس */
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #7C2D12;
+  background-color: #7c2d12;
 }
 
-/* إخفاء أزرار الأسهم في الإسكرول */
 ::-webkit-scrollbar-button {
   display: none;
   width: 0;

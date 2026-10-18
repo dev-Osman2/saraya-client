@@ -13,7 +13,6 @@ export default function MobileCheckoutFloatingButton() {
     setMounted(true);
   }, []);
 
-  // مراقبة وصول الشاشة إلى قسم ملخص الطلب لإخفاء الزر
   useEffect(() => {
     if (!mounted) return;
 
@@ -25,8 +24,8 @@ export default function MobileCheckoutFloatingButton() {
         setIsSummaryInView(entry.isIntersecting);
       },
       {
-        threshold: 0.1, // يختفي فور ظهور أول 10% من ملخص الطلب
-      }
+        threshold: 0.1,
+      },
     );
 
     observer.observe(summaryElement);
@@ -34,7 +33,6 @@ export default function MobileCheckoutFloatingButton() {
     return () => observer.disconnect();
   }, [mounted]);
 
-  // شروط الظهور: بعد الـ mount + السلة بها منتجات + ملخص الطلب ليس ظاهراً
   const isVisible = mounted && cart.length > 0 && !isSummaryInView;
 
   const handleScrollToSummary = () => {

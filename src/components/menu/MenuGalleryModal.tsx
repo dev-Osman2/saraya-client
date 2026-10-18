@@ -19,17 +19,15 @@ export default function MenuGalleryModal({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
-  // حالات تتبع حركة السحب باللمس
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [touchEndX, setTouchEndX] = useState<number | null>(null);
-  const minSwipeDistance = 45; // مسافة السحب الدنيا بالبكسل لتفعيل التقليب
+  const minSwipeDistance = 45;
 
   useEffect(() => {
     if (isOpen) {
       setCurrentIndex(0);
       setIsLoading(true);
 
-      // تحميل كل الصور في الخلفية
       images.forEach((src) => {
         const img = new Image();
         img.src = src;
@@ -47,7 +45,6 @@ export default function MenuGalleryModal({
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   }, [images.length]);
 
-  // منطق السحب باللمس على الموبايل
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchEndX(null);
     setTouchStartX(e.targetTouches[0].clientX);
@@ -62,15 +59,12 @@ export default function MenuGalleryModal({
     const distance = touchStartX - touchEndX;
 
     if (distance > minSwipeDistance) {
-      // سحب لليسار -> الصورة التالية
       handleNext();
     } else if (distance < -minSwipeDistance) {
-      // سحب لليمين -> الصورة السابقة
       handlePrev();
     }
   };
 
-  // التحكم بالكيبورد
   useEffect(() => {
     if (!isOpen) return;
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -89,11 +83,10 @@ export default function MenuGalleryModal({
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-2 sm:p-6 animate-in fade-in duration-200 select-none"
       onClick={onClose}
     >
-     <div
+      <div
         className="relative flex flex-col items-center justify-center max-w-4xl w-full max-h-[90vh]"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* زر الإغلاق X في أعلى اليمين */}
         <button
           type="button"
           onClick={onClose}
@@ -103,12 +96,10 @@ export default function MenuGalleryModal({
           <X size={20} />
         </button>
 
-        {/* عداد الصفحات */}
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-30 bg-black/60 text-white text-xs sm:text-sm font-bold px-3 py-1 rounded-full shadow-md backdrop-blur-xs">
           {currentIndex + 1} / {images.length}
         </div>
 
-        {/* زر السابق (مُصغر ومُنصف في الموبايل لتقليل التغطية) */}
         <button
           type="button"
           onClick={handlePrev}
@@ -118,7 +109,6 @@ export default function MenuGalleryModal({
           <ChevronRight size={18} className="sm:w-6 sm:h-6" />
         </button>
 
-        {/* زر التالي (مُصغر ومُنصف في الموبايل لتقليل التغطية) */}
         <button
           type="button"
           onClick={handleNext}
@@ -128,7 +118,6 @@ export default function MenuGalleryModal({
           <ChevronLeft size={18} className="sm:w-6 sm:h-6" />
         </button>
 
-        {/* حاوية الصورة مع ربط أحداث السحب باللمس */}
         <div
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}

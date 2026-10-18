@@ -1,179 +1,28 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useState, Suspense, useEffect } from "react";
+import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import { useCart } from "@/src/context/CartContext";
 import { Receipt } from "lucide-react";
 import CartItemList from "./CartItemList";
 import OrderPricingSummary from "./OrderPricingSummary";
 import CustomerInfoForm from "./CustomerInfoForm";
 import OrderSuccessCard from "./OrderSuccessCard";
+import StoreClosedAlert from "./components/StoreClosedAlert";
 import ImageModal from "@/src/components/product/ImageModal";
-
-const DELIVERY_FEE = 15;
+import { useCheckout } from "./hooks/useCheckout";
 
 function CheckoutFormContent() {
-  const { cart, clearCart, subtotalPrice } = useCart();
   const searchParams = useSearchParams();
   const tableNumber = searchParams.get("table")?.trim() || null;
-  const isDineIn = Boolean(tableNumber);
+  const checkout = useCheckout(tableNumber);
+  const [zoomedImage, setZoomedImage] = useState<{ src: string; name: string } | null>(null);
 
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
-  const [notes, setNotes] = useState("");
-  const [isPickup, setIsPickup] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState<
-    "instapay" | "vodafone_cash"
-  >("instapay");
-  const [transferNumber, setTransferNumber] = useState("");
-
-  const [zoomedImage, setZoomedImage] = useState<{
-    src: string;
-    name: string;
-  } | null>(null);
-
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [successOrderNumber, setSuccessOrderNumber] = useState<string | null>(
-    null,
-  );
-  const [submittedPhone, setSubmittedPhone] = useState("");
-
-  const totalPrice = Number(subtotalPrice || 0);
-  const deliveryFee = isDineIn || isPickup ? 0 : DELIVERY_FEE;
-  const finalTotal = totalPrice + deliveryFee;
-
-  const [isStoreOpen, setIsStoreOpen] = useState(true);
-
-  useEffect(() => {
-    const apiUrl =
-      process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
-    fetch(`${apiUrl}/admin/store-status`)
-      .then((r) => r.json())
-      .then((d) => {
-        if (typeof d.isStoreOpen === "boolean") {
-          setIsStoreOpen(d.isStoreOpen);
-        }
-      })
-      .catch(() => {});
-  }, []);
-
-  const resetFormFields = () => {
-    clearCart();
-    setName("");
-    setPhone("");
-    setAddress("");
-    setNotes("");
-    setIsPickup(false);
-    setPaymentMethod("instapay");
-    setTransferNumber("");
-  };
-
-  const handleNewOrder = () => {
-    setSuccessOrderNumber(null);
-    resetFormFields();
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError(null);
-
-    if (cart.length === 0) {
-      setError("الرجاء اختيار وجبة واحدة على الأقل قبل إرسال الطلب");
-      return;
-    }
-
-    const phoneRegex = /^01(0|1|2|5)[0-9]{8}$/;
-
-    if (!isDineIn) {
-      if (!name.trim()) {
-        setError("يرجى إدخال الاسم الكامل");
-        return;
-      }
-      if (!phoneRegex.test(phone.trim())) {
-        setError(
-          "أدخل رقم هاتف صحيح مكون من 11 رقم ويبدأ بـ 010 أو 011 أو 012 أو 015",
-        );
-        return;
-      }
-      if (!isPickup && !address.trim()) {
-        setError("يرجى إدخال عنوان التوصيل بالتفصيل");
-        return;
-      }
-    } else if (phone.trim() && !phoneRegex.test(phone.trim())) {
-      setError("رقم الهاتف المدخل غير صحيح، يجب أن يتكون من 11 رقماً");
-      return;
-    }
-
-    if (!transferNumber.trim()) {
-      setError("يرجى إدخال الرقم الذي حولت منه المبلغ لتأكيد الدفع");
-      return;
-    }
-
-    setLoading(true);
-
-    const orderType = isDineIn ? "dine_in" : isPickup ? "pickup" : "delivery";
-
-    try {
-      const apiUrl =
-        process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
-      const res = await fetch(`${apiUrl}/orders`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          orderType,
-          tableNumber: isDineIn ? tableNumber : "",
-          customerName:
-            name.trim() ||
-            (isDineIn ? `عميل صالة - ترابيزة ${tableNumber}` : "عميل السرايا"),
-          phone: phone.trim(),
-          address: isDineIn
-            ? `صالة المطعم - ترابيزة ${tableNumber}`
-            : isPickup
-              ? "الاستلام من الفرع"
-              : address.trim(),
-          notes: notes.trim(),
-          paymentMethod,
-          paymentReceipt: transferNumber.trim(),
-          transferNumber: transferNumber.trim(),
-          items: cart.map((item) => ({
-            productId: item._id,
-            name: item.name,
-            size: item.selectedSize || "",
-            quantity: item.cartQuantity,
-            price: item.price,
-            image: item.image,
-          })),
-        }),
-      });
-
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.message || "تعذر إرسال الطلب");
-
-      setSubmittedPhone(
-        phone.trim() ||
-          (isDineIn ? `ترابيزة #${tableNumber}` : transferNumber.trim()),
-      );
-      setSuccessOrderNumber(String(data.orderNumber || data._id || ""));
-
-      resetFormFields();
-    } catch (err: unknown) {
-      setError(
-        err instanceof Error ? err.message : "حدث خطأ أثناء الاتصال بالسيرفر",
-      );
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  if (successOrderNumber) {
+  if (checkout.successOrderNumber) {
     return (
       <OrderSuccessCard
-        phoneNumber={submittedPhone}
-        orderNumber={successOrderNumber}
-        onReset={handleNewOrder}
+        phoneNumber={checkout.submittedPhone}
+        orderNumber={checkout.successOrderNumber}
+        onReset={checkout.handleNewOrder}
       />
     );
   }
@@ -187,58 +36,45 @@ function CheckoutFormContent() {
       >
         <div className="flex items-center gap-2 text-slate-900 border-b border-slate-100 pb-3">
           <Receipt className="w-5 h-5 text-[#D55304]" />
-          <h3 className="text-base sm:text-lg font-extrabold">
-            ملخص الطلب والحساب
-          </h3>
+          <h3 className="text-base sm:text-lg font-extrabold">ملخص الطلب والحساب</h3>
         </div>
 
-        {!isStoreOpen && (
-          <div className="p-4 bg-rose-50 border border-rose-200 rounded-2xl text-right space-y-1">
-            <p className="text-xs sm:text-sm font-black text-rose-700">
-              🔴 المطعم مغلق حالياً
-            </p>
-            <p className="text-xs text-rose-600 font-medium">
-              عذراً، لا يمكن إرسال طلبات جديدة في وقت إغلاق المطعم. <br /> مواعيد العمل
-              يومياً من 6:00 صباحا حتى 2:00 ظهراً.
-            </p>
-          </div>
-        )}
+        {!checkout.isStoreOpen && <StoreClosedAlert />}
 
         <CartItemList onZoomImage={setZoomedImage} />
 
         <OrderPricingSummary
-          totalPrice={totalPrice}
-          deliveryFee={deliveryFee}
-          isPickup={isPickup}
-          isDineIn={isDineIn}
-          finalTotal={finalTotal}
+          totalPrice={checkout.totalPrice}
+          deliveryFee={checkout.deliveryFee}
+          isPickup={checkout.isPickup}
+          isDineIn={checkout.isDineIn}
+          finalTotal={checkout.finalTotal}
         />
 
         <CustomerInfoForm
-          name={name}
-          setName={setName}
-          phone={phone}
-          setPhone={setPhone}
-          address={address}
-          setAddress={setAddress}
-          notes={notes}
-          setNotes={setNotes}
-          isPickup={isPickup}
-          setIsPickup={setIsPickup}
+          name={checkout.name}
+          setName={checkout.setName}
+          phone={checkout.phone}
+          setPhone={checkout.setPhone}
+          address={checkout.address}
+          setAddress={checkout.setAddress}
+          notes={checkout.notes}
+          setNotes={checkout.setNotes}
+          isPickup={checkout.isPickup}
+          setIsPickup={checkout.setIsPickup}
           tableNumber={tableNumber}
-          paymentMethod={paymentMethod}
-          setPaymentMethod={setPaymentMethod}
-          transferNumber={transferNumber}
-          setTransferNumber={setTransferNumber}
-          loading={loading}
-          error={error}
-          isCartEmpty={cart.length === 0 || !isStoreOpen}
-          onSubmit={handleSubmit}
-          finalTotal={finalTotal}
+          paymentMethod={checkout.paymentMethod}
+          setPaymentMethod={checkout.setPaymentMethod}
+          transferNumber={checkout.transferNumber}
+          setTransferNumber={checkout.setTransferNumber}
+          loading={checkout.loading}
+          error={checkout.error}
+          isCartEmpty={checkout.cart.length === 0 || !checkout.isStoreOpen}
+          onSubmit={checkout.handleSubmit}
+          finalTotal={checkout.finalTotal}
         />
       </div>
 
-      {/* استخدام مكون ImageModal */}
       {zoomedImage && (
         <ImageModal
           isOpen={Boolean(zoomedImage)}

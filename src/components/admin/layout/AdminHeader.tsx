@@ -19,7 +19,6 @@ import {
   BarChart3,
 } from "lucide-react";
 
-// تعريف عناصر شريط التنقل
 const ADMIN_NAV_ITEMS = [
   {
     name: "الكاشير",

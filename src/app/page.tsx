@@ -31,8 +31,7 @@ export default async function HomePage({
 }) {
   const params = await searchParams;
   const allProducts = await getProducts();
-  
-  // تحويل undefined إلى null لحل مشكلة الـ TypeScript بدقة
+
   const currentCategory = params.category?.trim() || null;
   const currentTable = params.table?.trim() || undefined;
 
@@ -61,7 +60,6 @@ export default async function HomePage({
     <>
       <Header />
       <main className="container mx-auto px-4 py-4">
-        {/* استدعاء المكون الوسيط بدون تمرير أي دوال برمجية من السيرفر */}
         <HomeCategoryBar
           currentCategory={currentCategory}
           currentTable={currentTable}
@@ -78,7 +76,7 @@ export default async function HomePage({
                   ترابيزة رقم ({currentTable})
                 </p>
                 <p className="text-xs text-slate-600">
-                  اختر وجباتك  وسيتم تحضيرها <br/> وتقديمها لترابيزتك مباشرة
+                  اختر وجباتك وسيتم تحضيرها <br /> وتقديمها لترابيزتك مباشرة
                 </p>
               </div>
             </div>

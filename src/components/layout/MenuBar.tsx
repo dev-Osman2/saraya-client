@@ -91,7 +91,6 @@ export default function MenuBar({ isOpen, onClose }: MenuBarProps) {
           </button>
         </div>
 
-        {/* استدعاء المودال */}
         <MenuGalleryModal
           isOpen={isMenuGalleryOpen}
           onClose={() => setIsMenuGalleryOpen(false)}

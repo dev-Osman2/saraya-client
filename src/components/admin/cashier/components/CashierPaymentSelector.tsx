@@ -1,0 +1,63 @@
+"use client";
+
+import { CreditCard, Banknote, Wallet } from "lucide-react";
+
+interface CashierPaymentSelectorProps {
+  paymentMode: "cash" | "card" | "instapay";
+  setPaymentMode: (mode: "cash" | "card" | "instapay") => void;
+}
+
+export default function CashierPaymentSelector({
+  paymentMode,
+  setPaymentMode,
+}: CashierPaymentSelectorProps) {
+  return (
+    <div className="space-y-2">
+      <div className="flex items-center gap-1.5 text-xs font-extrabold text-slate-700">
+        <CreditCard className="w-4 h-4 text-[#D55304]" />
+        <span>طريقة الدفع</span>
+      </div>
+
+      <div className="grid grid-cols-3 gap-2">
+        <button
+          type="button"
+          onClick={() => setPaymentMode("cash")}
+          className={`py-2.5 px-2 rounded-xl font-extrabold text-xs flex items-center justify-center gap-1.5 border transition cursor-pointer ${
+            paymentMode === "cash"
+              ? "bg-[#D55304] text-white border-[#D55304] shadow-xs"
+              : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
+          }`}
+        >
+          <Banknote className="w-4 h-4" />
+          <span>كاش</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setPaymentMode("card")}
+          className={`py-2.5 px-2 rounded-xl font-extrabold text-xs flex items-center justify-center gap-1.5 border transition cursor-pointer ${
+            paymentMode === "card"
+              ? "bg-[#D55304] text-white border-[#D55304] shadow-xs"
+              : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
+          }`}
+        >
+          <CreditCard className="w-4 h-4" />
+          <span>فيزا / بطاقة</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setPaymentMode("instapay")}
+          className={`py-2.5 px-2 rounded-xl font-extrabold text-xs flex items-center justify-center gap-1.5 border transition cursor-pointer ${
+            paymentMode === "instapay"
+              ? "bg-[#D55304] text-white border-[#D55304] shadow-xs"
+              : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
+          }`}
+        >
+          <Wallet className="w-4 h-4" />
+          <span>إنستاباي / محفظة</span>
+        </button>
+      </div>
+    </div>
+  );
+}

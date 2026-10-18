@@ -14,6 +14,8 @@ import {
   LucideIcon,
 } from "lucide-react";
 
+
+
 export const CATEGORIES: string[] = [
   "المشويات على الفحم",
   "البيتزا",
