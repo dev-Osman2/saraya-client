@@ -22,7 +22,7 @@ export function useProductForm({ initialData, onSubmit }: UseProductFormProps) {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const [name, setName] = useState(initialData?.name || "");
-  const [category, setCategory] = useState(initialData?.category || "سندوتشات");
+  const [category, setCategory] = useState(initialData?.category || "المشويات على الفحم");
   const [price, setPrice] = useState<string>(
     initialData?.price !== undefined ? String(initialData.price) : "",
   );

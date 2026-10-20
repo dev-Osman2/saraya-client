@@ -1,18 +1,15 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import MenuBar from "./MenuBar";
 import SearchBar from "./SearchBar";
 
 export default function Header() {
-  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  const clickCount = useRef(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -37,25 +34,9 @@ export default function Header() {
     };
   }, []);
 
-  const handleLogoClick = (e: React.MouseEvent) => {
+ const handleLogoClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    clickCount.current += 1;
-
-    if (timerRef.current) clearTimeout(timerRef.current);
-
-    if (clickCount.current === 1) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    if (clickCount.current >= 3) {
-      clickCount.current = 0;
-      router.push("/admin/orders");
-      return;
-    }
-
-    timerRef.current = setTimeout(() => {
-      clickCount.current = 0;
-    }, 1500);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (

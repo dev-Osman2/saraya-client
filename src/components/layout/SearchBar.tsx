@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import { Search, X } from "lucide-react";
 import { Product } from "@/src/types";
 
@@ -23,6 +24,9 @@ export default function SearchBar({
   isOpen: externalIsOpen,
   onClose: externalOnClose,
 }: SearchBarProps = {}) {
+  const router = useRouter();
+  const pathname = usePathname();
+
   const [internalIsOpen, setInternalIsOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [products, setProducts] = useState<Product[]>([]);
@@ -32,6 +36,23 @@ export default function SearchBar({
 
   const isControlled = externalIsOpen !== undefined;
   const isOpen = isControlled ? externalIsOpen : internalIsOpen;
+
+  const clearCategoryFilter = useCallback(() => {
+    if (typeof window === "undefined") return;
+
+    const currentParams = new URLSearchParams(window.location.search);
+    if (!currentParams.has("category")) return;
+
+    currentParams.delete("category");
+    const qs = currentParams.toString();
+    const basePath = pathname || window.location.pathname || "/";
+    const targetUrl = qs ? `${basePath}?${qs}` : basePath;
+
+    // نستخدم setTimeout لضمان انتهاء دورة الرندر الحالية في React قبل تحديث الراوتر
+    setTimeout(() => {
+      router.replace(targetUrl, { scroll: false });
+    }, 0);
+  }, [router, pathname]);
 
   const handleClose = useCallback(() => {
     if (isControlled) {
@@ -62,6 +83,9 @@ export default function SearchBar({
   useEffect(() => {
     if (!isOpen) return;
 
+    // إلغاء تحديد القسم عند بدء/فتح البحث ليتمكن المستخدم من الوصول لجميع المنتجات
+    clearCategoryFilter();
+
     const handleClickOutside = (event: MouseEvent) => {
       if (
         wrapperRef.current &&
@@ -83,13 +107,21 @@ export default function SearchBar({
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleEscape);
     };
-  }, [isOpen, handleClose]);
+  }, [isOpen, handleClose, clearCategoryFilter]);
 
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => inputRef.current?.focus(), 80);
     }
   }, [isOpen]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    setQuery(val);
+    if (val.trim()) {
+      clearCategoryFilter();
+    }
+  };
 
   const filteredProducts = query.trim()
     ? products
@@ -99,23 +131,44 @@ export default function SearchBar({
         .slice(0, 6)
     : [];
 
-  const handleSelectProduct = (product: Product) => {
-    handleClose();
+  const scrollToProduct = (productId: string) => {
+    let attempts = 0;
+    const maxAttempts = 30; // محاولات متتالية لضمان ظهور العنصر في الصفحة بعد تحديث التصنيف
 
-    const targetElement = document.getElementById(`product-${product._id}`);
+    const tryScroll = () => {
+      const targetElement = document.getElementById(`product-${productId}`);
 
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: "smooth", block: "center" });
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth", block: "center" });
 
-      targetElement.classList.add("ring-4", "ring-orange-500", "ring-offset-2");
-      setTimeout(() => {
-        targetElement.classList.remove(
+        targetElement.classList.add(
           "ring-4",
           "ring-orange-500",
           "ring-offset-2",
         );
-      }, 2000);
-    }
+        setTimeout(() => {
+          targetElement.classList.remove(
+            "ring-4",
+            "ring-orange-500",
+            "ring-offset-2",
+          );
+        }, 2000);
+        return;
+      }
+
+      attempts++;
+      if (attempts < maxAttempts) {
+        setTimeout(tryScroll, 100);
+      }
+    };
+
+    tryScroll();
+  };
+
+  const handleSelectProduct = (product: Product) => {
+    clearCategoryFilter();
+    handleClose();
+    scrollToProduct(product._id);
   };
 
   const searchDropdown = isOpen && (
@@ -126,7 +179,14 @@ export default function SearchBar({
           ref={inputRef}
           type="text"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={handleInputChange}
+          onFocus={clearCategoryFilter}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && filteredProducts.length > 0) {
+              e.preventDefault();
+              handleSelectProduct(filteredProducts[0]);
+            }
+          }}
           placeholder="ابحث عن منتج..."
           className="w-full text-right text-sm text-slate-800 outline-none bg-transparent"
         />
@@ -134,7 +194,7 @@ export default function SearchBar({
           <button
             type="button"
             onClick={() => setQuery("")}
-            className="p-1 text-slate-400 hover:text-slate-600 transition-colors"
+            className="p-1 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
           >
             <X size={16} />
           </button>
@@ -205,8 +265,12 @@ export default function SearchBar({
       <button
         type="button"
         onClick={() => {
-          setInternalIsOpen((prev) => !prev);
+          const nextState = !isOpen;
+          setInternalIsOpen(nextState);
           setQuery("");
+          if (nextState) {
+            clearCategoryFilter();
+          }
         }}
         className={`p-2.5 rounded-xl transition ${
           isOpen ? "bg-white/30" : "bg-white/20 hover:bg-white/30"

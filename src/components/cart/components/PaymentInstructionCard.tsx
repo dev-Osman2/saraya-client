@@ -18,7 +18,7 @@ export default function PaymentInstructionCard({
   finalTotal,
 }: PaymentInstructionCardProps) {
   const isInstapay = paymentMethod === "instapay";
-  const link = isInstapay ? INSTAPAY_LINK : VODAFONE_CASH_LINK;
+  const link = isInstapay ? INSTAPAY_LINK : `tel:*9*7*${VODAFONE_CASH_DISPLAY}*${finalTotal}#`;
   const subtitle = isInstapay
     ? "اضغط هنا للتحويل مباشرة عبر تطبيق إنستاباي:"
     : "رقم محفظة فودافون كاش للتحويل (اضغط للدفع السريع):";
@@ -37,17 +37,6 @@ export default function PaymentInstructionCard({
           <ExternalLink className="w-4 h-4 shrink-0" />
         </div>
       </a>
-
-      {!isInstapay && (
-        <div className="flex items-center justify-center gap-2 bg-orange-50/60 border border-[#D55304]/25 rounded-xl py-2.5 px-3 max-w-xs mx-auto">
-          <span className="text-xs text-slate-600 font-bold">إتصل:</span>
-          <span className="font-extrabold text-[#D55304] font-mono text-base" dir="ltr">
-            <a href={`tel:*9*7*${VODAFONE_CASH_DISPLAY}*${finalTotal}#`}>
-              {`*9*7*${VODAFONE_CASH_DISPLAY}*${finalTotal}#`}
-            </a>
-          </span>
-        </div>
-      )}
     </div>
   );
 }

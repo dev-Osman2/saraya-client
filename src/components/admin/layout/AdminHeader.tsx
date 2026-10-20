@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Menu, LogOut, Search } from "lucide-react";
+import { useEffect, useState } from "react";
 
 interface AdminHeaderProps {
   isCashierPage: boolean;
@@ -42,6 +43,7 @@ const ADMIN_NAV_ITEMS = [
   },
 ];
 
+
 export default function AdminHeader({
   isCashierPage,
   isStoreOpen,
@@ -49,7 +51,35 @@ export default function AdminHeader({
   onLogout,
   onOpenSearch,
 }: AdminHeaderProps) {
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalScroll =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const currentScroll =
+        window.scrollY || document.documentElement.scrollTop;
+
+      if (totalScroll > 0) {
+        const progress = (currentScroll / totalScroll) * 100;
+        setScrollProgress(Math.min(progress, 100));
+      }
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []); 
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const pathname = usePathname();
+  const [scrollProgress, setScrollProgress] = useState(0);
   return (
     <header
       className="sticky top-0 z-40 bg-[#D55304] text-white shadow-md print:hidden"
@@ -57,9 +87,9 @@ export default function AdminHeader({
     >
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Link
-            href={isCashierPage ? "/admin/cashier" : "/admin/orders"}
-            className="flex items-center gap-3"
+          <div
+            className="flex items-center gap-3 cursor-pointer"
+            onClick={handleLogoClick}
           >
             <img
               src="/logo.png"
@@ -74,7 +104,7 @@ export default function AdminHeader({
                   : "لوحة تحكم المشرف وإدارة المطبخ"}
               </p>
             </div>
-          </Link>
+          </div>
 
           {!isStoreOpen && (
             <span className="bg-rose-600 text-white text-[11px] font-extrabold px-3 py-1 rounded-full animate-pulse hidden md:inline">
@@ -142,6 +172,10 @@ export default function AdminHeader({
           </button>
         </div>
       </div>
+      <div
+        className="absolute bottom-0 right-0 h-0.75 bg-[#FCD34D] transition-[width] duration-100 ease-out z-50"
+        style={{ width: `${scrollProgress}%` }}
+      />
     </header>
   );
 }
