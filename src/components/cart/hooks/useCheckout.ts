@@ -29,7 +29,7 @@ export function useCheckout(tableNumber: string | null) {
 
   useEffect(() => {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
-    fetch(`${apiUrl}/admin/store-status`)
+    fetch(`${apiUrl}/resto/store-status`)
       .then((r) => r.json())
       .then((d) => typeof d.isStoreOpen === "boolean" && setIsStoreOpen(d.isStoreOpen))
       .catch(() => {});

@@ -38,7 +38,7 @@ export default function AdminLoginPage() {
     try {
       const apiUrl =
         process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
-      const res = await fetch(`${apiUrl}/admin/login`, {
+      const res = await fetch(`${apiUrl}/resto/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ password: password.trim() }),
@@ -53,7 +53,7 @@ export default function AdminLoginPage() {
       }
 
       setAdminToken(data.token);
-      router.replace("/admin/orders");
+      router.replace("/resto/orders");
     } catch {
       setError("تعذر الاتصال بالسيرفر، تأكد من تشغيل الخادم");
       triggerShake();

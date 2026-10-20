@@ -18,22 +18,22 @@ import {
 
 export const ADMIN_NAV_LINKS = [
   {
-    href: "/admin/cashier",
+    href: "/resto/cashier",
     label: "نقطة بيع الكاشير (POS)",
     icon: Calculator,
   },
   {
-    href: "/admin/orders",
+    href: "/resto/orders",
     label: "سجل وإدارة الطلبات",
     icon: ClipboardList,
   },
   {
-    href: "/admin/products",
+    href: "/resto/products",
     label: "إدارة المنيو والوجبات",
     icon: UtensilsCrossed,
   },
   {
-    href: "/admin/orders-summary",
+    href: "/resto/orders-summary",
     label: "ملخص طلبات اليوم",
     icon: BarChart3,
   },

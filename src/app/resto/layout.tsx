@@ -27,11 +27,11 @@ export default function AdminLayout({
   const [confirmClearOpen, setConfirmClearOpen] = useState(false);
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
-  const isCashierPage = pathname === "/admin/cashier";
+  const isCashierPage = pathname === "/resto/cashier";
 
   const fetchStoreStatus = useCallback(async () => {
     try {
-      const res = await fetch(`${apiUrl}/admin/store-status`);
+      const res = await fetch(`${apiUrl}/resto/store-status`);
       if (res.ok) {
         const data = await res.json();
         setIsStoreOpen(Boolean(data.isStoreOpen));
@@ -44,9 +44,9 @@ export default function AdminLayout({
   useEffect(() => {
     const token = getAdminToken();
 
-    if (pathname === "/admin") {
+    if (pathname === "/resto") {
       if (token) {
-        router.replace("/admin/orders");
+        router.replace("/resto/orders");
       } else {
         // eslint-disable-next-line react-hooks/set-state-in-effect
         setAuthorized(true);
@@ -56,7 +56,7 @@ export default function AdminLayout({
     }
 
     if (!token) {
-      router.replace("/admin");
+      router.replace("/resto");
     } else {
       setAuthorized(true);
       setChecking(false);
@@ -74,7 +74,7 @@ export default function AdminLayout({
     setTogglingStore(true);
     try {
       const token = getAdminToken();
-      const res = await fetch(`${apiUrl}/admin/store-status`, {
+      const res = await fetch(`${apiUrl}/resto/store-status`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -130,7 +130,7 @@ export default function AdminLayout({
     );
   }
 
-  if (pathname === "/admin") {
+  if (pathname === "/resto") {
     return <>{children}</>;
   }
 

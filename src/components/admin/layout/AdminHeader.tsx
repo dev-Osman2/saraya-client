@@ -23,22 +23,22 @@ import {
 const ADMIN_NAV_ITEMS = [
   {
     name: "الكاشير",
-    href: "/admin/cashier",
+    href: "/resto/cashier",
     icon: Calculator,
   },
   {
     name: "الطلبات",
-    href: "/admin/orders",
+    href: "/resto/orders",
     icon: ClipboardList,
   },
   {
     name: "المنيو",
-    href: "/admin/products",
+    href: "/resto/products",
     icon: UtensilsCrossed,
   },
   {
     name: "الملخص",
-    href: "/admin/orders-summary",
+    href: "/resto/orders-summary",
     icon: BarChart3,
   },
 ];
@@ -51,6 +51,8 @@ export default function AdminHeader({
   onLogout,
   onOpenSearch,
 }: AdminHeaderProps) {
+
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,7 +81,6 @@ export default function AdminHeader({
   };
 
   const pathname = usePathname();
-  const [scrollProgress, setScrollProgress] = useState(0);
   return (
     <header
       className="sticky top-0 z-40 bg-[#D55304] text-white shadow-md print:hidden"
@@ -116,8 +117,8 @@ export default function AdminHeader({
           {ADMIN_NAV_ITEMS.map((item) => {
             const Icon = item.icon;
             const isActive =
-              item.href === "/admin/orders"
-                ? pathname === "/admin/orders"
+              item.href === "/resto/orders"
+                ? pathname === "/resto/orders"
                 : pathname.startsWith(item.href);
 
             return (

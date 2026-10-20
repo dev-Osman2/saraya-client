@@ -72,9 +72,9 @@ function CashierContent() {
 
   const handleCategoryTabClick = (category: string | null) => {
     if (category) {
-      router.push(`/admin/cashier?category=${encodeURIComponent(category)}`);
+      router.push(`/resto/cashier?category=${encodeURIComponent(category)}`);
     } else {
-      router.push("/admin/cashier");
+      router.push("/resto/cashier");
     }
   };
 
