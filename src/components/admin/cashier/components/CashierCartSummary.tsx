@@ -25,16 +25,16 @@ export default function CashierCartSummary({
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
           placeholder="مثال: بدون بصل، صوص إضافي ..."
-          className="w-full p-3 bg-white border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-[#D55304] transition-all resize-none"
+          className="w-full p-3 bg-white border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-primary transition-all resize-none"
         />
       </div>
 
-      <div className="bg-orange-50/90 border border-[#D55304]/20 rounded-xl p-3 flex justify-between items-center pt-3">
-        <span className="font-extrabold text-[#D55304] text-sm sm:text-base flex items-center gap-1.5">
+      <div className="bg-orange-50/90 border border-primary/20 rounded-xl p-3 flex justify-between items-center pt-3">
+        <span className="font-extrabold text-primary text-sm sm:text-base flex items-center gap-1.5">
           <Wallet className="w-4 h-4" />
           <span>الإجمالي النهائي:</span>
         </span>
-        <span className="text-xl font-black text-[#D55304]">
+        <span className="text-xl font-black text-primary">
           {totalPrice} ج
         </span>
       </div>

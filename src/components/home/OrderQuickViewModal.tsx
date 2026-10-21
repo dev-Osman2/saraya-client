@@ -69,7 +69,7 @@ export default function OrderQuickViewModal({
         <div className="flex items-center justify-between border-b border-gray-100 pb-3 mb-4 pl-10">
           <h3 className="text-lg font-black text-gray-800">
             تفاصيل الطلب:{" "}
-            <span className="text-[#D55304]">#{order.orderNumber}</span>
+            <span className="text-primary">#{order.orderNumber}</span>
           </h3>
           {getStatusBadge(order.status)}
         </div>
@@ -88,7 +88,7 @@ export default function OrderQuickViewModal({
           {order.paymentReceipt && (
             <p>
               <strong>الرقم المحول منه:</strong>{" "}
-              <span className="font-mono text-[#D55304] font-bold">
+              <span className="font-mono text-primary font-bold">
                 {order.paymentReceipt}
               </span>
             </p>
@@ -99,7 +99,7 @@ export default function OrderQuickViewModal({
             </p>
           )}
           {order.adminNote && (
-            <p className="text-[#D55304]">
+            <p className="text-primary">
               <strong>ملاحظات المطعم:</strong> {order.adminNote}
             </p>
           )}
@@ -122,7 +122,7 @@ export default function OrderQuickViewModal({
                 <div className="flex items-center gap-1.5 flex-wrap">
                   <span className="font-bold text-slate-800">{item.name}</span>
                   {item.size && (
-                    <span className="text-[11px] font-bold bg-orange-100 text-[#D55304] px-2 py-0.5 rounded-md">
+                    <span className="text-[11px] font-bold bg-orange-100 text-primary px-2 py-0.5 rounded-md">
                       {item.size}
                     </span>
                   )}
@@ -151,13 +151,13 @@ export default function OrderQuickViewModal({
           )}
           <div className="flex justify-between font-black text-base text-gray-900 pt-1">
             <span>الإجمالي النهائي:</span>
-            <span className="text-[#D55304]">{totalPrice.toFixed(2)} ج</span>
+            <span className="text-primary">{totalPrice.toFixed(2)} ج</span>
           </div>
         </div>
 
         <button
           onClick={onClose}
-          className="w-full mt-5 bg-[#D55304] hover:bg-[#b84403] text-white py-3 rounded-xl font-extrabold text-sm transition cursor-pointer"
+          className="w-full mt-5 bg-primary hover:bg-primary-hover text-white py-3 rounded-xl font-extrabold text-sm transition cursor-pointer"
         >
           إغلاق
         </button>

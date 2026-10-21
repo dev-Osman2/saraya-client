@@ -26,7 +26,7 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
         </button>
 
         <div className="border-b border-gray-100 pb-4 mb-5">
-          <h2 className="text-xl md:text-2xl font-black text-[#D55304] mb-2 flex items-center gap-2">
+          <h2 className="text-xl md:text-2xl font-black text-primary mb-2 flex items-center gap-2">
             <span>🍽️</span> عن مطعم السرايا
           </h2>
           <p className="text-sm text-gray-600 leading-relaxed">
@@ -69,8 +69,8 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
             </ul>
           </div>
 
-          <div className="bg-orange-50/60 border border-[#D55304]/20 p-4 rounded-2xl">
-            <h3 className="font-extrabold text-[#9A3412] flex items-center gap-2 mb-2 text-base">
+          <div className="bg-orange-50/60 border border-primary/20 p-4 rounded-2xl">
+            <h3 className="font-extrabold text-orange-800 flex items-center gap-2 mb-2 text-base">
               <span>🛒</span> كيف تطلب عبر المنصة؟
             </h3>
             <ol className="space-y-2 text-xs md:text-sm text-slate-800 list-decimal list-inside">
@@ -89,8 +89,8 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
             </ol>
           </div>
 
-          <div className="bg-orange-50 border border-[#D55304]/20 p-4 rounded-2xl">
-            <h3 className="font-extrabold text-[#9A3412] flex items-center gap-2 mb-2 text-base">
+          <div className="bg-orange-50 border border-primary/20 p-4 rounded-2xl">
+            <h3 className="font-extrabold text-orange-800 flex items-center gap-2 mb-2 text-base">
               <span>📲</span> كيفية تثبيت التطبيق؟
             </h3>
             <ol className="space-y-2 text-xs md:text-sm text-slate-800 list-decimal list-inside">
@@ -111,7 +111,7 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
             </h3>
             <ul className="space-y-2.5 text-xs md:text-sm text-gray-600">
               <li className="flex items-start gap-2">
-                <span className="text-[#D55304] font-bold">•</span>
+                <span className="text-primary font-bold">•</span>
                 <span>
                   <strong>طزاجة التحضير:</strong> نبدأ في تجهيز وجبتك فور إتمام
                   عملية التحويل وتأكيدها لضمان وصول المشويات ساخنة وطازجة من
@@ -119,7 +119,7 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#D55304] font-bold">•</span>
+                <span className="text-primary font-bold">•</span>
                 <span>
                   <strong>تعديل أو إلغاء الطلب:</strong> نظراً لسرعة تجهيز
                   الطعام، يُرجى التواصل الفوري مع الإدارة هاتفياً أو عبر واتساب
@@ -127,7 +127,7 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#D55304] font-bold">•</span>
+                <span className="text-primary font-bold">•</span>
                 <span>
                   <strong>متابعة الطلب:</strong> رقم هاتفك ورقم الطلب هما وسيلتك
                   الأساسية لتتبع حالة استلام وتجهيز الوجبة خطوة بخطوة حتى وصول
@@ -140,7 +140,7 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
 
         <button
           onClick={onClose}
-          className="w-full mt-6 bg-[#D55304] hover:bg-[#b84403] text-white py-3 rounded-xl font-extrabold text-sm transition shadow-xs cursor-pointer"
+          className="w-full mt-6 bg-primary hover:bg-primary-hover text-white py-3 rounded-xl font-extrabold text-sm transition shadow-xs cursor-pointer"
         >
           فهمت ذلك
         </button>

@@ -66,9 +66,9 @@ export default async function HomePage({
         />
 
         {currentTable && (
-          <div className="mb-5 flex items-center justify-between rounded-2xl bg-orange-50 border border-[#D55304]/30 px-4 py-3 text-[#D55304] shadow-xs">
+          <div className="mb-5 flex items-center justify-between rounded-2xl bg-orange-50 border border-primary/30 px-4 py-3 text-primary shadow-xs">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#D55304] text-white shadow-xs">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white shadow-xs">
                 <UtensilsCrossed className="h-5 w-5" />
               </div>
               <div>
@@ -80,7 +80,7 @@ export default async function HomePage({
                 </p>
               </div>
             </div>
-            <span className="rounded-full bg-[#D55304] px-3.5 py-1 text-xs font-extrabold text-white">
+            <span className="rounded-full bg-primary px-3.5 py-1 text-xs font-extrabold text-white">
               ترابيزة #{currentTable}
             </span>
           </div>
@@ -91,7 +91,7 @@ export default async function HomePage({
             <div className="mb-4 flex justify-between items-start">
               <div>
                 <div className="flex items-center gap-2">
-                  <Flame className="w-6 h-6 text-[#D55304] fill-[#D55304]/15" />
+                  <Flame className="w-6 h-6 text-primary fill-primary/15" />
                   <h2 className="text-lg md:text-xl font-extrabold text-slate-900">
                     {currentCategory
                       ? `وجبات وسندوتشات - ${currentCategory}`
@@ -106,10 +106,10 @@ export default async function HomePage({
               {currentCategory && (
                 <Link
                   href={clearFilterHref}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-[#D55304] bg-orange-50 hover:bg-orange-100 border border-[#D55304]/25 rounded-full transition-all duration-150 active:scale-95 shadow-xs"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-primary bg-orange-50 hover:bg-orange-100 border border-primary/25 rounded-full transition-all duration-150 active:scale-95 shadow-xs"
                 >
                   <span>إلغاء التصفية</span>
-                  <span className="w-4 h-4 flex items-center justify-center rounded-full bg-[#D55304]/15 text-[#D55304] text-[10px] leading-none">
+                  <span className="w-4 h-4 flex items-center justify-center rounded-full bg-primary/15 text-primary text-[10px] leading-none">
                     ✕
                   </span>
                 </Link>
@@ -125,7 +125,7 @@ export default async function HomePage({
                 {categoriesWithProducts.map((group) => (
                   <section key={group.name}>
                     {categoriesWithProducts.length > 1 && (
-                      <h3 className="mb-3 border-r-4 border-[#D55304] pr-3 text-base font-extrabold text-slate-800">
+                      <h3 className="mb-3 border-r-4 border-primary pr-3 text-base font-extrabold text-slate-800">
                         {group.name}
                       </h3>
                     )}

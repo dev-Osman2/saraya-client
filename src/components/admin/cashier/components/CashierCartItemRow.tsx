@@ -48,11 +48,11 @@ export default function CashierCartItemRow({
             onClick={() =>
               onUpdateQuantity(item._id, item.cartQuantity + 1, item.selectedSize)
             }
-            className="w-5 h-5 rounded bg-[#D55304] text-white text-xs font-bold flex items-center justify-center cursor-pointer"
+            className="w-5 h-5 rounded bg-primary text-white text-xs font-bold flex items-center justify-center cursor-pointer"
           >
             +
           </button>
-          <span className="px-1.5 text-xs font-extrabold text-[#D55304]">
+          <span className="px-1.5 text-xs font-extrabold text-primary">
             {item.cartQuantity}
           </span>
           <button

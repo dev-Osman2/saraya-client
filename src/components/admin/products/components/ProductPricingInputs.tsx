@@ -19,7 +19,7 @@ export default function ProductPricingInputs({
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div>
         <label className="block text-xs font-extrabold text-slate-800 mb-1.5">
-          السعر الحالي (ج) <span className="text-[#D55304]">*</span>
+          السعر الحالي (ج) <span className="text-primary">*</span>
         </label>
         <div className="relative flex items-center">
           <input
@@ -31,7 +31,7 @@ export default function ProductPricingInputs({
             value={price}
             onChange={(e) => setPrice(e.target.value)}
             placeholder="65"
-            className="w-full pr-4 pl-12 py-3 bg-white border border-slate-200 rounded-xl text-sm font-bold text-slate-800 focus:outline-none focus:border-[#D55304] transition"
+            className="w-full pr-4 pl-12 py-3 bg-white border border-slate-200 rounded-xl text-sm font-bold text-slate-800 focus:outline-none focus:border-primary transition"
           />
           <span className="absolute left-3 text-slate-500 text-xs font-bold">
             ج
@@ -52,7 +52,7 @@ export default function ProductPricingInputs({
             value={oldPrice}
             onChange={(e) => setOldPrice(e.target.value)}
             placeholder="80"
-            className="w-full pr-4 pl-12 py-3 bg-white border border-slate-200 rounded-xl text-sm font-bold text-slate-800 focus:outline-none focus:border-[#D55304] transition"
+            className="w-full pr-4 pl-12 py-3 bg-white border border-slate-200 rounded-xl text-sm font-bold text-slate-800 focus:outline-none focus:border-primary transition"
           />
           <span className="absolute left-3 text-slate-500 text-xs font-bold">
             ج

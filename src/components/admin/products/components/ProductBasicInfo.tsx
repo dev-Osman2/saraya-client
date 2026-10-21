@@ -20,7 +20,7 @@ export default function ProductBasicInfo({
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div>
         <label className="block text-xs font-extrabold text-slate-800 mb-1.5">
-          اسم الوجبة <span className="text-[#D55304]">*</span>
+          اسم الوجبة <span className="text-primary">*</span>
         </label>
         <input
           type="text"
@@ -28,18 +28,18 @@ export default function ProductBasicInfo({
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="سندوتش كفتة مشوية"
-          className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm text-slate-800 focus:outline-none focus:border-[#D55304] transition"
+          className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm text-slate-800 focus:outline-none focus:border-primary transition"
         />
       </div>
 
       <div>
         <label className="block text-xs font-extrabold text-slate-800 mb-1.5">
-          القسم <span className="text-[#D55304]">*</span>
+          القسم <span className="text-primary">*</span>
         </label>
         <select
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-          className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm font-bold text-slate-800 focus:outline-none focus:border-[#D55304] transition cursor-pointer"
+          className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm font-bold text-slate-800 focus:outline-none focus:border-primary transition cursor-pointer"
         >
           {CATEGORIES.map((cat) => (
             <option key={cat} value={cat}>

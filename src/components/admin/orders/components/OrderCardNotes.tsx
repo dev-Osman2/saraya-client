@@ -59,7 +59,7 @@ export default function OrderCardNotes({
           onClick={() => setShowAdminNote((prev) => !prev)}
           className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-extrabold border transition-all cursor-pointer ${
             hasSavedAdminNote
-              ? "bg-[#F59E0B] hover:bg-[#D97706] text-white border-[#F59E0B] shadow-xs"
+              ? "bg-amber-500 hover:bg-amber-600 text-white border-amber-500 shadow-xs"
               : "bg-slate-100 hover:bg-slate-200/80 text-slate-500 border-slate-200/80"
           }`}
         >
@@ -75,7 +75,9 @@ export default function OrderCardNotes({
 
       {showCustomerNote && hasCustomerNote && (
         <div className="bg-indigo-50/70 border border-indigo-100 rounded-2xl p-3.5 text-right space-y-1 animate-in fade-in duration-150">
-          <p className="text-xs font-extrabold text-indigo-700">ملاحظة كتبها العميل:</p>
+          <p className="text-xs font-extrabold text-indigo-700">
+            ملاحظة كتبها العميل:
+          </p>
           <p className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
             {notes}
           </p>
@@ -84,7 +86,9 @@ export default function OrderCardNotes({
 
       {showAdminNote && (
         <div className="bg-amber-50/70 border border-amber-200/80 rounded-2xl p-4 text-right space-y-3 animate-in fade-in duration-150">
-          <p className="text-xs font-extrabold text-amber-900">ملاحظة الأدمن الخاصة بالطلب:</p>
+          <p className="text-xs font-extrabold text-amber-900">
+            ملاحظة الأدمن الخاصة بالطلب:
+          </p>
           <textarea
             rows={2}
             value={adminNoteText}

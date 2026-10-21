@@ -34,7 +34,7 @@ export default function ProductsTable({
       <div className="overflow-x-auto">
         <table className="w-full min-w-[780px] text-right border-collapse">
           <thead>
-            <tr className="bg-[#FFF7ED] border-b border-orange-100/80 text-slate-700 text-xs sm:text-sm font-extrabold">
+            <tr className="bg-orange-50 border-b border-orange-100/80 text-slate-700 text-xs sm:text-sm font-extrabold">
               <th className="py-4 px-6 w-[36%]">الوجبة</th>
               <th className="py-4 px-4 text-center w-[34%]">الأحجام والأسعار</th>
               <th className="py-4 px-4 text-center w-[16%]">حالة التوفر</th>
@@ -100,7 +100,7 @@ export default function ProductsTable({
                               return (
                                 <div
                                   key={sizeName}
-                                  className="bg-[#FFF7ED]/90 border border-orange-100 rounded-2xl px-3 py-2 text-center w-[88px]"
+                                  className="bg-orange-50/90 border border-orange-100 rounded-2xl px-3 py-2 text-center w-[88px]"
                                 >
                                   <span className="block text-[11px] font-bold text-slate-500 mb-0.5">
                                     {sz.name}
@@ -120,7 +120,7 @@ export default function ProductsTable({
                           )}
                         </div>
                       ) : (
-                        <div className="bg-[#FFF7ED]/90 border border-orange-100 rounded-2xl px-4 py-2 text-center min-w-[95px]">
+                        <div className="bg-orange-50/90 border border-orange-100 rounded-2xl px-4 py-2 text-center min-w-[95px]">
                           <span className="block text-[11px] font-bold text-slate-500 mb-0.5">
                             عادي
                           </span>
@@ -174,7 +174,7 @@ export default function ProductsTable({
                       <button
                         type="button"
                         onClick={() => onEdit(product)}
-                        className="w-9 h-9 rounded-xl bg-orange-50 hover:bg-orange-100 text-[#D55304] flex items-center justify-center transition cursor-pointer"
+                        className="w-9 h-9 rounded-xl bg-orange-50 hover:bg-orange-100 text-primary flex items-center justify-center transition cursor-pointer"
                         title="تعديل الوجبة"
                       >
                         <Pencil className="w-4 h-4" />

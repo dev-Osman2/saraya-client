@@ -25,7 +25,7 @@ export default function ProductsHeader({ onAddClick }: ProductsHeaderProps) {
       <button
         type="button"
         onClick={onAddClick}
-        className="bg-[#D55304] hover:bg-[#b84403] text-white font-extrabold px-5 py-3.5 rounded-2xl shadow-md shadow-[#D55304]/20 flex items-center justify-center gap-2 text-xs sm:text-sm transition-all active:scale-95 cursor-pointer shrink-0"
+        className="bg-primary hover:bg-primary-hover text-white font-extrabold px-5 py-3.5 rounded-2xl shadow-md shadow-primary/20 flex items-center justify-center gap-2 text-xs sm:text-sm transition-all active:scale-95 cursor-pointer shrink-0"
       >
         <Plus className="w-4 h-4 stroke-[2.5]" />
         <span>إضافة وجبة جديدة</span>

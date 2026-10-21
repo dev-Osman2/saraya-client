@@ -39,13 +39,13 @@ export default function CartItemRow({
           <div className="flex items-center gap-1.5 flex-wrap">
             <p className="font-bold text-slate-800 truncate">{item.name}</p>
             {item.selectedSize && (
-              <span className="inline-block text-[10px] font-extrabold bg-orange-50 text-[#D55304] border border-[#D55304]/25 px-1.5 py-0.5 rounded-md">
+              <span className="inline-block text-[10px] font-extrabold bg-orange-50 text-primary border border-primary/25 px-1.5 py-0.5 rounded-md">
                 {item.selectedSize}
               </span>
             )}
           </div>
           <p className="text-[11px] text-slate-500 mt-0.5">
-            الكمية: <span className="font-extrabold text-[#D55304]">{qty}</span> × {price} ج
+            الكمية: <span className="font-extrabold text-primary">{qty}</span> × {price} ج
           </p>
         </div>
       </div>
@@ -55,11 +55,11 @@ export default function CartItemRow({
           <button
             type="button"
             onClick={() => onUpdateQuantity(item._id, item.cartQuantity + 1, item.selectedSize)}
-            className="w-5 h-5 rounded bg-[#D55304] text-white text-xs font-bold flex items-center justify-center cursor-pointer"
+            className="w-5 h-5 rounded bg-primary text-white text-xs font-bold flex items-center justify-center cursor-pointer"
           >
             +
           </button>
-          <span className="px-1.5 text-xs font-extrabold text-[#D55304]">
+          <span className="px-1.5 text-xs font-extrabold text-primary">
             {item.cartQuantity}
           </span>
           <button

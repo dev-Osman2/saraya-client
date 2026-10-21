@@ -103,7 +103,7 @@ export default function MenuGalleryModal({
         <button
           type="button"
           onClick={handlePrev}
-          className="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 z-30 bg-black/40 hover:bg-[#D55304] text-white p-1.5 sm:p-3 rounded-full transition-all shadow-md cursor-pointer active:scale-90"
+          className="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 z-30 bg-black/40 hover:bg-primary text-white p-1.5 sm:p-3 rounded-full transition-all shadow-md cursor-pointer active:scale-90"
           aria-label="الصفحة السابقة"
         >
           <ChevronRight size={18} className="sm:w-6 sm:h-6" />
@@ -112,7 +112,7 @@ export default function MenuGalleryModal({
         <button
           type="button"
           onClick={handleNext}
-          className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 z-30 bg-black/40 hover:bg-[#D55304] text-white p-1.5 sm:p-3 rounded-full transition-all shadow-md cursor-pointer active:scale-90"
+          className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 z-30 bg-black/40 hover:bg-primary text-white p-1.5 sm:p-3 rounded-full transition-all shadow-md cursor-pointer active:scale-90"
           aria-label="الصفحة التالية"
         >
           <ChevronLeft size={18} className="sm:w-6 sm:h-6" />
@@ -126,7 +126,7 @@ export default function MenuGalleryModal({
         >
           {isLoading && (
             <div className="absolute inset-0 flex items-center justify-center">
-              <Loader2 className="w-8 h-8 text-[#D55304] animate-spin" />
+              <Loader2 className="w-8 h-8 text-primary animate-spin" />
             </div>
           )}
           <img

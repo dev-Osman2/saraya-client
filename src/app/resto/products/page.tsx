@@ -177,8 +177,8 @@ export default function AdminProductsPage() {
                 onClick={() => setActiveCategory(tab.id)}
                 className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-extrabold border transition-all shrink-0 cursor-pointer ${
                   isActive
-                    ? "bg-[#D55304] text-white border-[#D55304] shadow-xs"
-                    : "bg-white text-slate-700 border-slate-200/90 hover:border-[#D55304]/40"
+                    ? "bg-primary text-white border-primary shadow-xs"
+                    : "bg-white text-slate-700 border-slate-200/90 hover:border-primary/40"
                 }`}
               >
                 {Icon && <Icon className="w-4 h-4" />}
@@ -197,14 +197,14 @@ export default function AdminProductsPage() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="ابحث عن وجبة أو صنف..."
-            className="w-full bg-white border border-slate-200/90 rounded-2xl py-2.5 pr-10 pl-4 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-[#D55304] transition"
+            className="w-full bg-white border border-slate-200/90 rounded-2xl py-2.5 pr-10 pl-4 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-primary transition"
           />
         </div>
       </div>
 
       {loading ? (
         <div className="bg-white rounded-3xl border border-slate-200/80 py-20 flex flex-col items-center justify-center gap-3 text-slate-500">
-          <Loader2 className="w-7 h-7 animate-spin text-[#D55304]" />
+          <Loader2 className="w-7 h-7 animate-spin text-primary" />
           <span className="text-sm font-bold">جاري تحميل قائمة الطعام...</span>
         </div>
       ) : (

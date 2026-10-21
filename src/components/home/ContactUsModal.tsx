@@ -91,7 +91,7 @@ export default function ContactUsModal({
         </button>
 
         <div className="border-b border-gray-100 pb-4 mb-5">
-          <h2 className="text-xl md:text-2xl font-black text-[#D55304] mb-1.5 flex items-center gap-2">
+          <h2 className="text-xl md:text-2xl font-black text-primary mb-1.5 flex items-center gap-2">
             <span>📞</span> تواصل معنا
           </h2>
           <p className="text-xs md:text-sm text-gray-600">
@@ -123,13 +123,13 @@ export default function ContactUsModal({
 
             <a
               href={`tel:${CONTACT_PHONE}`}
-              className="flex flex-col items-center justify-center gap-1.5 p-4 rounded-2xl bg-orange-50 hover:bg-orange-100/80 border border-[#D55304]/25 text-[#9A3412] transition-all group"
+              className="flex flex-col items-center justify-center gap-1.5 p-4 rounded-2xl bg-orange-50 hover:bg-orange-100/80 border border-primary/25 text-orange-800 transition-all group"
             >
-              <div className="w-10 h-10 rounded-full bg-[#D55304] text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition">
+              <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition">
                 <PhoneCall className="w-5 h-5" />
               </div>
               <span className="font-extrabold text-xs">اتصال هاتفي</span>
-              <span className="font-mono font-bold text-xs text-[#D55304] dir-ltr">
+              <span className="font-mono font-bold text-xs text-primary dir-ltr">
                 {CONTACT_PHONE}
               </span>
             </a>
@@ -153,7 +153,7 @@ export default function ContactUsModal({
 
         <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 md:p-5">
           <div className="flex items-center gap-2 mb-3">
-            <MessageSquarePlus className="w-5 h-5 text-[#D55304]" />
+            <MessageSquarePlus className="w-5 h-5 text-primary" />
             <h3 className="font-extrabold text-slate-900 text-sm md:text-base">
               إبداء رأيك ومقترحاتك
             </h3>
@@ -188,7 +188,7 @@ export default function ContactUsModal({
                     value={customerName}
                     onChange={(e) => setCustomerName(e.target.value)}
                     placeholder="مثال: أحمد محمد"
-                    className="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-[#D55304] transition"
+                    className="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-primary transition"
                   />
                 </div>
 
@@ -204,7 +204,7 @@ export default function ContactUsModal({
                     value={customerPhone}
                     onChange={(e) => setCustomerPhone(e.target.value)}
                     placeholder="01xxxxxxxxx"
-                    className="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-[#D55304] transition text-left dir-ltr"
+                    className="w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-primary transition text-left dir-ltr"
                   />
                 </div>
               </div>
@@ -212,7 +212,7 @@ export default function ContactUsModal({
               <div>
                 <label className="block text-xs font-bold text-slate-700 mb-1">
                   تعليقك أو مقترحك لتحسين الموقع والخدمة{" "}
-                  <span className="text-[#D55304]">*</span>
+                  <span className="text-primary">*</span>
                 </label>
                 <textarea
                   rows={3}
@@ -220,14 +220,14 @@ export default function ContactUsModal({
                   value={feedback}
                   onChange={(e) => setFeedback(e.target.value)}
                   placeholder="اكتب هنا رأيك في الوجبات أو أي تحسينات تقترحها على الموقع..."
-                  className="w-full p-3 bg-white border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-[#D55304] transition resize-none"
+                  className="w-full p-3 bg-white border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-primary transition resize-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-[#D55304] hover:bg-[#b84403] disabled:opacity-60 text-white py-3 rounded-xl font-extrabold text-xs sm:text-sm transition shadow-xs cursor-pointer flex items-center justify-center gap-2"
+                className="w-full bg-primary hover:bg-primary-hover disabled:opacity-60 text-white py-3 rounded-xl font-extrabold text-xs sm:text-sm transition shadow-xs cursor-pointer flex items-center justify-center gap-2"
               >
                 {loading ? (
                   <>

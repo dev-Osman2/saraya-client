@@ -66,20 +66,20 @@ export function SizeSelector({
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
-          className="w-full flex items-center justify-between gap-1.5 bg-slate-50 hover:bg-orange-50/60 border border-slate-200/90 hover:border-[#D55304]/50 rounded-xl px-2.5 py-1.5 text-xs transition-all cursor-pointer focus:outline-none focus:border-[#D55304] focus:ring-2 focus:ring-[#D55304]/15"
+          className="w-full flex items-center justify-between gap-1.5 bg-slate-50 hover:bg-orange-50/60 border border-slate-200/90 hover:border-primary/50 rounded-xl px-2.5 py-1.5 text-xs transition-all cursor-pointer focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15"
         >
           <div className="flex items-center gap-1 truncate">
             <span className="font-extrabold text-slate-800 truncate">
               {currentSizeObj?.name}
             </span>
-            <span className="text-[10px] font-bold text-[#D55304] shrink-0">
+            <span className="text-[10px] font-bold text-primary shrink-0">
               ({Number(currentSizeObj?.price || 0)} ج)
             </span>
           </div>
 
           <ChevronDown
             className={`w-3.5 h-3.5 text-slate-400 shrink-0 transition-transform duration-200 ${
-              isOpen ? "rotate-180 text-[#D55304]" : ""
+              isOpen ? "rotate-180 text-primary" : ""
             }`}
           />
         </button>
@@ -95,19 +95,19 @@ export function SizeSelector({
                   onClick={() => handleChooseSize(s.name)}
                   className={`w-full px-2.5 py-2 text-xs flex items-center justify-between transition-colors cursor-pointer ${
                     isSelected
-                      ? "bg-orange-50/90 text-[#D55304] font-extrabold"
+                      ? "bg-orange-50/90 text-primary font-extrabold"
                       : "text-slate-700 font-bold hover:bg-slate-50"
                   }`}
                 >
                   <div className="flex items-center gap-1.5 truncate">
                     {isSelected && (
-                      <Check className="w-3.5 h-3.5 text-[#D55304] shrink-0" />
+                      <Check className="w-3.5 h-3.5 text-primary shrink-0" />
                     )}
                     <span className="truncate">{s.name}</span>
                   </div>
                   <span
                     className={`text-[11px] shrink-0 ${
-                      isSelected ? "text-[#D55304]" : "text-slate-500"
+                      isSelected ? "text-primary" : "text-slate-500"
                     }`}
                   >
                     {Number(s.price)} ج

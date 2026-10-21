@@ -10,7 +10,7 @@ function Footer() {
           href="https://aswany.me/"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-2.5 py-1 md:px-3 md:py-1 rounded-md font-bold transition-all hover:scale-105 bg-[#D55304] text-white hover:bg-[#b84403] shadow-sm"
+          className="px-2.5 py-1 md:px-3 md:py-1 rounded-md font-bold transition-all hover:scale-105 bg-primary text-white hover:bg-primary-hover shadow-sm"
         >
           Osman
         </a>

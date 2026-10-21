@@ -83,7 +83,7 @@ export default function AdminHeader({
   const pathname = usePathname();
   return (
     <header
-      className="sticky top-0 z-40 bg-[#D55304] text-white shadow-md print:hidden"
+      className="sticky top-0 z-40 bg-primary text-white shadow-md print:hidden"
       dir="rtl"
     >
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
@@ -127,7 +127,7 @@ export default function AdminHeader({
                 href={item.href}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
                   isActive
-                    ? "bg-white text-[#D55304] shadow-xs"
+                    ? "bg-white text-primary shadow-xs"
                     : "text-white/90 hover:bg-white/15 hover:text-white"
                 }`}
               >
@@ -174,7 +174,7 @@ export default function AdminHeader({
         </div>
       </div>
       <div
-        className="absolute bottom-0 right-0 h-0.75 bg-[#FCD34D] transition-[width] duration-100 ease-out z-50"
+        className="absolute bottom-0 right-0 h-0.75 bg-secondary transition-[width] duration-100 ease-out z-50"
         style={{ width: `${scrollProgress}%` }}
       />
     </header>

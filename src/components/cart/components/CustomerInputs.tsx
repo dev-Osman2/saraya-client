@@ -23,7 +23,7 @@ export default function CustomerInputs({
         <label className="flex items-center gap-1 text-xs font-bold text-slate-700 mb-1.5">
           <span>الاسم الكامل</span>
           {!isDineIn ? (
-            <span className="text-[#D55304]">*</span>
+            <span className="text-primary">*</span>
           ) : (
             <span className="text-[10px] font-normal text-slate-400">(اختياري)</span>
           )}
@@ -38,7 +38,7 @@ export default function CustomerInputs({
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="مثال: أحمد محمد"
-            className="w-full pr-9 pl-3 py-2.5 bg-slate-50/70 border border-slate-200 rounded-xl text-xs sm:text-sm focus:bg-white focus:outline-none focus:border-[#D55304] transition-all"
+            className="w-full pr-9 pl-3 py-2.5 bg-slate-50/70 border border-slate-200 rounded-xl text-xs sm:text-sm focus:bg-white focus:outline-none focus:border-primary transition-all"
           />
         </div>
       </div>
@@ -47,7 +47,7 @@ export default function CustomerInputs({
         <label className="flex items-center gap-1 text-xs font-bold text-slate-700 mb-1.5">
           <span>رقم الهاتف</span>
           {!isDineIn ? (
-            <span className="text-[#D55304]">*</span>
+            <span className="text-primary">*</span>
           ) : (
             <span className="text-[10px] font-normal text-slate-400">(اختياري)</span>
           )}

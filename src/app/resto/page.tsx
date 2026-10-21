@@ -64,10 +64,10 @@ export default function AdminLoginPage() {
 
   return (
     <div
-      className="min-h-[91vh] flex items-center justify-center bg-[#140C07] relative overflow-hidden p-4"
+      className="min-h-[91vh] flex items-center justify-center bg-dark relative overflow-hidden p-4"
       dir="rtl"
     >
-      <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[#D55304]/20 blur-3xl pointer-events-none" />
+      <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-primary/20 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-amber-500/15 blur-3xl pointer-events-none" />
 
       <div
@@ -76,14 +76,14 @@ export default function AdminLoginPage() {
         }`}
       >
         <div className="flex items-center justify-between">
-          <span className="inline-flex items-center gap-1.5 text-[11px] font-extrabold bg-orange-50 text-[#D55304] px-3 py-1 rounded-full border border-[#D55304]/20">
+          <span className="inline-flex items-center gap-1.5 text-[11px] font-extrabold bg-orange-50 text-primary px-3 py-1 rounded-full border border-primary/20">
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>بوابة الإدارة المعتمدة</span>
           </span>
 
           <Link
             href="/"
-            className="inline-flex items-center gap-1 text-xs font-bold text-slate-400 hover:text-[#D55304] transition"
+            className="inline-flex items-center gap-1 text-xs font-bold text-slate-400 hover:text-primary transition"
           >
             <span>الموقع الرئيسي</span>
             <ArrowRight className="w-3.5 h-3.5 rotate-180" />
@@ -91,7 +91,7 @@ export default function AdminLoginPage() {
         </div>
 
         <div className="text-center space-y-2.5 pt-1">
-          <div className="w-22 h-22 rounded-3xl bg-gradient-to-br from-[#D55304] to-[#9A3412] p-0.5 mx-auto shadow-lg shadow-[#D55304]/25">
+          <div className="w-22 h-22 rounded-3xl bg-gradient-to-br from-primary to-orange-800 p-0.5 mx-auto shadow-lg shadow-primary/25">
             <div className="w-full h-full bg-white rounded-[22px] flex items-center justify-center p-2">
               <img
                 src="/logo.png"
@@ -125,7 +125,7 @@ export default function AdminLoginPage() {
               <span className="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none">
                 <Lock
                   className={`w-4 h-4 transition-colors ${
-                    error ? "text-rose-500" : "text-[#D55304]"
+                    error ? "text-rose-500" : "text-primary"
                   }`}
                 />
               </span>
@@ -142,14 +142,14 @@ export default function AdminLoginPage() {
                 className={`w-full pr-10 pl-11 py-3.5 bg-slate-50 border rounded-2xl text-sm font-bold text-slate-800 focus:bg-white focus:outline-none transition-all ${
                   error
                     ? "border-rose-300 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/15"
-                    : "border-slate-200 focus:border-[#D55304] focus:ring-2 focus:ring-[#D55304]/15"
+                    : "border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/15"
                 }`}
               />
 
               <button
                 type="button"
                 onClick={() => setShowPassword((prev) => !prev)}
-                className="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400 hover:text-[#D55304] transition cursor-pointer"
+                className="absolute inset-y-0 left-0 flex items-center pl-3.5 text-slate-400 hover:text-primary transition cursor-pointer"
                 tabIndex={-1}
                 aria-label={
                   showPassword ? "إخفاء كلمة المرور" : "إظهار كلمة المرور"
@@ -167,7 +167,7 @@ export default function AdminLoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-gradient-to-l from-[#D55304] to-[#b84403] hover:from-[#b84403] hover:to-[#9A3412] disabled:opacity-60 text-white font-black py-4 rounded-2xl shadow-lg shadow-[#D55304]/25 flex items-center justify-center gap-2 text-sm transition-all active:scale-[0.99] cursor-pointer"
+            className="w-full bg-gradient-to-l from-primary to-primary-hover hover:from-primary-hover hover:to-orange-800 disabled:opacity-60 text-white font-black py-4 rounded-2xl shadow-lg shadow-primary/25 flex items-center justify-center gap-2 text-sm transition-all active:scale-[0.99] cursor-pointer"
           >
             {loading ? (
               <>

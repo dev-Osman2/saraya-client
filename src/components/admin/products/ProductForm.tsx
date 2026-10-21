@@ -67,7 +67,7 @@ export default function ProductForm({
       <button
         type="submit"
         disabled={form.loading}
-        className="w-full bg-[#D55304] hover:bg-[#b84403] disabled:opacity-60 text-white font-black py-3.5 rounded-xl shadow-md shadow-[#D55304]/25 flex items-center justify-center gap-2 text-sm sm:text-base transition-all cursor-pointer"
+        className="w-full bg-primary hover:bg-primary-hover disabled:opacity-60 text-white font-black py-3.5 rounded-xl shadow-md shadow-primary/25 flex items-center justify-center gap-2 text-sm sm:text-base transition-all cursor-pointer"
       >
         {form.loading ? (
           <>

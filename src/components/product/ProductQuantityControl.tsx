@@ -39,7 +39,7 @@ export default function ProductQuantityControl({
           type="button"
           onClick={onIncrease}
           aria-label="زيادة الكمية"
-          className="w-7 h-7 rounded-lg bg-[#D55304] hover:bg-[#b84403] text-white font-bold text-sm flex items-center justify-center transition active:scale-95 cursor-pointer shadow-2xs"
+          className="w-7 h-7 rounded-lg bg-primary hover:bg-primary-hover text-white font-bold text-sm flex items-center justify-center transition active:scale-95 cursor-pointer shadow-2xs"
         >
           +
         </button>
@@ -53,7 +53,7 @@ export default function ProductQuantityControl({
           onClick={onDecrease}
           disabled={currentQty === 0}
           aria-label="إنقاص الكمية"
-          className="w-7 h-7 rounded-lg bg-[#D55304] hover:bg-[#b84403] disabled:bg-[#D55304]/40 text-white font-bold text-sm flex items-center justify-center transition active:scale-95 disabled:cursor-not-allowed cursor-pointer shadow-2xs"
+          className="w-7 h-7 rounded-lg bg-primary hover:bg-primary-hover disabled:bg-primary/40 text-white font-bold text-sm flex items-center justify-center transition active:scale-95 disabled:cursor-not-allowed cursor-pointer shadow-2xs"
         >
           -
         </button>

@@ -108,8 +108,8 @@ export default function AdminSidebar({
                   onClick={onClose}
                   className={`flex items-center gap-3 px-4 py-3 rounded-xl font-bold text-xs sm:text-sm transition ${
                     isActive
-                      ? "bg-[#D55304] text-white shadow-xs"
-                      : "text-slate-700 hover:bg-orange-50 hover:text-[#D55304]"
+                      ? "bg-primary text-white shadow-xs"
+                      : "text-slate-700 hover:bg-orange-50 hover:text-primary"
                   }`}
                 >
                   <Icon className="w-4 h-4 shrink-0" />
@@ -124,7 +124,7 @@ export default function AdminSidebar({
                 onClick={onClose}
                 className="flex items-center gap-3 px-4 py-3 rounded-xl font-bold text-xs sm:text-sm text-slate-600 hover:bg-slate-100 transition"
               >
-                <Store className="w-4 h-4 shrink-0 text-[#D55304]" />
+                <Store className="w-4 h-4 shrink-0 text-primary" />
                 <span>عرض موقع العميل الرئيسي</span>
               </Link>
               <Link
@@ -133,7 +133,7 @@ export default function AdminSidebar({
                 onClick={onClose}
                 className="flex items-center gap-3 px-4 py-3 rounded-xl font-bold text-xs sm:text-sm text-slate-600 hover:bg-slate-100 transition"
               >
-                <MessageCircle className="w-4 h-4 shrink-0 text-[#D55304]" />
+                <MessageCircle className="w-4 h-4 shrink-0 text-primary" />
                 <span>جروب تلجرام للمطبخ</span>
               </Link>
             </div>

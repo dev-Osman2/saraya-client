@@ -58,7 +58,7 @@ export default function MenuBar({ isOpen, onClose }: MenuBarProps) {
       >
         <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-3 shrink-0">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-xl bg-[#D55304] text-white flex items-center justify-center shadow-xs">
+            <div className="w-8 h-8 rounded-xl bg-primary text-white flex items-center justify-center shadow-xs">
               <UtensilsCrossed className="w-4 h-4" />
             </div>
             <span className="font-extrabold text-slate-900 text-base">
@@ -79,13 +79,13 @@ export default function MenuBar({ isOpen, onClose }: MenuBarProps) {
           <button
             type="button"
             onClick={() => setIsMenuGalleryOpen(true)}
-            className="w-full px-4 py-3 rounded-xl bg-orange-50 hover:bg-orange-100 border border-[#D55304]/30 text-[#D55304] font-extrabold text-xs sm:text-sm flex items-center justify-between transition cursor-pointer shadow-2xs"
+            className="w-full px-4 py-3 rounded-xl bg-orange-50 hover:bg-orange-100 border border-primary/30 text-primary font-extrabold text-xs sm:text-sm flex items-center justify-between transition cursor-pointer shadow-2xs"
           >
             <div className="flex items-center gap-2">
               <ImagePlus className="w-4 h-4 shrink-0" />
               <span>صور المنيو</span>
             </div>
-            <span className="bg-[#D55304] text-white text-[11px] font-black px-2 py-0.5 rounded-full">
+            <span className="bg-primary text-white text-[11px] font-black px-2 py-0.5 rounded-full">
               {MENU_IMAGES.length}
             </span>
           </button>
@@ -108,7 +108,7 @@ export default function MenuBar({ isOpen, onClose }: MenuBarProps) {
               <span>ملخص الطلب والحساب</span>
             </div>
             {totalItems > 0 && (
-              <span className="bg-[#D55304] text-white text-[11px] font-black px-2 py-0.5 rounded-full">
+              <span className="bg-primary text-white text-[11px] font-black px-2 py-0.5 rounded-full">
                 {totalItems}
               </span>
             )}
@@ -121,7 +121,7 @@ export default function MenuBar({ isOpen, onClose }: MenuBarProps) {
             onClick={() => handleCategorySelect(null)}
             className={`w-full text-right px-4 py-3 rounded-xl font-bold text-sm transition flex items-center justify-between cursor-pointer ${
               !currentCategory
-                ? "bg-[#D55304] text-white shadow-xs"
+                ? "bg-primary text-white shadow-xs"
                 : "bg-slate-50 hover:bg-orange-50 text-slate-700"
             }`}
           >
@@ -138,14 +138,14 @@ export default function MenuBar({ isOpen, onClose }: MenuBarProps) {
                 onClick={() => handleCategorySelect(category)}
                 className={`w-full text-right px-4 py-3 rounded-xl font-bold text-sm transition flex items-center justify-between cursor-pointer ${
                   isActive
-                    ? "bg-[#D55304] text-white shadow-xs"
+                    ? "bg-primary text-white shadow-xs"
                     : "bg-slate-50 hover:bg-orange-50 text-slate-700"
                 }`}
               >
                 <span className="truncate">{category}</span>
                 <span
                   className={`w-2 h-2 rounded-full shrink-0 ${
-                    isActive ? "bg-white" : "bg-[#D55304]/40"
+                    isActive ? "bg-white" : "bg-primary/40"
                   }`}
                 />
               </button>

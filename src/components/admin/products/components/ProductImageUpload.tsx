@@ -38,7 +38,7 @@ export default function ProductImageUpload({
           const file = e.dataTransfer.files?.[0];
           if (file) onFileSelect(file);
         }}
-        className="border-2 border-dashed border-slate-200 hover:border-[#D55304] bg-slate-50/40 hover:bg-orange-50/20 rounded-2xl p-6 text-center cursor-pointer transition-all relative"
+        className="border-2 border-dashed border-slate-200 hover:border-primary bg-slate-50/40 hover:bg-orange-50/20 rounded-2xl p-6 text-center cursor-pointer transition-all relative"
       >
         {imagePreview ? (
           <div className="flex flex-col items-center gap-2">
@@ -59,13 +59,13 @@ export default function ProductImageUpload({
                 <X className="w-3.5 h-3.5" />
               </button>
             </div>
-            <span className="text-xs font-bold text-[#D55304]">
+            <span className="text-xs font-bold text-primary">
               اضغط لتغيير صورة الوجبة (تُرفع تلقائياً إلى Cloudinary)
             </span>
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center space-y-2 py-2">
-            <div className="w-14 h-14 rounded-full bg-orange-50 text-[#D55304] flex items-center justify-center">
+            <div className="w-14 h-14 rounded-full bg-orange-50 text-primary flex items-center justify-center">
               <CloudUpload className="w-7 h-7" />
             </div>
             <p className="text-sm font-black text-slate-800">

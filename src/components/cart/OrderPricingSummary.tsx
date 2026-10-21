@@ -37,10 +37,10 @@ export default function OrderPricingSummary({
 
       <div className="border-t border-slate-200/80 pt-2.5 flex justify-between items-center text-slate-900 font-extrabold">
         <span className="text-sm flex items-center gap-1.5">
-          <Wallet className="w-4 h-4 text-[#D55304]" />
+          <Wallet className="w-4 h-4 text-primary" />
           <span>الإجمالي النهائي:</span>
         </span>
-        <span className="text-lg sm:text-xl text-[#D55304]">
+        <span className="text-lg sm:text-xl text-primary">
           {finalTotal} ج
         </span>
       </div>

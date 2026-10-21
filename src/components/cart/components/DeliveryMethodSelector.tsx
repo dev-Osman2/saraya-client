@@ -25,7 +25,7 @@ export default function DeliveryMethodSelector({
           onClick={() => setIsPickup(false)}
           className={`flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs transition-all duration-300 cursor-pointer border active:scale-[0.98] ${
             !isPickup
-              ? "bg-[#D55304] text-white border-[#D55304] shadow-lg shadow-[#D55304]/30 ring-2 ring-[#D55304]/20"
+              ? "bg-primary text-white border-primary shadow-lg shadow-primary/30 ring-2 ring-primary/20"
               : "bg-slate-100/80 text-slate-400 border-slate-200/90 hover:bg-slate-200/60 hover:text-slate-600 shadow-none"
           }`}
         >
@@ -42,7 +42,7 @@ export default function DeliveryMethodSelector({
           onClick={() => setIsPickup(true)}
           className={`flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs transition-all duration-300 cursor-pointer border active:scale-[0.98] ${
             isPickup
-              ? "bg-[#D55304] text-white border-[#D55304] shadow-lg shadow-[#D55304]/30 ring-2 ring-[#D55304]/20"
+              ? "bg-primary text-white border-primary shadow-lg shadow-primary/30 ring-2 ring-primary/20"
               : "bg-slate-100/80 text-slate-400 border-slate-200/90 hover:bg-slate-200/60 hover:text-slate-600 shadow-none"
           }`}
         >
@@ -74,7 +74,7 @@ export default function DeliveryMethodSelector({
         <div className="overflow-hidden">
           <label className="flex items-center gap-1 text-xs font-bold text-slate-700 mb-1.5">
             <span>العنوان التفصيلي</span>
-            <span className="text-[#D55304]">*</span>
+            <span className="text-primary">*</span>
           </label>
           <div className="relative">
             <span className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-slate-400">
@@ -87,7 +87,7 @@ export default function DeliveryMethodSelector({
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               placeholder="مثال: شارع الجمهورية - بجوار..."
-              className="w-full pr-9 pl-3 py-2.5 bg-slate-50/70 border border-slate-200 rounded-xl text-xs sm:text-sm focus:bg-white focus:outline-none focus:border-[#D55304] transition-all"
+              className="w-full pr-9 pl-3 py-2.5 bg-slate-50/70 border border-slate-200 rounded-xl text-xs sm:text-sm focus:bg-white focus:outline-none focus:border-primary transition-all"
             />
           </div>
         </div>

@@ -174,7 +174,7 @@ export default function AdminOrdersPage() {
             type="button"
             onClick={fetchOrders}
             title="تحديث الطلبات"
-            className="w-11 h-11 rounded-full bg-white border border-slate-200 hover:border-[#D55304] text-slate-600 hover:text-[#D55304] flex items-center justify-center shrink-0 transition cursor-pointer shadow-2xs"
+            className="w-11 h-11 rounded-full bg-white border border-slate-200 hover:border-primary text-slate-600 hover:text-primary flex items-center justify-center shrink-0 transition cursor-pointer shadow-2xs"
           >
             <RefreshCw className="w-4 h-4" />
           </button>
@@ -189,7 +189,7 @@ export default function AdminOrdersPage() {
 
       {loading ? (
         <div className="bg-white rounded-3xl border border-slate-200/80 py-20 flex flex-col items-center justify-center gap-3 text-slate-500">
-          <Loader2 className="w-7 h-7 animate-spin text-[#D55304]" />
+          <Loader2 className="w-7 h-7 animate-spin text-primary" />
           <span className="text-sm font-bold">جاري تحميل سجل الطلبات...</span>
         </div>
       ) : error ? (

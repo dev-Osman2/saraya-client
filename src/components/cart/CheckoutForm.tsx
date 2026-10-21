@@ -35,7 +35,7 @@ function CheckoutFormContent() {
         dir="rtl"
       >
         <div className="flex items-center gap-2 text-slate-900 border-b border-slate-100 pb-3">
-          <Receipt className="w-5 h-5 text-[#D55304]" />
+          <Receipt className="w-5 h-5 text-primary" />
           <h3 className="text-base sm:text-lg font-extrabold">ملخص الطلب والحساب</h3>
         </div>
 

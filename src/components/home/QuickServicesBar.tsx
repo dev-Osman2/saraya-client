@@ -89,7 +89,7 @@ export default function QuickServicesBar() {
     <section className="container mx-auto px-4 py-3" dir="rtl">
       <div className="bg-white border border-slate-200/70 rounded-3xl p-6 md:p-7 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-all">
         <div className="flex items-center gap-2 mb-4">
-          <Compass className="w-5 h-5 text-[#D55304]" />
+          <Compass className="w-5 h-5 text-primary" />
           <h2 className="font-extrabold text-slate-900">خدمات سريعة</h2>
         </div>
 
@@ -97,9 +97,9 @@ export default function QuickServicesBar() {
           <button
             type="button"
             onClick={() => setIsAboutOpen(true)}
-            className="w-full h-14 bg-[#FFF7ED] hover:bg-[#FFEDD5] border border-[#D55304]/20 text-[#9A3412] rounded-2xl px-5 flex items-center justify-start gap-2.5 font-extrabold text-sm transition-all duration-200 cursor-pointer shadow-2xs active:scale-[0.99]"
+            className="w-full h-14 bg-orange-50 hover:bg-orange-100 border border-primary/20 text-orange-800 rounded-2xl px-5 flex items-center justify-start gap-2.5 font-extrabold text-sm transition-all duration-200 cursor-pointer shadow-2xs active:scale-[0.99]"
           >
-            <div className="w-8 h-8 rounded-xl bg-[#D55304]/10 flex items-center justify-center text-[#D55304]">
+            <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
               <Info className="w-4 h-4" />
             </div>
             <span>عن مطعم السرايا</span>
@@ -108,16 +108,16 @@ export default function QuickServicesBar() {
           <button
             type="button"
             onClick={toggleTrackAccordion}
-            className="w-full h-14 bg-[#E8F8F0] hover:bg-[#DCF4E7] border border-emerald-200/60 text-[#065F46] rounded-2xl px-5 flex items-center justify-between font-extrabold text-sm transition-all duration-200 cursor-pointer shadow-2xs active:scale-[0.99]"
+            className="w-full h-14 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/60 text-emerald-800 rounded-2xl px-5 flex items-center justify-between font-extrabold text-sm transition-all duration-200 cursor-pointer shadow-2xs active:scale-[0.99]"
           >
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-emerald-500/10 flex items-center justify-center text-[#059669]">
+              <div className="w-8 h-8 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600">
                 <CheckCircle2 className="w-4 h-4" />
               </div>
               <span>تتبع طلبك</span>
             </div>
             <ChevronDown
-              className={`w-4 h-4 text-[#047857] transition-transform duration-300 ${
+              className={`w-4 h-4 text-emerald-700 transition-transform duration-300 ${
                 activeAccordion === "track" ? "rotate-180" : ""
               }`}
             />
@@ -126,10 +126,10 @@ export default function QuickServicesBar() {
           <button
             type="button"
             onClick={() => setIsContactOpen(true)}
-            className="w-full h-14 bg-[#EFF6FF] hover:bg-[#DBEAFE] border border-blue-200/70 text-[#1E40AF] rounded-2xl px-5 flex items-center justify-between font-extrabold text-sm transition-all duration-200 cursor-pointer shadow-2xs active:scale-[0.99]"
+            className="w-full h-14 bg-blue-50 hover:bg-blue-100 border border-blue-200/70 text-blue-800 rounded-2xl px-5 flex items-center justify-between font-extrabold text-sm transition-all duration-200 cursor-pointer shadow-2xs active:scale-[0.99]"
           >
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-blue-500/10 flex items-center justify-center text-[#2563EB]">
+              <div className="w-8 h-8 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-600">
                 <Headset className="w-4 h-4" />
               </div>
               <span>تواصل معنا وشاركنا رأيك</span>
@@ -142,8 +142,8 @@ export default function QuickServicesBar() {
 
         {activeAccordion === "track" && (
           <div className="mt-5 pt-4 border-t border-slate-100 animate-in fade-in slide-in-from-top-3 duration-200">
-            <div className="bg-[#F6FCF9] border border-emerald-100/90 rounded-3xl p-6 max-w-lg mx-auto shadow-xs">
-              <div className="flex items-center justify-between text-[#065F46] font-extrabold text-sm mb-4">
+            <div className="bg-emerald-50/50 border border-emerald-100/90 rounded-3xl p-6 max-w-lg mx-auto shadow-xs">
+              <div className="flex items-center justify-between text-emerald-800 font-extrabold text-sm mb-4">
                 <span>تفاصيل طلبك</span>
                 <span className="text-xs text-emerald-600 font-bold">
                   استعلام مباشر عن حالة ووجبات الطلب
@@ -191,7 +191,7 @@ export default function QuickServicesBar() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-[#059669] hover:bg-[#047857] text-white py-3.5 rounded-2xl font-extrabold text-sm transition-all shadow-xs disabled:opacity-60 cursor-pointer mt-2"
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3.5 rounded-2xl font-extrabold text-sm transition-all shadow-xs disabled:opacity-60 cursor-pointer mt-2"
                 >
                   {loading ? "جاري البحث..." : "عرض طلبي"}
                 </button>

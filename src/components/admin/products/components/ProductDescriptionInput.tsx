@@ -24,7 +24,7 @@ export default function ProductDescriptionInput({
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           placeholder="مثال: كفتة مشوية على الفحم مع الطحينة والخضار الطازجة..."
-          className="w-full p-3.5 bg-white border border-slate-200 rounded-2xl text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-[#D55304] resize-none"
+          className="w-full p-3.5 bg-white border border-slate-200 rounded-2xl text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-primary resize-none"
         />
         <span className="absolute bottom-2.5 left-3 text-[11px] font-mono text-slate-400">
           {description.length}/500

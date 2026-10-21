@@ -70,7 +70,7 @@ export default function OrderCardFooter({
                   className={`inline-flex items-center gap-1 text-[11px] font-mono font-bold px-2 py-0.5 rounded-md border transition-all cursor-pointer active:scale-95 ${
                     copied
                       ? "bg-emerald-50 text-emerald-700 border-emerald-300"
-                      : "bg-orange-50 text-primary border-[#D55304]/20 hover:bg-orange-100/70"
+                      : "bg-orange-50 text-primary border-primary/20 hover:bg-orange-100/70"
                   }`}
                 >
                   <span>{order.paymentReceipt}</span>
@@ -81,7 +81,7 @@ export default function OrderCardFooter({
                   )}
                 </button>
               ) : (
-                <span className="text-[11px] font-mono font-bold bg-orange-50 text-primary px-2 py-0.5 rounded-md border border-[#D55304]/20">
+                <span className="text-[11px] font-mono font-bold bg-orange-50 text-primary px-2 py-0.5 rounded-md border border-primary/20">
                   {order.paymentReceipt}
                 </span>
               ))}
@@ -122,7 +122,7 @@ export default function OrderCardFooter({
           className={`py-3 px-4 rounded-xl font-extrabold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
             order.status === "confirmed"
               ? "bg-emerald-100 text-emerald-800 cursor-default"
-              : "bg-[#059669] hover:bg-[#047857] text-white shadow-xs active:scale-[0.99]"
+              : "bg-emerald-600 hover:bg-emerald-700 text-white shadow-xs active:scale-[0.99]"
           }`}
         >
           <Check className="w-4 h-4 stroke-[2.5]" />
@@ -138,7 +138,7 @@ export default function OrderCardFooter({
           className={`py-3 px-4 rounded-xl font-extrabold text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
             order.status === "cancelled"
               ? "bg-rose-100 text-rose-800 cursor-default"
-              : "bg-[#EF4444] hover:bg-[#DC2626] text-white shadow-xs active:scale-[0.99]"
+              : "bg-red-500 hover:bg-red-600 text-white shadow-xs active:scale-[0.99]"
           }`}
         >
           <X className="w-4 h-4 stroke-[2.5]" />

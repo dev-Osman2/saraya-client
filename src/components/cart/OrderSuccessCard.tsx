@@ -45,15 +45,15 @@ export default function OrderSuccessCard({
       {phoneNumber && (
         <div className="flex items-center justify-center gap-2 bg-slate-50 border border-slate-200/70 rounded-xl py-2 px-3 max-w-xs mx-auto">
           <span className="text-xs text-slate-500 font-medium">بياناتك:</span>
-          <span className="font-bold text-[#D55304] font-mono text-sm">
+          <span className="font-bold text-primary font-mono text-sm">
             {phoneNumber}
           </span>
         </div>
       )}
 
-      <div className="flex items-center justify-center gap-2 bg-orange-50/60 border border-[#D55304]/25 rounded-xl py-2.5 px-3 max-w-xs mx-auto">
+      <div className="flex items-center justify-center gap-2 bg-orange-50/60 border border-primary/25 rounded-xl py-2.5 px-3 max-w-xs mx-auto">
         <span className="text-xs text-slate-600 font-bold">رقم الطلب:</span>
-        <span className="font-extrabold text-[#D55304] font-mono text-base">
+        <span className="font-extrabold text-primary font-mono text-base">
           #{orderNumber}
         </span>
 
@@ -88,7 +88,7 @@ export default function OrderSuccessCard({
       <button
         type="button"
         onClick={onReset}
-        className="w-full mt-4 bg-[#D55304] hover:bg-[#b84403] text-white font-extrabold py-3 px-4 rounded-xl transition-all shadow-sm cursor-pointer active:scale-[0.99]"
+        className="w-full mt-4 bg-primary hover:bg-primary-hover text-white font-extrabold py-3 px-4 rounded-xl transition-all shadow-sm cursor-pointer active:scale-[0.99]"
       >
         طلب جديد
       </button>

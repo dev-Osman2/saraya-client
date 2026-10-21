@@ -22,7 +22,7 @@ export default function CustomerNotesInput({
         value={notes}
         onChange={(e) => setNotes(e.target.value)}
         placeholder="مثال: بدون بصل، صوص إضافي ..."
-        className="w-full p-3 bg-slate-50/70 border border-slate-200 rounded-xl text-xs sm:text-sm focus:bg-white focus:outline-none focus:border-[#D55304] transition-all resize-none"
+        className="w-full p-3 bg-slate-50/70 border border-slate-200 rounded-xl text-xs sm:text-sm focus:bg-white focus:outline-none focus:border-primary transition-all resize-none"
       />
     </div>
   );

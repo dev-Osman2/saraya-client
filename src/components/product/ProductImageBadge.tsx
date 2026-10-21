@@ -50,7 +50,7 @@ export default function ProductImageBadge({
         />
       ) : (
         <div className="w-full h-full flex items-center justify-center bg-orange-50/70">
-          <span className="text-5xl font-black text-[#D55304]/40 select-none">
+          <span className="text-5xl font-black text-primary/40 select-none">
             ؟
           </span>
         </div>

@@ -71,7 +71,7 @@ export default function AdminOrdersSummaryPage() {
   if (loading || !summary) {
     return (
       <div className="bg-white rounded-3xl border border-slate-200/80 py-20 flex flex-col items-center justify-center gap-3 text-slate-500">
-        <Loader2 className="w-7 h-7 animate-spin text-[#D55304]" />
+        <Loader2 className="w-7 h-7 animate-spin text-primary" />
         <span className="text-sm font-bold">
           جاري تحليل بيانات وملخص طلبات اليوم...
         </span>
@@ -93,7 +93,7 @@ export default function AdminOrdersSummaryPage() {
         <button
           type="button"
           onClick={fetchSummary}
-          className="px-4 py-2.5 rounded-xl bg-white border border-slate-200 hover:border-[#D55304] text-slate-700 hover:text-[#D55304] text-xs font-extrabold flex items-center gap-2 cursor-pointer transition shadow-2xs"
+          className="px-4 py-2.5 rounded-xl bg-white border border-slate-200 hover:border-primary text-slate-700 hover:text-primary text-xs font-extrabold flex items-center gap-2 cursor-pointer transition shadow-2xs"
         >
           <RefreshCw className="w-4 h-4" />
           <span>تحديث الإحصائيات</span>
@@ -117,11 +117,11 @@ export default function AdminOrdersSummaryPage() {
         <div className="bg-white rounded-3xl border border-slate-200/80 p-5 space-y-2 shadow-2xs">
           <div className="flex items-center justify-between text-slate-500 text-xs font-bold">
             <span>متوسط قيمة الفاتورة</span>
-            <div className="w-9 h-9 rounded-xl bg-orange-50 text-[#D55304] flex items-center justify-center">
+            <div className="w-9 h-9 rounded-xl bg-orange-50 text-primary flex items-center justify-center">
               <TrendingUp className="w-5 h-5" />
             </div>
           </div>
-          <p className="text-2xl font-black text-[#D55304]">
+          <p className="text-2xl font-black text-primary">
             {summary.averageBill.toFixed(2)}{" "}
             <span className="text-xs font-bold">ج</span>
           </p>
@@ -165,7 +165,7 @@ export default function AdminOrdersSummaryPage() {
         </h2>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#D55304]/10 text-[#D55304] flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
               <Truck className="w-5 h-5" />
             </div>
             <div>
@@ -224,7 +224,7 @@ export default function AdminOrdersSummaryPage() {
 
       <div className="bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-2xs">
         <div className="p-6 border-b border-slate-100 flex items-center gap-2">
-          <Flame className="w-5 h-5 text-[#D55304]" />
+          <Flame className="w-5 h-5 text-primary" />
           <h2 className="text-base font-black text-slate-900">
             الوجبات والأصناف الأكثر طلباً اليوم
           </h2>
@@ -238,7 +238,7 @@ export default function AdminOrdersSummaryPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-right border-collapse">
               <thead>
-                <tr className="bg-[#FFF7ED] text-slate-700 text-xs font-extrabold border-b border-orange-100">
+                <tr className="bg-orange-50 text-slate-700 text-xs font-extrabold border-b border-orange-100">
                   <th className="py-3.5 px-6">#</th>
                   <th className="py-3.5 px-6">اسم الوجبة</th>
                   <th className="py-3.5 px-6 text-center">الحجم</th>
@@ -251,14 +251,14 @@ export default function AdminOrdersSummaryPage() {
               <tbody className="divide-y divide-slate-100 text-xs sm:text-sm">
                 {summary.mostOrderedItems.map((item, idx) => (
                   <tr key={idx} className="hover:bg-orange-50/20">
-                    <td className="py-3.5 px-6 font-black text-[#D55304]">
+                    <td className="py-3.5 px-6 font-black text-primary">
                       {idx + 1}
                     </td>
                     <td className="py-3.5 px-6 font-extrabold text-slate-900">
                       {item.name}
                     </td>
                     <td className="py-3.5 px-6 text-center">
-                      <span className="bg-orange-50 text-[#D55304] font-bold px-2.5 py-1 rounded-lg text-xs">
+                      <span className="bg-orange-50 text-primary font-bold px-2.5 py-1 rounded-lg text-xs">
                         {item.size}
                       </span>
                     </td>

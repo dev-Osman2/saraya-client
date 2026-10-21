@@ -38,7 +38,7 @@ export default function ImageModal({
       >
         <button
           type="button"
-          className="absolute top-3 left-3 z-10 bg-white/90 hover:bg-[#D55304] hover:text-white text-slate-800 rounded-full p-2 transition-colors shadow-md cursor-pointer"
+          className="absolute top-3 left-3 z-10 bg-white/90 hover:bg-primary hover:text-white text-slate-800 rounded-full p-2 transition-colors shadow-md cursor-pointer"
           onClick={onClose}
           aria-label="إغلاق الصورة"
         >

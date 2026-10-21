@@ -178,7 +178,7 @@ function CashierContent() {
               <div className="space-y-8">
                 {categoriesWithProducts.map((group) => (
                   <section key={group.name}>
-                    <h3 className="mb-3 border-r-4 border-[#D55304] pr-3 text-base font-extrabold text-slate-800">
+                    <h3 className="mb-3 border-r-4 border-primary pr-3 text-base font-extrabold text-slate-800">
                       {group.name}
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 w-full">

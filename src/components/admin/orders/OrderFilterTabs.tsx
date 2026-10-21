@@ -39,8 +39,8 @@ export default function OrderFilterTabs({
             onClick={() => setActiveFilter(tab.id)}
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-extrabold transition-all shrink-0 cursor-pointer border ${
               isActive
-                ? "bg-[#D55304] text-white border-[#D55304] shadow-sm"
-                : "bg-white text-slate-700 border-slate-200 hover:border-[#D55304]/40 hover:bg-orange-50/40"
+                ? "bg-primary text-white border-primary shadow-sm"
+                : "bg-white text-slate-700 border-slate-200 hover:border-primary/40 hover:bg-orange-50/40"
             }`}
           >
             <span>{tab.label}</span>

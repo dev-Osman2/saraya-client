@@ -14,7 +14,7 @@ export default function CashierPaymentSelector({
   return (
     <div className="space-y-2">
       <div className="flex items-center gap-1.5 text-xs font-extrabold text-slate-700">
-        <CreditCard className="w-4 h-4 text-[#D55304]" />
+        <CreditCard className="w-4 h-4 text-primary" />
         <span>طريقة الدفع</span>
       </div>
 
@@ -24,7 +24,7 @@ export default function CashierPaymentSelector({
           onClick={() => setPaymentMode("cash")}
           className={`py-2.5 px-2 rounded-xl font-extrabold text-xs flex items-center justify-center gap-1.5 border transition cursor-pointer ${
             paymentMode === "cash"
-              ? "bg-[#D55304] text-white border-[#D55304] shadow-xs"
+              ? "bg-primary text-white border-primary shadow-xs"
               : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
           }`}
         >
@@ -37,7 +37,7 @@ export default function CashierPaymentSelector({
           onClick={() => setPaymentMode("card")}
           className={`py-2.5 px-2 rounded-xl font-extrabold text-xs flex items-center justify-center gap-1.5 border transition cursor-pointer ${
             paymentMode === "card"
-              ? "bg-[#D55304] text-white border-[#D55304] shadow-xs"
+              ? "bg-primary text-white border-primary shadow-xs"
               : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
           }`}
         >
@@ -50,7 +50,7 @@ export default function CashierPaymentSelector({
           onClick={() => setPaymentMode("instapay")}
           className={`py-2.5 px-2 rounded-xl font-extrabold text-xs flex items-center justify-center gap-1.5 border transition cursor-pointer ${
             paymentMode === "instapay"
-              ? "bg-[#D55304] text-white border-[#D55304] shadow-xs"
+              ? "bg-primary text-white border-primary shadow-xs"
               : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
           }`}
         >

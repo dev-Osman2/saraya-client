@@ -37,12 +37,12 @@ export default function CashierCartPanel({
     <div className="bg-white rounded-2xl shadow-xs border border-slate-200/80 p-5 sm:p-6 sticky top-24 space-y-5 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto custom-scrollbar">
       <div className="flex items-center justify-between border-b border-slate-100 pb-3">
         <div className="flex items-center gap-2 text-slate-900">
-          <Receipt className="w-5 h-5 text-[#D55304]" />
+          <Receipt className="w-5 h-5 text-primary" />
           <h3 className="text-base sm:text-lg font-extrabold">
             ملخص الطلب والحساب
           </h3>
         </div>
-        <span className="text-[11px] font-extrabold bg-orange-50 text-[#D55304] px-2.5 py-1 rounded-full">
+        <span className="text-[11px] font-extrabold bg-orange-50 text-primary px-2.5 py-1 rounded-full">
           نقطة بيع الكاشير
         </span>
       </div>

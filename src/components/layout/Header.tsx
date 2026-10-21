@@ -34,7 +34,7 @@ export default function Header() {
     };
   }, []);
 
- const handleLogoClick = (e: React.MouseEvent) => {
+  const handleLogoClick = (e: React.MouseEvent) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -88,7 +88,7 @@ export default function Header() {
       </div>
 
       <div
-        className="absolute bottom-0 right-0 h-0.75 bg-[#FCD34D] transition-[width] duration-100 ease-out z-50"
+        className="absolute bottom-0 right-0 h-0.75 bg-secondary transition-[width] duration-100 ease-out z-50"
         style={{ width: `${scrollProgress}%` }}
       />
 

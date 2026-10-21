@@ -15,7 +15,7 @@ export default function SubmitOrderButton({
     <button
       type="submit"
       disabled={disabled || loading}
-      className="w-full bg-[#D55304] hover:bg-[#b84403] text-white font-extrabold py-3.5 px-4 rounded-xl shadow-md shadow-[#D55304]/25 flex items-center justify-center gap-2 transition-all active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+      className="w-full bg-primary hover:bg-primary-hover text-white font-extrabold py-3.5 px-4 rounded-xl shadow-md shadow-primary/25 flex items-center justify-center gap-2 transition-all active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
     >
       {loading ? (
         <>
