@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
@@ -143,13 +144,13 @@ export default function SearchBar({
 
         targetElement.classList.add(
           "ring-4",
-          "ring-orange-500",
+          "ring-primary",
           "ring-offset-2",
         );
         setTimeout(() => {
           targetElement.classList.remove(
             "ring-4",
-            "ring-orange-500",
+            "ring-primary",
             "ring-offset-2",
           );
         }, 2000);
@@ -172,9 +173,9 @@ export default function SearchBar({
   };
 
   const searchDropdown = isOpen && (
-    <div className="absolute top-14 left-0 z-50 w-72 sm:w-84 bg-white rounded-2xl shadow-2xl border border-slate-100 p-3 text-slate-800 animate-in fade-in zoom-in duration-150">
-      <div className="relative flex items-center border-2 border-orange-500/80 rounded-2xl px-3 py-2 bg-white">
-        <Search size={18} className="text-orange-600 shrink-0 ml-2" />
+    <div className="absolute top-14 left-0 z-50 w-72 sm:w-84 bg-white rounded-2xl shadow-2xl border border-border-subtle p-3 text-body animate-in fade-in zoom-in duration-150">
+      <div className="relative flex items-center border-2 border-primary/80 rounded-2xl px-3 py-2 bg-white">
+        <Search size={18} className="text-primary shrink-0 ml-2" />
         <input
           ref={inputRef}
           type="text"
@@ -188,13 +189,13 @@ export default function SearchBar({
             }
           }}
           placeholder="ابحث عن منتج..."
-          className="w-full text-right text-sm text-slate-800 outline-none bg-transparent"
+          className="w-full text-right text-sm text-body outline-none bg-transparent"
         />
         {query && (
           <button
             type="button"
             onClick={() => setQuery("")}
-            className="p-1 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+            className="p-1 text-muted-light hover:text-sub transition-colors cursor-pointer"
           >
             <X size={16} />
           </button>
@@ -202,28 +203,28 @@ export default function SearchBar({
       </div>
 
       {filteredProducts.length > 0 && (
-        <div className="mt-3 space-y-1 divide-y divide-slate-100 max-h-64 overflow-y-auto">
+        <div className="mt-3 space-y-1 divide-y divide-border-subtle max-h-64 overflow-y-auto">
           {filteredProducts.map((product) => (
             <button
               key={product._id}
               type="button"
               onClick={() => handleSelectProduct(product)}
-              className="w-full text-right flex items-center gap-3 p-2 rounded-xl hover:bg-orange-50/70 transition-colors group"
+              className="w-full text-right flex items-center gap-3 p-2 rounded-xl hover:bg-primary-light/70 transition-colors group"
             >
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-10 h-10 rounded-lg object-cover bg-slate-100 shrink-0 border border-slate-200/60"
+                className="w-10 h-10 rounded-lg object-cover bg-surface-subtle shrink-0 border border-border/60"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src =
                     "https://placehold.co/80x80/e2e8f0/475569?text=صورة";
                 }}
               />
               <div className="flex-1 min-w-0">
-                <p className="text-xs sm:text-sm font-medium text-slate-800 group-hover:text-orange-600 truncate transition-colors">
+                <p className="text-xs sm:text-sm font-medium text-body group-hover:text-primary truncate transition-colors">
                   {product.name}
                 </p>
-                <span className="text-[10px] text-slate-400 block">
+                <span className="text-[10px] text-muted-light block">
                   {product.price.toFixed(2)} ج
                 </span>
               </div>
@@ -233,7 +234,7 @@ export default function SearchBar({
       )}
 
       {query && filteredProducts.length === 0 && (
-        <p className="text-center text-xs text-slate-400 py-4">
+        <p className="text-center text-xs text-muted-light py-4">
           لا توجد منتجات مطابقة لهذا البحث
         </p>
       )}

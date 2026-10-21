@@ -38,7 +38,7 @@ export default function ProductImageUpload({
           const file = e.dataTransfer.files?.[0];
           if (file) onFileSelect(file);
         }}
-        className="border-2 border-dashed border-slate-200 hover:border-primary bg-slate-50/40 hover:bg-orange-50/20 rounded-2xl p-6 text-center cursor-pointer transition-all relative"
+        className="border-2 border-dashed border-border hover:border-primary bg-surface-soft/40 hover:bg-primary-light/20 rounded-2xl p-6 text-center cursor-pointer transition-all relative"
       >
         {imagePreview ? (
           <div className="flex flex-col items-center gap-2">
@@ -46,7 +46,7 @@ export default function ProductImageUpload({
               <img
                 src={imagePreview}
                 alt="معاينة الوجبة"
-                className="h-32 w-48 object-cover rounded-2xl border border-slate-200 shadow-sm"
+                className="h-32 w-48 object-cover rounded-2xl border border-border shadow-sm"
               />
               <button
                 type="button"
@@ -54,7 +54,7 @@ export default function ProductImageUpload({
                   e.stopPropagation();
                   setImagePreview("");
                 }}
-                className="absolute -top-2 -left-2 w-6 h-6 rounded-full bg-rose-600 text-white flex items-center justify-center shadow-xs cursor-pointer"
+                className="absolute -top-2 -left-2 w-6 h-6 rounded-full bg-danger text-white flex items-center justify-center shadow-xs cursor-pointer"
               >
                 <X className="w-3.5 h-3.5" />
               </button>
@@ -65,13 +65,13 @@ export default function ProductImageUpload({
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center space-y-2 py-2">
-            <div className="w-14 h-14 rounded-full bg-orange-50 text-primary flex items-center justify-center">
+            <div className="w-14 h-14 rounded-full bg-primary-light text-primary flex items-center justify-center">
               <CloudUpload className="w-7 h-7" />
             </div>
-            <p className="text-sm font-black text-slate-800">
+            <p className="text-sm font-black text-body">
               اسحب وأفلت صورة الوجبة هنا
             </p>
-            <p className="text-xs text-slate-400 font-medium">
+            <p className="text-xs text-muted-light font-medium">
               أو اضغط لاختيار ملف من جهازك
             </p>
           </div>

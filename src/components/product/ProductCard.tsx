@@ -50,7 +50,7 @@ export default function ProductCard({ product }: { product: Product }) {
     <>
       <div
         id={`product-${product._id}`}
-        className="product-card bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs flex flex-col justify-between transition-all duration-200 hover:shadow-md"
+        className="product-card bg-white rounded-2xl overflow-hidden border border-border/80 shadow-xs flex flex-col justify-between transition-all duration-200 hover:shadow-md"
       >
         <div>
           <ProductImageBadge

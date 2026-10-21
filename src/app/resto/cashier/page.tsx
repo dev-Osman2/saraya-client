@@ -167,18 +167,18 @@ function CashierContent() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           <div className="lg:col-span-7 w-full">
             {loadingProducts ? (
-              <div className="text-center py-16 bg-white rounded-2xl border border-slate-100 text-slate-400 text-sm font-bold">
+              <div className="text-center py-16 bg-white rounded-2xl border border-border-subtle text-muted-light text-sm font-bold">
                 جاري تحميل قائمة الوجبات...
               </div>
             ) : displayedProducts.length === 0 ? (
-              <div className="text-center py-16 bg-white rounded-2xl border border-slate-100 text-slate-400 text-sm font-bold">
+              <div className="text-center py-16 bg-white rounded-2xl border border-border-subtle text-muted-light text-sm font-bold">
                 لا توجد وجبات في هذا القسم حالياً.
               </div>
             ) : (
               <div className="space-y-8">
                 {categoriesWithProducts.map((group) => (
                   <section key={group.name}>
-                    <h3 className="mb-3 border-r-4 border-primary pr-3 text-base font-extrabold text-slate-800">
+                    <h3 className="mb-3 border-r-4 border-primary pr-3 text-base font-extrabold text-body">
                       {group.name}
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 w-full">
@@ -222,7 +222,7 @@ export default function CashierPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen flex items-center justify-center bg-slate-50 text-slate-500 text-sm font-bold">
+        <div className="min-h-screen flex items-center justify-center bg-surface-soft text-muted text-sm font-bold">
           جاري تحميل شاشة الكاشير...
         </div>
       }

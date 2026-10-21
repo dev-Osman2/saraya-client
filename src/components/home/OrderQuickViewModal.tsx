@@ -16,19 +16,19 @@ export default function OrderQuickViewModal({
     switch (status) {
       case "confirmed":
         return (
-          <span className="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-extrabold">
+          <span className="bg-success-light text-success px-3 py-1 rounded-full text-xs font-extrabold">
             مؤكد / قيد التحضير بالمطبخ
           </span>
         );
       case "cancelled":
         return (
-          <span className="bg-rose-100 text-rose-800 px-3 py-1 rounded-full text-xs font-extrabold">
+          <span className="bg-danger-light text-danger px-3 py-1 rounded-full text-xs font-extrabold">
             ملغي
           </span>
         );
       default:
         return (
-          <span className="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-extrabold">
+          <span className="bg-warning-light text-warning px-3 py-1 rounded-full text-xs font-extrabold">
             قيد الانتظار والمراجعة
           </span>
         );
@@ -61,20 +61,20 @@ export default function OrderQuickViewModal({
       >
         <button
           onClick={onClose}
-          className="absolute top-4 left-4 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 transition cursor-pointer"
+          className="absolute top-4 left-4 w-8 h-8 flex items-center justify-center rounded-full bg-surface-subtle hover:bg-surface-hover text-sub transition cursor-pointer"
         >
           ✕
         </button>
 
-        <div className="flex items-center justify-between border-b border-gray-100 pb-3 mb-4 pl-10">
-          <h3 className="text-lg font-black text-gray-800">
+        <div className="flex items-center justify-between border-b border-border-subtle pb-3 mb-4 pl-10">
+          <h3 className="text-lg font-black text-body">
             تفاصيل الطلب:{" "}
             <span className="text-primary">#{order.orderNumber}</span>
           </h3>
           {getStatusBadge(order.status)}
         </div>
 
-        <div className="bg-orange-50/50 border border-orange-100 p-4 rounded-2xl mb-4 space-y-2 text-xs md:text-sm text-slate-700">
+        <div className="bg-primary-light/50 border border-primary-light p-4 rounded-2xl mb-4 space-y-2 text-xs md:text-sm text-sub">
           <p>
             <strong>الاسم:</strong> {order.customerName || "عميل السرايا"}
           </p>
@@ -105,7 +105,7 @@ export default function OrderQuickViewModal({
           )}
         </div>
 
-        <h4 className="font-extrabold text-sm text-gray-800 mb-2">
+        <h4 className="font-extrabold text-sm text-body mb-2">
           الوجبات المطلوبة:
         </h4>
         <div className="max-h-52 overflow-y-auto space-y-2 mb-4 pr-1 custom-scrollbar">
@@ -117,19 +117,19 @@ export default function OrderQuickViewModal({
             return (
               <div
                 key={idx}
-                className="flex justify-between items-center bg-slate-50/80 p-3 rounded-xl border border-slate-200/70 text-xs md:text-sm"
+                className="flex justify-between items-center bg-surface-soft/80 p-3 rounded-xl border border-border/70 text-xs md:text-sm"
               >
                 <div className="flex items-center gap-1.5 flex-wrap">
-                  <span className="font-bold text-slate-800">{item.name}</span>
+                  <span className="font-bold text-body">{item.name}</span>
                   {item.size && (
-                    <span className="text-[11px] font-bold bg-orange-100 text-primary px-2 py-0.5 rounded-md">
+                    <span className="text-[11px] font-bold bg-primary-subtle text-primary px-2 py-0.5 rounded-md">
                       {item.size}
                     </span>
                   )}
                 </div>
-                <span className="text-slate-600 shrink-0 font-medium">
+                <span className="text-sub shrink-0 font-medium">
                   {qty} × {unitPrice.toFixed(2)} ={" "}
-                  <strong className="text-slate-900 font-extrabold">
+                  <strong className="text-heading font-extrabold">
                     {lineTotal.toFixed(2)} ج
                   </strong>
                 </span>
@@ -138,18 +138,18 @@ export default function OrderQuickViewModal({
           })}
         </div>
 
-        <div className="border-t border-gray-100 pt-3 space-y-1.5 text-sm">
-          <div className="flex justify-between text-gray-600 text-xs md:text-sm">
+        <div className="border-t border-border-subtle pt-3 space-y-1.5 text-sm">
+          <div className="flex justify-between text-sub text-xs md:text-sm">
             <span>مجموع الوجبات:</span>
             <span className="font-bold">{subtotal.toFixed(2)} ج</span>
           </div>
           {deliveryFee > 0 && (
-            <div className="flex justify-between text-gray-600 text-xs md:text-sm">
+            <div className="flex justify-between text-sub text-xs md:text-sm">
               <span>رسوم التوصيل:</span>
               <span className="font-bold">{deliveryFee.toFixed(2)} ج</span>
             </div>
           )}
-          <div className="flex justify-between font-black text-base text-gray-900 pt-1">
+          <div className="flex justify-between font-black text-base text-heading pt-1">
             <span>الإجمالي النهائي:</span>
             <span className="text-primary">{totalPrice.toFixed(2)} ج</span>
           </div>

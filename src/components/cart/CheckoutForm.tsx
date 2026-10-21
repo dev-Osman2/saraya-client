@@ -31,10 +31,10 @@ function CheckoutFormContent() {
     <>
       <div
         id="order-summary"
-        className="bg-white rounded-2xl shadow-xs border border-slate-200/80 p-5 sm:p-6 sticky top-24 space-y-5 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto custom-scrollbar"
+        className="bg-white rounded-2xl shadow-xs border border-border/80 p-5 sm:p-6 sticky top-24 space-y-5 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto custom-scrollbar"
         dir="rtl"
       >
-        <div className="flex items-center gap-2 text-slate-900 border-b border-slate-100 pb-3">
+        <div className="flex items-center gap-2 text-heading border-b border-border-subtle pb-3">
           <Receipt className="w-5 h-5 text-primary" />
           <h3 className="text-base sm:text-lg font-extrabold">ملخص الطلب والحساب</h3>
         </div>
@@ -91,7 +91,7 @@ export default function CheckoutForm() {
   return (
     <Suspense
       fallback={
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-6 text-center text-slate-400 text-xs">
+        <div className="bg-white rounded-2xl border border-border/80 p-6 text-center text-muted-light text-xs">
           جاري تحميل السلة...
         </div>
       }

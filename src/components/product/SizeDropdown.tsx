@@ -40,7 +40,7 @@ export function SizeSelector({
   const validSizes = Array.isArray(sizes) ? sizes : [];
   if (!hasSizes || validSizes.length === 0) {
     return (
-      <span className="text-[11px] font-bold text-slate-400 select-none">
+      <span className="text-[11px] font-bold text-muted-light select-none">
         حجم عادي
       </span>
     );
@@ -58,7 +58,7 @@ export function SizeSelector({
 
   return (
     <div className="flex items-center gap-1.5 flex-1 min-w-0" ref={dropdownRef}>
-      <span className="text-[11px] font-bold text-slate-500 shrink-0">
+      <span className="text-[11px] font-bold text-muted shrink-0">
         الحجم:
       </span>
 
@@ -66,10 +66,10 @@ export function SizeSelector({
         <button
           type="button"
           onClick={() => setIsOpen((prev) => !prev)}
-          className="w-full flex items-center justify-between gap-1.5 bg-slate-50 hover:bg-orange-50/60 border border-slate-200/90 hover:border-primary/50 rounded-xl px-2.5 py-1.5 text-xs transition-all cursor-pointer focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15"
+          className="w-full flex items-center justify-between gap-1.5 bg-surface-soft hover:bg-primary-light/60 border border-border/90 hover:border-primary/50 rounded-xl px-2.5 py-1.5 text-xs transition-all cursor-pointer focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/15"
         >
           <div className="flex items-center gap-1 truncate">
-            <span className="font-extrabold text-slate-800 truncate">
+            <span className="font-extrabold text-body truncate">
               {currentSizeObj?.name}
             </span>
             <span className="text-[10px] font-bold text-primary shrink-0">
@@ -78,14 +78,14 @@ export function SizeSelector({
           </div>
 
           <ChevronDown
-            className={`w-3.5 h-3.5 text-slate-400 shrink-0 transition-transform duration-200 ${
+            className={`w-3.5 h-3.5 text-muted-light shrink-0 transition-transform duration-200 ${
               isOpen ? "rotate-180 text-primary" : ""
             }`}
           />
         </button>
 
         {isOpen && (
-          <div className="absolute bottom-full mb-1.5 right-0 left-0 z-30 bg-white border border-slate-200/90 rounded-xl shadow-lg py-1 overflow-hidden animate-in fade-in zoom-in-95 duration-150">
+          <div className="absolute bottom-full mb-1.5 right-0 left-0 z-30 bg-white border border-border/90 rounded-xl shadow-lg py-1 overflow-hidden animate-in fade-in zoom-in-95 duration-150">
             {validSizes.map((s) => {
               const isSelected = s.name === currentSizeObj?.name;
               return (
@@ -95,8 +95,8 @@ export function SizeSelector({
                   onClick={() => handleChooseSize(s.name)}
                   className={`w-full px-2.5 py-2 text-xs flex items-center justify-between transition-colors cursor-pointer ${
                     isSelected
-                      ? "bg-orange-50/90 text-primary font-extrabold"
-                      : "text-slate-700 font-bold hover:bg-slate-50"
+                      ? "bg-primary-light/90 text-primary font-extrabold"
+                      : "text-sub font-bold hover:bg-surface-soft"
                   }`}
                 >
                   <div className="flex items-center gap-1.5 truncate">
@@ -107,7 +107,7 @@ export function SizeSelector({
                   </div>
                   <span
                     className={`text-[11px] shrink-0 ${
-                      isSelected ? "text-primary" : "text-slate-500"
+                      isSelected ? "text-primary" : "text-muted"
                     }`}
                   >
                     {Number(s.price)} ج

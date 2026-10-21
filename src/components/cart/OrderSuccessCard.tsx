@@ -28,31 +28,31 @@ export default function OrderSuccessCard({
 
   return (
     <div
-      className="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-6 sticky top-24 text-center space-y-4"
+      className="bg-white rounded-2xl shadow-sm border border-border/80 p-6 sticky top-24 text-center space-y-4"
       dir="rtl"
     >
-      <div className="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+      <div className="w-16 h-16 bg-success-light text-success rounded-full flex items-center justify-center mx-auto">
         <CheckCircle2 className="w-10 h-10" />
       </div>
 
-      <h3 className="text-xl font-extrabold text-slate-900">
+      <h3 className="text-xl font-extrabold text-heading">
         تم استلام طلبك بنجاح!
       </h3>
-      <p className="text-xs text-slate-500">
+      <p className="text-xs text-muted">
         وصل طلبك الآن سيراجع الدفع ثم تحضير طلبك .
       </p>
 
       {phoneNumber && (
-        <div className="flex items-center justify-center gap-2 bg-slate-50 border border-slate-200/70 rounded-xl py-2 px-3 max-w-xs mx-auto">
-          <span className="text-xs text-slate-500 font-medium">بياناتك:</span>
+        <div className="flex items-center justify-center gap-2 bg-surface-soft border border-border/70 rounded-xl py-2 px-3 max-w-xs mx-auto">
+          <span className="text-xs text-muted font-medium">بياناتك:</span>
           <span className="font-bold text-primary font-mono text-sm">
             {phoneNumber}
           </span>
         </div>
       )}
 
-      <div className="flex items-center justify-center gap-2 bg-orange-50/60 border border-primary/25 rounded-xl py-2.5 px-3 max-w-xs mx-auto">
-        <span className="text-xs text-slate-600 font-bold">رقم الطلب:</span>
+      <div className="flex items-center justify-center gap-2 bg-primary-light/60 border border-primary/25 rounded-xl py-2.5 px-3 max-w-xs mx-auto">
+        <span className="text-xs text-sub font-bold">رقم الطلب:</span>
         <span className="font-extrabold text-primary font-mono text-base">
           #{orderNumber}
         </span>
@@ -63,25 +63,25 @@ export default function OrderSuccessCard({
           title="نسخ رقم الطلب"
           className={`flex items-center gap-1 text-xs font-bold px-2.5 py-1 rounded-lg border transition-all cursor-pointer ${
             copied
-              ? "bg-emerald-50 text-emerald-700 border-emerald-200"
-              : "bg-white text-slate-600 border-slate-200 hover:bg-slate-100 hover:text-slate-900 active:scale-95"
+              ? "bg-success-light text-success border-success-border"
+              : "bg-white text-sub border-border hover:bg-surface-subtle hover:text-heading active:scale-95"
           }`}
         >
           {copied ? (
             <>
-              <Check className="w-3.5 h-3.5 text-emerald-600" />
+              <Check className="w-3.5 h-3.5 text-success" />
               <span>تم النسخ!</span>
             </>
           ) : (
             <>
-              <Copy className="w-3.5 h-3.5 text-slate-400" />
+              <Copy className="w-3.5 h-3.5 text-muted-light" />
               <span>نسخ</span>
             </>
           )}
         </button>
       </div>
 
-      <p className="text-xs text-slate-500 leading-relaxed font-bold">
+      <p className="text-xs text-muted leading-relaxed font-bold">
         احتفظ برقم الطلب لمتابعة حالة طلبك في أي وقت.
       </p>
 

@@ -13,9 +13,9 @@ export default function ProductDescriptionInput({
 }: ProductDescriptionInputProps) {
   return (
     <div>
-      <label className="block text-xs font-extrabold text-slate-800 mb-1.5">
+      <label className="block text-xs font-extrabold text-body mb-1.5">
         وصف الوجبة والمكونات{" "}
-        <span className="text-slate-400 font-normal">(اختياري)</span>
+        <span className="text-muted-light font-normal">(اختياري)</span>
       </label>
       <div className="relative">
         <textarea
@@ -24,9 +24,9 @@ export default function ProductDescriptionInput({
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           placeholder="مثال: كفتة مشوية على الفحم مع الطحينة والخضار الطازجة..."
-          className="w-full p-3.5 bg-white border border-slate-200 rounded-2xl text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-primary resize-none"
+          className="w-full p-3.5 bg-white border border-border rounded-2xl text-xs sm:text-sm text-body focus:outline-none focus:border-primary resize-none"
         />
-        <span className="absolute bottom-2.5 left-3 text-[11px] font-mono text-slate-400">
+        <span className="absolute bottom-2.5 left-3 text-[11px] font-mono text-muted-light">
           {description.length}/500
         </span>
       </div>

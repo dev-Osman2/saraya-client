@@ -66,16 +66,16 @@ export default async function HomePage({
         />
 
         {currentTable && (
-          <div className="mb-5 flex items-center justify-between rounded-2xl bg-orange-50 border border-primary/30 px-4 py-3 text-primary shadow-xs">
+          <div className="mb-5 flex items-center justify-between rounded-2xl bg-primary-light border border-primary/30 px-4 py-3 text-primary shadow-xs">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white shadow-xs">
                 <UtensilsCrossed className="h-5 w-5" />
               </div>
               <div>
-                <p className="text-sm font-extrabold text-slate-900">
+                <p className="text-sm font-extrabold text-heading">
                   ترابيزة رقم ({currentTable})
                 </p>
-                <p className="text-xs text-slate-600">
+                <p className="text-xs text-sub">
                   اختر وجباتك وسيتم تحضيرها <br /> وتقديمها لترابيزتك مباشرة
                 </p>
               </div>
@@ -92,13 +92,13 @@ export default async function HomePage({
               <div>
                 <div className="flex items-center gap-2">
                   <Flame className="w-6 h-6 text-primary fill-primary/15" />
-                  <h2 className="text-lg md:text-xl font-extrabold text-slate-900">
+                  <h2 className="text-lg md:text-xl font-extrabold text-heading">
                     {currentCategory
                       ? `وجبات وسندوتشات - ${currentCategory}`
                       : "وجبات وسندوتشات - المشويات"}
                   </h2>
                 </div>
-                <span className="text-xs md:text-sm text-slate-500 font-medium block mt-0.5">
+                <span className="text-xs md:text-sm text-muted font-medium block mt-0.5">
                   اختر وجبتك المفضلة وأضفها لطلبك
                 </span>
               </div>
@@ -106,7 +106,7 @@ export default async function HomePage({
               {currentCategory && (
                 <Link
                   href={clearFilterHref}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-primary bg-orange-50 hover:bg-orange-100 border border-primary/25 rounded-full transition-all duration-150 active:scale-95 shadow-xs"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-primary bg-primary-light hover:bg-primary-subtle border border-primary/25 rounded-full transition-all duration-150 active:scale-95 shadow-xs"
                 >
                   <span>إلغاء التصفية</span>
                   <span className="w-4 h-4 flex items-center justify-center rounded-full bg-primary/15 text-primary text-[10px] leading-none">
@@ -117,7 +117,7 @@ export default async function HomePage({
             </div>
 
             {displayedProducts.length === 0 ? (
-              <div className="text-center text-slate-400 py-16 bg-white rounded-2xl border border-slate-100">
+              <div className="text-center text-muted-light py-16 bg-white rounded-2xl border border-border-subtle">
                 لا توجد وجبات متاحة في هذا القسم حالياً.
               </div>
             ) : (
@@ -125,7 +125,7 @@ export default async function HomePage({
                 {categoriesWithProducts.map((group) => (
                   <section key={group.name}>
                     {categoriesWithProducts.length > 1 && (
-                      <h3 className="mb-3 border-r-4 border-primary pr-3 text-base font-extrabold text-slate-800">
+                      <h3 className="mb-3 border-r-4 border-primary pr-3 text-base font-extrabold text-body">
                         {group.name}
                       </h3>
                     )}

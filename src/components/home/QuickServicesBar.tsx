@@ -87,17 +87,17 @@ export default function QuickServicesBar() {
 
   return (
     <section className="container mx-auto px-4 py-3" dir="rtl">
-      <div className="bg-white border border-slate-200/70 rounded-3xl p-6 md:p-7 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-all">
+      <div className="bg-white border border-border/70 rounded-3xl p-6 md:p-7 shadow-[0_2px_12px_rgba(0,0,0,0.03)] transition-all">
         <div className="flex items-center gap-2 mb-4">
           <Compass className="w-5 h-5 text-primary" />
-          <h2 className="font-extrabold text-slate-900">خدمات سريعة</h2>
+          <h2 className="font-extrabold text-heading">خدمات سريعة</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
           <button
             type="button"
             onClick={() => setIsAboutOpen(true)}
-            className="w-full h-14 bg-orange-50 hover:bg-orange-100 border border-primary/20 text-orange-800 rounded-2xl px-5 flex items-center justify-start gap-2.5 font-extrabold text-sm transition-all duration-200 cursor-pointer shadow-2xs active:scale-[0.99]"
+            className="w-full h-14 bg-primary-light hover:bg-primary-subtle border border-primary/20 text-primary-hover rounded-2xl px-5 flex items-center justify-start gap-2.5 font-extrabold text-sm transition-all duration-200 cursor-pointer shadow-2xs active:scale-[0.99]"
           >
             <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
               <Info className="w-4 h-4" />
@@ -108,16 +108,16 @@ export default function QuickServicesBar() {
           <button
             type="button"
             onClick={toggleTrackAccordion}
-            className="w-full h-14 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/60 text-emerald-800 rounded-2xl px-5 flex items-center justify-between font-extrabold text-sm transition-all duration-200 cursor-pointer shadow-2xs active:scale-[0.99]"
+            className="w-full h-14 bg-success-light hover:bg-success-light border border-success-border/60 text-success rounded-2xl px-5 flex items-center justify-between font-extrabold text-sm transition-all duration-200 cursor-pointer shadow-2xs active:scale-[0.99]"
           >
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600">
+              <div className="w-8 h-8 rounded-xl bg-success/10 flex items-center justify-center text-success">
                 <CheckCircle2 className="w-4 h-4" />
               </div>
               <span>تتبع طلبك</span>
             </div>
             <ChevronDown
-              className={`w-4 h-4 text-emerald-700 transition-transform duration-300 ${
+              className={`w-4 h-4 text-success transition-transform duration-300 ${
                 activeAccordion === "track" ? "rotate-180" : ""
               }`}
             />
@@ -126,40 +126,40 @@ export default function QuickServicesBar() {
           <button
             type="button"
             onClick={() => setIsContactOpen(true)}
-            className="w-full h-14 bg-blue-50 hover:bg-blue-100 border border-blue-200/70 text-blue-800 rounded-2xl px-5 flex items-center justify-between font-extrabold text-sm transition-all duration-200 cursor-pointer shadow-2xs active:scale-[0.99]"
+            className="w-full h-14 bg-info-light hover:bg-info-light border border-info-border/70 text-info rounded-2xl px-5 flex items-center justify-between font-extrabold text-sm transition-all duration-200 cursor-pointer shadow-2xs active:scale-[0.99]"
           >
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-600">
+              <div className="w-8 h-8 rounded-xl bg-info/10 flex items-center justify-center text-info">
                 <Headset className="w-4 h-4" />
               </div>
               <span>تواصل معنا وشاركنا رأيك</span>
             </div>
-            <span className="text-[11px] bg-blue-100 text-blue-700 px-2.5 py-0.5 rounded-full font-bold">
+            <span className="text-[11px] bg-info-light text-info px-2.5 py-0.5 rounded-full font-bold">
               دعم وآراء
             </span>
           </button>
         </div>
 
         {activeAccordion === "track" && (
-          <div className="mt-5 pt-4 border-t border-slate-100 animate-in fade-in slide-in-from-top-3 duration-200">
-            <div className="bg-emerald-50/50 border border-emerald-100/90 rounded-3xl p-6 max-w-lg mx-auto shadow-xs">
-              <div className="flex items-center justify-between text-emerald-800 font-extrabold text-sm mb-4">
+          <div className="mt-5 pt-4 border-t border-border-subtle animate-in fade-in slide-in-from-top-3 duration-200">
+            <div className="bg-success-light/50 border border-success-border/90 rounded-3xl p-6 max-w-lg mx-auto shadow-xs">
+              <div className="flex items-center justify-between text-success font-extrabold text-sm mb-4">
                 <span>تفاصيل طلبك</span>
-                <span className="text-xs text-emerald-600 font-bold">
+                <span className="text-xs text-success font-bold">
                   استعلام مباشر عن حالة ووجبات الطلب
                 </span>
               </div>
 
               {errorMsg && (
-                <div className="bg-red-50 text-red-600 text-xs p-3 rounded-xl border border-red-100 mb-4 font-bold">
+                <div className="bg-danger-light text-danger text-xs p-3 rounded-xl border border-danger-border mb-4 font-bold">
                   {errorMsg}
                 </div>
               )}
 
               <form onSubmit={handleTrackSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1.5 text-right">
-                    رقم الهاتف <span className="text-red-500">*</span>
+                  <label className="block text-xs font-bold text-sub mb-1.5 text-right">
+                    رقم الهاتف <span className="text-danger">*</span>
                   </label>
                   <input
                     type="tel"
@@ -170,13 +170,13 @@ export default function QuickServicesBar() {
                     placeholder="01xxxxxxxxx"
                     value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value)}
-                    className="w-full px-4 py-3 text-sm bg-white border border-emerald-200/80 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500/40 text-right text-slate-800 placeholder:text-slate-300 transition"
+                    className="w-full px-4 py-3 text-sm bg-white border border-success-border/80 rounded-2xl focus:outline-none focus:ring-2 focus:ring-success/40 text-right text-body placeholder:text-muted-light transition"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1.5 text-right">
-                    رقم الطلب <span className="text-red-500">*</span>
+                  <label className="block text-xs font-bold text-sub mb-1.5 text-right">
+                    رقم الطلب <span className="text-danger">*</span>
                   </label>
                   <input
                     type="number"
@@ -184,14 +184,14 @@ export default function QuickServicesBar() {
                     placeholder="مثال: 1001"
                     value={orderNumber}
                     onChange={(e) => setOrderNumber(e.target.value)}
-                    className="w-full px-4 py-3 text-sm bg-white border border-emerald-200/80 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-500/40 text-right text-slate-800 placeholder:text-slate-300 transition"
+                    className="w-full px-4 py-3 text-sm bg-white border border-success-border/80 rounded-2xl focus:outline-none focus:ring-2 focus:ring-success/40 text-right text-body placeholder:text-muted-light transition"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-3.5 rounded-2xl font-extrabold text-sm transition-all shadow-xs disabled:opacity-60 cursor-pointer mt-2"
+                  className="w-full bg-success hover:bg-success text-white py-3.5 rounded-2xl font-extrabold text-sm transition-all shadow-xs disabled:opacity-60 cursor-pointer mt-2"
                 >
                   {loading ? "جاري البحث..." : "عرض طلبي"}
                 </button>

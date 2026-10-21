@@ -71,7 +71,7 @@ export default function CashierThermalReceipt({
           </thead>
           <tbody>
             {receipt.items.map((item, idx) => (
-              <tr key={idx} className="border-b border-dotted border-gray-400">
+              <tr key={idx} className="border-b border-dotted border-border">
                 <td className="py-1 font-bold">
                   {item.name} {item.size ? `(${item.size})` : ""}
                 </td>

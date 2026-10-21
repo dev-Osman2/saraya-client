@@ -34,28 +34,28 @@ export default function CashierCartPanel({
   const totalPrice = Number(subtotalPrice || 0);
 
   return (
-    <div className="bg-white rounded-2xl shadow-xs border border-slate-200/80 p-5 sm:p-6 sticky top-24 space-y-5 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto custom-scrollbar">
-      <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-        <div className="flex items-center gap-2 text-slate-900">
+    <div className="bg-white rounded-2xl shadow-xs border border-border/80 p-5 sm:p-6 sticky top-24 space-y-5 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto custom-scrollbar">
+      <div className="flex items-center justify-between border-b border-border-subtle pb-3">
+        <div className="flex items-center gap-2 text-heading">
           <Receipt className="w-5 h-5 text-primary" />
           <h3 className="text-base sm:text-lg font-extrabold">
             ملخص الطلب والحساب
           </h3>
         </div>
-        <span className="text-[11px] font-extrabold bg-orange-50 text-primary px-2.5 py-1 rounded-full">
+        <span className="text-[11px] font-extrabold bg-primary-light text-primary px-2.5 py-1 rounded-full">
           نقطة بيع الكاشير
         </span>
       </div>
 
       {errorMsg && (
-        <div className="p-3 bg-rose-50 border border-rose-200 text-rose-700 rounded-xl text-xs font-bold flex items-center gap-2">
+        <div className="p-3 bg-danger-light border border-danger-border text-danger rounded-xl text-xs font-bold flex items-center gap-2">
           <AlertCircle className="w-4 h-4 shrink-0" />
           <span>{errorMsg}</span>
         </div>
       )}
 
       {successMsg && (
-        <div className="p-3 bg-emerald-50 border border-emerald-200 text-emerald-700 rounded-xl text-xs font-bold flex items-center gap-2">
+        <div className="p-3 bg-success-light border border-success-border text-success rounded-xl text-xs font-bold flex items-center gap-2">
           <CheckCircle2 className="w-4 h-4 shrink-0" />
           <span>{successMsg}</span>
         </div>

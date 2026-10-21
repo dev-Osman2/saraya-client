@@ -174,7 +174,7 @@ export default function AdminOrdersPage() {
             type="button"
             onClick={fetchOrders}
             title="تحديث الطلبات"
-            className="w-11 h-11 rounded-full bg-white border border-slate-200 hover:border-primary text-slate-600 hover:text-primary flex items-center justify-center shrink-0 transition cursor-pointer shadow-2xs"
+            className="w-11 h-11 rounded-full bg-white border border-border hover:border-primary text-sub hover:text-primary flex items-center justify-center shrink-0 transition cursor-pointer shadow-2xs"
           >
             <RefreshCw className="w-4 h-4" />
           </button>
@@ -188,16 +188,16 @@ export default function AdminOrdersPage() {
       />
 
       {loading ? (
-        <div className="bg-white rounded-3xl border border-slate-200/80 py-20 flex flex-col items-center justify-center gap-3 text-slate-500">
+        <div className="bg-white rounded-3xl border border-border/80 py-20 flex flex-col items-center justify-center gap-3 text-muted">
           <Loader2 className="w-7 h-7 animate-spin text-primary" />
           <span className="text-sm font-bold">جاري تحميل سجل الطلبات...</span>
         </div>
       ) : error ? (
-        <div className="bg-rose-50 border border-rose-200 text-rose-700 rounded-3xl p-6 text-center font-bold text-sm">
+        <div className="bg-danger-light border border-danger-border text-danger rounded-3xl p-6 text-center font-bold text-sm">
           {error}
         </div>
       ) : filteredOrders.length === 0 ? (
-        <div className="bg-white rounded-3xl border border-slate-200/80 py-16 text-center text-slate-400 font-bold text-sm">
+        <div className="bg-white rounded-3xl border border-border/80 py-16 text-center text-muted-light font-bold text-sm">
           لا توجد طلبات مطابقة للعرض في هذا التبويب حالياً.
         </div>
       ) : (

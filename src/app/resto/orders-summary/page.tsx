@@ -70,7 +70,7 @@ export default function AdminOrdersSummaryPage() {
 
   if (loading || !summary) {
     return (
-      <div className="bg-white rounded-3xl border border-slate-200/80 py-20 flex flex-col items-center justify-center gap-3 text-slate-500">
+      <div className="bg-white rounded-3xl border border-border/80 py-20 flex flex-col items-center justify-center gap-3 text-muted">
         <Loader2 className="w-7 h-7 animate-spin text-primary" />
         <span className="text-sm font-bold">
           جاري تحليل بيانات وملخص طلبات اليوم...
@@ -83,17 +83,17 @@ export default function AdminOrdersSummaryPage() {
     <div className="space-y-6" dir="rtl">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-xl sm:text-2xl font-black text-slate-900">
+          <h1 className="text-xl sm:text-2xl font-black text-heading">
             ملخص طلبات وإحصائيات اليوم
           </h1>
-          <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
+          <p className="text-xs sm:text-sm text-muted font-medium mt-1">
             تقرير المبيعات، متوسط الفاتورة، أنواع التوصيل، والوجبات الأكثر طلباً
           </p>
         </div>
         <button
           type="button"
           onClick={fetchSummary}
-          className="px-4 py-2.5 rounded-xl bg-white border border-slate-200 hover:border-primary text-slate-700 hover:text-primary text-xs font-extrabold flex items-center gap-2 cursor-pointer transition shadow-2xs"
+          className="px-4 py-2.5 rounded-xl bg-white border border-border hover:border-primary text-sub hover:text-primary text-xs font-extrabold flex items-center gap-2 cursor-pointer transition shadow-2xs"
         >
           <RefreshCw className="w-4 h-4" />
           <span>تحديث الإحصائيات</span>
@@ -101,23 +101,23 @@ export default function AdminOrdersSummaryPage() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white rounded-3xl border border-slate-200/80 p-5 space-y-2 shadow-2xs">
-          <div className="flex items-center justify-between text-slate-500 text-xs font-bold">
+        <div className="bg-white rounded-3xl border border-border/80 p-5 space-y-2 shadow-2xs">
+          <div className="flex items-center justify-between text-muted text-xs font-bold">
             <span>إجمالي المبيعات المؤكدة</span>
-            <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+            <div className="w-9 h-9 rounded-xl bg-success-light text-success flex items-center justify-center">
               <Wallet className="w-5 h-5" />
             </div>
           </div>
-          <p className="text-2xl font-black text-slate-900">
+          <p className="text-2xl font-black text-heading">
             {summary.totalRevenue.toFixed(2)}{" "}
-            <span className="text-xs font-bold text-slate-500">ج</span>
+            <span className="text-xs font-bold text-muted">ج</span>
           </p>
         </div>
 
-        <div className="bg-white rounded-3xl border border-slate-200/80 p-5 space-y-2 shadow-2xs">
-          <div className="flex items-center justify-between text-slate-500 text-xs font-bold">
+        <div className="bg-white rounded-3xl border border-border/80 p-5 space-y-2 shadow-2xs">
+          <div className="flex items-center justify-between text-muted text-xs font-bold">
             <span>متوسط قيمة الفاتورة</span>
-            <div className="w-9 h-9 rounded-xl bg-orange-50 text-primary flex items-center justify-center">
+            <div className="w-9 h-9 rounded-xl bg-primary-light text-primary flex items-center justify-center">
               <TrendingUp className="w-5 h-5" />
             </div>
           </div>
@@ -127,94 +127,94 @@ export default function AdminOrdersSummaryPage() {
           </p>
         </div>
 
-        <div className="bg-white rounded-3xl border border-slate-200/80 p-5 space-y-2 shadow-2xs">
-          <div className="flex items-center justify-between text-slate-500 text-xs font-bold">
+        <div className="bg-white rounded-3xl border border-border/80 p-5 space-y-2 shadow-2xs">
+          <div className="flex items-center justify-between text-muted text-xs font-bold">
             <span>الطلبات المكتملة / الإجمالي</span>
-            <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+            <div className="w-9 h-9 rounded-xl bg-info-light text-info flex items-center justify-center">
               <ShoppingBag className="w-5 h-5" />
             </div>
           </div>
-          <p className="text-2xl font-black text-slate-900">
+          <p className="text-2xl font-black text-heading">
             {summary.confirmedCount}{" "}
-            <span className="text-xs font-bold text-slate-400">
+            <span className="text-xs font-bold text-muted-light">
               من أصل {summary.totalOrders} طلب
             </span>
           </p>
         </div>
 
-        <div className="bg-white rounded-3xl border border-slate-200/80 p-5 space-y-2 shadow-2xs">
-          <div className="flex items-center justify-between text-slate-500 text-xs font-bold">
+        <div className="bg-white rounded-3xl border border-border/80 p-5 space-y-2 shadow-2xs">
+          <div className="flex items-center justify-between text-muted text-xs font-bold">
             <span>قيد الانتظار / الملغية</span>
-            <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+            <div className="w-9 h-9 rounded-xl bg-warning-light text-warning flex items-center justify-center">
               <Clock className="w-5 h-5" />
             </div>
           </div>
-          <p className="text-base font-black text-slate-800 pt-1">
-            <span className="text-amber-600">
+          <p className="text-base font-black text-body pt-1">
+            <span className="text-warning">
               {summary.pendingCount} انتظار
             </span>{" "}
             —{" "}
-            <span className="text-rose-600">{summary.cancelledCount} ملغي</span>
+            <span className="text-danger">{summary.cancelledCount} ملغي</span>
           </p>
         </div>
       </div>
 
-      <div className="bg-white rounded-3xl border border-slate-200/80 p-6 space-y-4 shadow-2xs">
-        <h2 className="text-base font-black text-slate-900">
+      <div className="bg-white rounded-3xl border border-border/80 p-6 space-y-4 shadow-2xs">
+        <h2 className="text-base font-black text-heading">
           توزيع الطلبات حسب نوع الخدمة والتوصيل
         </h2>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex items-center gap-3">
+          <div className="bg-surface-soft rounded-2xl p-4 border border-border-subtle flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
               <Truck className="w-5 h-5" />
             </div>
             <div>
-              <span className="block text-xs font-bold text-slate-500">
+              <span className="block text-xs font-bold text-muted">
                 توصيل للمنازل
               </span>
-              <span className="text-lg font-black text-slate-900">
+              <span className="text-lg font-black text-heading">
                 {summary.orderTypesBreakdown.delivery} طلب
               </span>
             </div>
           </div>
 
-          <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center shrink-0">
+          <div className="bg-surface-soft rounded-2xl p-4 border border-border-subtle flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-success/10 text-success flex items-center justify-center shrink-0">
               <Store className="w-5 h-5" />
             </div>
             <div>
-              <span className="block text-xs font-bold text-slate-500">
+              <span className="block text-xs font-bold text-muted">
                 داخل الصالة (QR)
               </span>
-              <span className="text-lg font-black text-slate-900">
+              <span className="text-lg font-black text-heading">
                 {summary.orderTypesBreakdown.dine_in} طلب
               </span>
             </div>
           </div>
 
-          <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
+          <div className="bg-surface-soft rounded-2xl p-4 border border-border-subtle flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-info/10 text-info flex items-center justify-center shrink-0">
               <Calculator className="w-5 h-5" />
             </div>
             <div>
-              <span className="block text-xs font-bold text-slate-500">
+              <span className="block text-xs font-bold text-muted">
                 كاشير مباشر (POS)
               </span>
-              <span className="text-lg font-black text-slate-900">
+              <span className="text-lg font-black text-heading">
                 {summary.orderTypesBreakdown.cashier} طلب
               </span>
             </div>
           </div>
 
-          <div className="bg-slate-50 rounded-2xl p-4 border border-slate-100 flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center shrink-0">
+          <div className="bg-surface-soft rounded-2xl p-4 border border-border-subtle flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-warning/10 text-warning flex items-center justify-center shrink-0">
               <ShoppingBag className="w-5 h-5" />
             </div>
             <div>
-              <span className="block text-xs font-bold text-slate-500">
+              <span className="block text-xs font-bold text-muted">
                 استلام من الفرع
               </span>
-              <span className="text-lg font-black text-slate-900">
+              <span className="text-lg font-black text-heading">
                 {summary.orderTypesBreakdown.pickup} طلب
               </span>
             </div>
@@ -222,23 +222,23 @@ export default function AdminOrdersSummaryPage() {
         </div>
       </div>
 
-      <div className="bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-2xs">
-        <div className="p-6 border-b border-slate-100 flex items-center gap-2">
+      <div className="bg-white rounded-3xl border border-border/80 overflow-hidden shadow-2xs">
+        <div className="p-6 border-b border-border-subtle flex items-center gap-2">
           <Flame className="w-5 h-5 text-primary" />
-          <h2 className="text-base font-black text-slate-900">
+          <h2 className="text-base font-black text-heading">
             الوجبات والأصناف الأكثر طلباً اليوم
           </h2>
         </div>
 
         {summary.mostOrderedItems.length === 0 ? (
-          <div className="py-14 text-center text-slate-400 font-bold text-sm">
+          <div className="py-14 text-center text-muted-light font-bold text-sm">
             لا توجد وجبات مؤكدة بعد لعرض الإحصائيات.
           </div>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full text-right border-collapse">
               <thead>
-                <tr className="bg-orange-50 text-slate-700 text-xs font-extrabold border-b border-orange-100">
+                <tr className="bg-primary-light text-sub text-xs font-extrabold border-b border-primary-light">
                   <th className="py-3.5 px-6">#</th>
                   <th className="py-3.5 px-6">اسم الوجبة</th>
                   <th className="py-3.5 px-6 text-center">الحجم</th>
@@ -248,24 +248,24 @@ export default function AdminOrdersSummaryPage() {
                   <th className="py-3.5 px-6 text-left">إجمالي الإيراد</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 text-xs sm:text-sm">
+              <tbody className="divide-y divide-border-subtle text-xs sm:text-sm">
                 {summary.mostOrderedItems.map((item, idx) => (
-                  <tr key={idx} className="hover:bg-orange-50/20">
+                  <tr key={idx} className="hover:bg-primary-light/20">
                     <td className="py-3.5 px-6 font-black text-primary">
                       {idx + 1}
                     </td>
-                    <td className="py-3.5 px-6 font-extrabold text-slate-900">
+                    <td className="py-3.5 px-6 font-extrabold text-heading">
                       {item.name}
                     </td>
                     <td className="py-3.5 px-6 text-center">
-                      <span className="bg-orange-50 text-primary font-bold px-2.5 py-1 rounded-lg text-xs">
+                      <span className="bg-primary-light text-primary font-bold px-2.5 py-1 rounded-lg text-xs">
                         {item.size}
                       </span>
                     </td>
-                    <td className="py-3.5 px-6 text-center font-black text-slate-800">
+                    <td className="py-3.5 px-6 text-center font-black text-body">
                       {item.totalQuantity} وجبة
                     </td>
-                    <td className="py-3.5 px-6 text-left font-black text-emerald-700">
+                    <td className="py-3.5 px-6 text-left font-black text-success">
                       {item.totalRevenue.toFixed(2)} ج
                     </td>
                   </tr>

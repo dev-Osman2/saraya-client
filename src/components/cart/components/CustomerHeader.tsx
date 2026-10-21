@@ -12,14 +12,14 @@ export default function CustomerHeader({ isDineIn, tableNumber }: CustomerHeader
     <>
       <div className="flex items-center gap-2 pt-1">
         <User className="w-4 h-4 text-primary" />
-        <h4 className="text-sm font-extrabold text-slate-800">
+        <h4 className="text-sm font-extrabold text-body">
           {isDineIn ? `بيانات طلب الصالة (ترابيزة ${tableNumber})` : "بيانات التوصيل والإستلام"}
         </h4>
       </div>
 
       {isDineIn && (
-        <div className="flex items-center justify-between bg-orange-50 border border-primary/30 rounded-xl p-3 text-xs">
-          <div className="flex items-center gap-2 font-bold text-slate-800">
+        <div className="flex items-center justify-between bg-primary-light border border-primary/30 rounded-xl p-3 text-xs">
+          <div className="flex items-center gap-2 font-bold text-body">
             <UtensilsCrossed className="w-4 h-4 text-primary" />
             <span>الطلب مخصص لـ ترابيزة رقم ({tableNumber})</span>
           </div>

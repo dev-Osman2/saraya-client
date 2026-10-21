@@ -86,8 +86,8 @@ export default function OrderTable({
               onClick={() => setStatusFilter(tab.key as StatusFilter)}
               className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 transition-all shrink-0 ${
                 statusFilter === tab.key
-                  ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/20"
-                  : "bg-white text-slate-600 hover:bg-slate-100 border border-slate-200"
+                  ? "bg-info text-white shadow-md shadow-indigo-600/20"
+                  : "bg-white text-sub hover:bg-surface-subtle border border-border"
               }`}
             >
               <span>{tab.label}</span>
@@ -95,7 +95,7 @@ export default function OrderTable({
                 className={`text-[10px] px-2 py-0.5 rounded-full font-mono ${
                   statusFilter === tab.key
                     ? "bg-white/20 text-white"
-                    : "bg-slate-100 text-slate-500"
+                    : "bg-surface-subtle text-muted"
                 }`}
               >
                 {tab.count}
@@ -105,23 +105,23 @@ export default function OrderTable({
         </div>
 
         <div className="relative w-full md:w-80">
-          <Search className="w-4 h-4 absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+          <Search className="w-4 h-4 absolute right-3.5 top-1/2 -translate-y-1/2 text-muted-light" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="بحث بالاسم، الهاتف، أو رقم الطلب..."
-            className="w-full pr-10 pl-3 py-2.5 bg-white border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-indigo-500 shadow-sm"
+            className="w-full pr-10 pl-3 py-2.5 bg-white border border-border rounded-xl text-xs sm:text-sm focus:outline-none focus:border-primary shadow-sm"
           />
         </div>
       </div>
 
       {loading ? (
-        <div className="text-center py-12 text-slate-400 font-bold text-sm">
+        <div className="text-center py-12 text-muted-light font-bold text-sm">
           جاري تحميل الطلبات...
         </div>
       ) : filteredOrders.length === 0 ? (
-        <div className="text-center py-12 bg-white rounded-3xl border border-slate-200 text-slate-400 font-bold text-sm">
+        <div className="text-center py-12 bg-white rounded-3xl border border-border text-muted-light font-bold text-sm">
           لا توجد طلبات مطابقة لمعايير البحث
         </div>
       ) : (
@@ -129,25 +129,25 @@ export default function OrderTable({
           {filteredOrders.map((order) => (
             <div
               key={order._id}
-              className="bg-white rounded-3xl border border-slate-200/90 shadow-sm p-5 flex flex-col justify-between space-y-4 hover:shadow-md transition-shadow"
+              className="bg-white rounded-3xl border border-border/90 shadow-sm p-5 flex flex-col justify-between space-y-4 hover:shadow-md transition-shadow"
             >
-              <div className="flex items-start justify-between gap-2 border-b border-slate-100 pb-3">
+              <div className="flex items-start justify-between gap-2 border-b border-border-subtle pb-3">
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="font-mono text-sm font-extrabold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-lg">
+                    <span className="font-mono text-sm font-extrabold text-info bg-info-light px-2.5 py-1 rounded-lg">
                       #{order.orderNumber}
                     </span>
-                    <h3 className="font-bold text-slate-900 text-sm">
+                    <h3 className="font-bold text-heading text-sm">
                       {order.customerName}
                     </h3>
                   </div>
-                  <div className="flex items-center gap-3 mt-2 text-xs text-slate-500">
+                  <div className="flex items-center gap-3 mt-2 text-xs text-muted">
                     <span className="flex items-center gap-1 font-mono dir-ltr">
-                      <Phone className="w-3.5 h-3.5 text-slate-400" />
+                      <Phone className="w-3.5 h-3.5 text-muted-light" />
                       {order.phoneNumber}
                     </span>
                     <span className="flex items-center gap-1">
-                      <MapPin className="w-3.5 h-3.5 text-slate-400" />
+                      <MapPin className="w-3.5 h-3.5 text-muted-light" />
                       {order.pickupFromAssociation
                         ? "استلام من المقر"
                         : order.address}
@@ -158,10 +158,10 @@ export default function OrderTable({
                 <span
                   className={`text-[11px] font-extrabold px-3 py-1 rounded-lg shrink-0 ${
                     order.status === "confirmed"
-                      ? "bg-emerald-50 text-emerald-600 border border-emerald-200"
+                      ? "bg-success-light text-success border border-success-border"
                       : order.status === "cancelled"
-                        ? "bg-rose-50 text-rose-600 border border-rose-200"
-                        : "bg-amber-50 text-amber-600 border border-amber-200"
+                        ? "bg-danger-light text-danger border border-danger-border"
+                        : "bg-warning-light text-warning border border-warning-border"
                   }`}
                 >
                   {order.status === "confirmed"
@@ -172,11 +172,11 @@ export default function OrderTable({
                 </span>
               </div>
 
-              <div className="bg-slate-50 rounded-2xl p-3 space-y-1.5 max-h-32 overflow-y-auto custom-scrollbar text-xs">
+              <div className="bg-surface-soft rounded-2xl p-3 space-y-1.5 max-h-32 overflow-y-auto custom-scrollbar text-xs">
                 {order.items?.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex justify-between items-center text-slate-700"
+                    className="flex justify-between items-center text-sub"
                   >
                     <span className="font-medium truncate max-w-[65%]">
                       {item.name}
@@ -188,22 +188,22 @@ export default function OrderTable({
                 ))}
               </div>
 
-              <div className="flex items-center justify-between pt-1 border-t border-slate-100">
+              <div className="flex items-center justify-between pt-1 border-t border-border-subtle">
                 <div>
-                  <span className="text-[10px] text-slate-400 block font-bold">
+                  <span className="text-[10px] text-muted-light block font-bold">
                     المبلغ الإجمالي
                   </span>
-                  <span className="text-base font-black text-slate-900 font-mono">
+                  <span className="text-base font-black text-heading font-mono">
                     {order.totalAmount.toFixed(2)} ج
                   </span>
                 </div>
 
-                <div className="flex items-center gap-2 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200">
+                <div className="flex items-center gap-2 bg-surface-soft px-3 py-1.5 rounded-xl border border-border">
                   <CreditCard
-                    className={`w-4 h-4 ${order.isPaid ? "text-emerald-600" : "text-slate-400"}`}
+                    className={`w-4 h-4 ${order.isPaid ? "text-success" : "text-muted-light"}`}
                   />
                   <span
-                    className={`text-xs font-bold ${order.isPaid ? "text-emerald-700" : "text-slate-500"}`}
+                    className={`text-xs font-bold ${order.isPaid ? "text-success" : "text-muted"}`}
                   >
                     {order.isPaid ? "تم الدفع" : "لم يُدفع"}
                   </span>
@@ -216,7 +216,7 @@ export default function OrderTable({
                       }
                       className="peer sr-only"
                     />
-                    <span className="h-5 w-9 rounded-full bg-slate-200 transition-colors peer-checked:bg-emerald-600"></span>
+                    <span className="h-5 w-9 rounded-full bg-surface-hover transition-colors peer-checked:bg-success"></span>
                     <span className="absolute left-0.5 top-0.5 h-4 w-4 rounded-full bg-white shadow-sm transition-transform peer-checked:translate-x-4"></span>
                   </label>
                 </div>
@@ -227,7 +227,7 @@ export default function OrderTable({
                   type="button"
                   onClick={() => onStatusChange(order._id, "confirmed")}
                   disabled={order.status === "confirmed"}
-                  className="py-2 bg-emerald-600 hover:bg-emerald-700 disabled:opacity-40 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-colors"
+                  className="py-2 bg-success hover:bg-success disabled:opacity-40 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-colors"
                 >
                   <Check className="w-3.5 h-3.5" />
                   <span>تأكيد</span>
@@ -237,7 +237,7 @@ export default function OrderTable({
                   type="button"
                   onClick={() => onStatusChange(order._id, "cancelled")}
                   disabled={order.status === "cancelled"}
-                  className="py-2 bg-rose-600 hover:bg-rose-700 disabled:opacity-40 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-colors"
+                  className="py-2 bg-danger hover:bg-danger disabled:opacity-40 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-colors"
                 >
                   <X className="w-3.5 h-3.5" />
                   <span>إلغاء</span>

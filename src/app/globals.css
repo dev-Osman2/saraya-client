@@ -1,19 +1,106 @@
 @import "tailwindcss";
 
 :root {
+  /* ========================================
+     1. الهوية الأساسية (Brand Identity)
+     ======================================== */
   --color-primary: #d55304;
   --color-primary-hover: #b84403;
+  --color-primary-light: #fff7ed;
+  --color-primary-subtle: #ffedd5;
   --color-secondary: #ffc107;
   --color-dark: #1e1e2d;
   --color-lightBg: #f3f4f6;
+
+  /* ========================================
+     2. ألوان النصوص (Typography)
+     ======================================== */
+  --color-heading: #0f172a;
+  --color-body: #1e293b;
+  --color-sub: #475569;
+  --color-muted: #64748b;
+  --color-muted-light: #94a3b8;
+
+  /* ========================================
+     3. ألوان الأسطح والخلفيات (Surfaces)
+     ======================================== */
+  --color-surface-soft: #f8fafc;
+  --color-surface-subtle: #f1f5f9;
+  --color-surface-hover: #e2e8f0;
+
+  /* ========================================
+     4. ألوان الحدود والفواصل (Borders)
+     ======================================== */
+  --color-border: #e2e8f0;
+  --color-border-subtle: #f1f5f9;
+
+  /* ========================================
+     5. ألوان الحالات والإشعارات (Status Colors)
+     ======================================== */
+  --color-success: #059669;
+  --color-success-hover: #047857;
+  --color-success-light: #ecfdf5;
+  --color-success-border: #a7f3d0;
+
+  --color-warning: #f59e0b;
+  --color-warning-hover: #d97706;
+  --color-warning-light: #fffbeb;
+  --color-warning-border: #fde68a;
+
+  --color-danger: #e11d48;
+  --color-danger-hover: #be123c;
+  --color-danger-light: #fff1f2;
+  --color-danger-border: #fecdd3;
+
+  --color-info: #4f46e5;
+  --color-info-hover: #4338ca;
+  --color-info-light: #eef2ff;
+  --color-info-border: #c7d2fe;
+  --color-info-dark: #312e81;
 }
 
 @theme {
   --color-primary: #d55304;
   --color-primary-hover: #b84403;
+  --color-primary-light: #fff7ed;
+  --color-primary-subtle: #ffedd5;
   --color-secondary: #ffc107;
   --color-dark: #1e1e2d;
   --color-lightBg: #f3f4f6;
+
+  --color-heading: #0f172a;
+  --color-body: #1e293b;
+  --color-sub: #475569;
+  --color-muted: #64748b;
+  --color-muted-light: #94a3b8;
+
+  --color-surface-soft: #f8fafc;
+  --color-surface-subtle: #f1f5f9;
+  --color-surface-hover: #e2e8f0;
+
+  --color-border: #e2e8f0;
+  --color-border-subtle: #f1f5f9;
+
+  --color-success: #059669;
+  --color-success-hover: #047857;
+  --color-success-light: #ecfdf5;
+  --color-success-border: #a7f3d0;
+
+  --color-warning: #f59e0b;
+  --color-warning-hover: #d97706;
+  --color-warning-light: #fffbeb;
+  --color-warning-border: #fde68a;
+
+  --color-danger: #e11d48;
+  --color-danger-hover: #be123c;
+  --color-danger-light: #fff1f2;
+  --color-danger-border: #fecdd3;
+
+  --color-info: #4f46e5;
+  --color-info-hover: #4338ca;
+  --color-info-light: #eef2ff;
+  --color-info-border: #c7d2fe;
+  --color-info-dark: #312e81;
 }
 
 @utility container {
@@ -62,7 +149,7 @@ html {
 }
 
 body {
-  @apply bg-lightBg text-gray-800;
+  @apply bg-lightBg text-body;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -75,17 +162,17 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #cbd5e1;
+  background-color: var(--color-border);
   border-radius: 9999px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #94a3b8;
+  background-color: var(--color-muted);
 }
 
 .custom-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #cbd5e1 transparent;
+  scrollbar-color: var(--color-border) transparent;
 }
 
 .bording {
@@ -93,13 +180,13 @@ body {
 }
 
 ::selection {
-  background-color: #fff7ed;
+  background-color: var(--color-primary-light);
   color: var(--color-primary);
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-primary-hover) #f1f5f9;
+  scrollbar-color: var(--color-primary-hover) var(--color-surface-subtle);
 }
 
 ::-webkit-scrollbar {
@@ -108,7 +195,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f8fafc;
+  background: var(--color-surface-soft);
 }
 
 ::-webkit-scrollbar-thumb {

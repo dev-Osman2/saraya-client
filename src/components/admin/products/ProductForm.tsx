@@ -26,7 +26,7 @@ export default function ProductForm({
   return (
     <form onSubmit={form.handleSubmit} className="space-y-5" dir="rtl">
       {form.error && (
-        <div className="p-3.5 bg-rose-50 border border-rose-200 text-rose-700 rounded-2xl text-xs font-bold flex items-center gap-2">
+        <div className="p-3.5 bg-danger-light border border-danger-border text-danger rounded-2xl text-xs font-bold flex items-center gap-2">
           <AlertCircle className="w-4 h-4 shrink-0" />
           <span>{form.error}</span>
         </div>

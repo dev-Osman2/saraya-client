@@ -38,7 +38,7 @@ export default function ProductImageBadge({
 
   return (
     <div
-      className="relative aspect-[16/10] w-full overflow-hidden bg-orange-50/40 cursor-pointer"
+      className="relative aspect-[16/10] w-full overflow-hidden bg-primary-light/40 cursor-pointer"
       onClick={handleImageClick}
     >
       {!imgError && imageUrl ? (
@@ -49,17 +49,17 @@ export default function ProductImageBadge({
           className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
         />
       ) : (
-        <div className="w-full h-full flex items-center justify-center bg-orange-50/70">
+        <div className="w-full h-full flex items-center justify-center bg-primary-light/70">
           <span className="text-5xl font-black text-primary/40 select-none">
             ؟
           </span>
         </div>
       )}
 
-      <div className="absolute top-2.5 left-2.5 z-10 bg-slate-900/85 backdrop-blur-md text-white px-2.5 py-1 rounded-lg flex items-center gap-1.5 shadow-sm">
+      <div className="absolute top-2.5 left-2.5 z-10 bg-dark/85 backdrop-blur-md text-white px-2.5 py-1 rounded-lg flex items-center gap-1.5 shadow-sm">
         <span className="text-xs font-extrabold">{Number(price)} ج</span>
         {oldPrice && oldPrice > price ? (
-          <span className="text-[10px] text-slate-300 line-through">
+          <span className="text-[10px] text-muted-light line-through">
             {Number(oldPrice)} ج
           </span>
         ) : null}

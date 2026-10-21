@@ -24,7 +24,7 @@ export default function ProductQuantityControl({
 
   return (
     <div
-      className="px-4 py-3 mt-1 border-t border-slate-100 flex items-center justify-between gap-2"
+      className="px-4 py-3 mt-1 border-t border-border-subtle flex items-center justify-between gap-2"
       dir="rtl"
     >
       <SizeSelector
@@ -34,7 +34,7 @@ export default function ProductQuantityControl({
         hasSizes={hasSizes}
       />
 
-      <div className="flex items-center gap-1 bg-slate-50 border border-slate-200/80 rounded-xl p-0.5 shrink-0">
+      <div className="flex items-center gap-1 bg-surface-soft border border-border/80 rounded-xl p-0.5 shrink-0">
         <button
           type="button"
           onClick={onIncrease}
@@ -44,7 +44,7 @@ export default function ProductQuantityControl({
           +
         </button>
 
-        <span className="w-7 text-center font-extrabold text-xs text-slate-800 select-none">
+        <span className="w-7 text-center font-extrabold text-xs text-body select-none">
           {currentQty}
         </span>
 

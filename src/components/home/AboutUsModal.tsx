@@ -15,21 +15,21 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
       onClick={onClose}
     >
       <div
-        className="bg-white w-full max-w-2xl rounded-3xl p-6 md:p-7 shadow-2xl relative max-h-[90vh] overflow-y-auto text-right text-gray-800 leading-relaxed animate-in fade-in zoom-in-95 duration-200 custom-scrollbar"
+        className="bg-white w-full max-w-2xl rounded-3xl p-6 md:p-7 shadow-2xl relative max-h-[90vh] overflow-y-auto text-right text-body leading-relaxed animate-in fade-in zoom-in-95 duration-200 custom-scrollbar"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="absolute top-5 left-5 w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 transition cursor-pointer"
+          className="absolute top-5 left-5 w-8 h-8 flex items-center justify-center rounded-full bg-surface-subtle hover:bg-surface-hover text-sub transition cursor-pointer"
         >
           ✕
         </button>
 
-        <div className="border-b border-gray-100 pb-4 mb-5">
+        <div className="border-b border-border-subtle pb-4 mb-5">
           <h2 className="text-xl md:text-2xl font-black text-primary mb-2 flex items-center gap-2">
             <span>🍽️</span> عن مطعم السرايا
           </h2>
-          <p className="text-sm text-gray-600 leading-relaxed">
+          <p className="text-sm text-sub leading-relaxed">
             وجهتكم الأولى لأشهى المأكولات والمشويات الطازجة المحضرة بأجود أنواع
             اللحوم والمكونات البلدية 100%. صُممت هذه المنصة لتسهيل تجربة الطلب
             السريع والدفع المباشر، وتوصيل وجباتكم ساخنة وطازجة بأعلى معايير
@@ -39,21 +39,21 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
 
         <div className="space-y-5 text-sm">
           <div>
-            <h3 className="font-extrabold text-gray-900 flex items-center gap-2 mb-1.5 text-base">
+            <h3 className="font-extrabold text-heading flex items-center gap-2 mb-1.5 text-base">
               <span>✨</span> رؤيتنا وشغفنا
             </h3>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-sub leading-relaxed">
               تقديم المذاق الشرقي الأصيل بلمسة عصرية، والجمع بين الطعم الغني
               وسرعة الخدمة والأسعار التنافسية لضمان تجربة طعام لا تُنسى لكل
               أفراد العائلة.
             </p>
           </div>
 
-          <div className="bg-amber-50/70 border border-amber-200/70 p-4 rounded-2xl">
-            <h3 className="font-extrabold text-amber-950 flex items-center gap-2 mb-2 text-base">
+          <div className="bg-warning-light/70 border border-warning-border/70 p-4 rounded-2xl">
+            <h3 className="font-extrabold text-heading flex items-center gap-2 mb-2 text-base">
               <span>📍</span> المقر ومواعيد العمل
             </h3>
-            <ul className="space-y-1.5 text-xs md:text-sm text-amber-900">
+            <ul className="space-y-1.5 text-xs md:text-sm text-warning">
               <li>
                 • <strong>مواعيد العمل:</strong> يومياً من الساعة 6:00 صباحا
                 وحتى 2:00 ظهراً.
@@ -69,11 +69,11 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
             </ul>
           </div>
 
-          <div className="bg-orange-50/60 border border-primary/20 p-4 rounded-2xl">
-            <h3 className="font-extrabold text-orange-800 flex items-center gap-2 mb-2 text-base">
+          <div className="bg-primary-light/60 border border-primary/20 p-4 rounded-2xl">
+            <h3 className="font-extrabold text-primary-hover flex items-center gap-2 mb-2 text-base">
               <span>🛒</span> كيف تطلب عبر المنصة؟
             </h3>
-            <ol className="space-y-2 text-xs md:text-sm text-slate-800 list-decimal list-inside">
+            <ol className="space-y-2 text-xs md:text-sm text-body list-decimal list-inside">
               <li>
                 <strong>اختر وجبتك:</strong> تصفح قائمة المشويات والمشروبات وحدد
                 الحجم والكمية، ثم أضف ملاحظاتك الخاصة.
@@ -89,11 +89,11 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
             </ol>
           </div>
 
-          <div className="bg-orange-50 border border-primary/20 p-4 rounded-2xl">
-            <h3 className="font-extrabold text-orange-800 flex items-center gap-2 mb-2 text-base">
+          <div className="bg-primary-light border border-primary/20 p-4 rounded-2xl">
+            <h3 className="font-extrabold text-primary-hover flex items-center gap-2 mb-2 text-base">
               <span>📲</span> كيفية تثبيت التطبيق؟
             </h3>
-            <ol className="space-y-2 text-xs md:text-sm text-slate-800 list-decimal list-inside">
+            <ol className="space-y-2 text-xs md:text-sm text-body list-decimal list-inside">
               <li>الضغط على الثلاث نقاط التي في أعلى المتصفح.</li>
               <li>
                 النزول والضغط على <strong>«التثبيت وإنشاء اختصار»</strong> (أو
@@ -106,10 +106,10 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
           </div>
 
           <div>
-            <h3 className="font-extrabold text-gray-900 flex items-center gap-2 mb-2 text-base">
+            <h3 className="font-extrabold text-heading flex items-center gap-2 mb-2 text-base">
               <span>⚠️</span> ضوابط وسياسة الطلب والتجهيز
             </h3>
-            <ul className="space-y-2.5 text-xs md:text-sm text-gray-600">
+            <ul className="space-y-2.5 text-xs md:text-sm text-sub">
               <li className="flex items-start gap-2">
                 <span className="text-primary font-bold">•</span>
                 <span>

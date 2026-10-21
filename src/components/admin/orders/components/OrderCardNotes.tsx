@@ -33,15 +33,15 @@ export default function OrderCardNotes({
 }: OrderCardNotesProps) {
   return (
     <div className="space-y-3">
-      <div className="pt-2 border-t border-slate-100 flex items-center justify-start gap-2 flex-wrap">
+      <div className="pt-2 border-t border-border-subtle flex items-center justify-start gap-2 flex-wrap">
         {hasCustomerNote && (
           <button
             type="button"
             onClick={() => setShowCustomerNote((prev) => !prev)}
             className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-extrabold border transition-all cursor-pointer ${
               showCustomerNote
-                ? "bg-indigo-600 text-white border-indigo-600 shadow-xs"
-                : "bg-indigo-50 text-indigo-700 border-indigo-200 hover:bg-indigo-100"
+                ? "bg-info text-white border-info shadow-xs"
+                : "bg-info-light text-info border-info-border hover:bg-info-light"
             }`}
           >
             <FileText className="w-3.5 h-3.5" />
@@ -59,8 +59,8 @@ export default function OrderCardNotes({
           onClick={() => setShowAdminNote((prev) => !prev)}
           className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-extrabold border transition-all cursor-pointer ${
             hasSavedAdminNote
-              ? "bg-amber-500 hover:bg-amber-600 text-white border-amber-500 shadow-xs"
-              : "bg-slate-100 hover:bg-slate-200/80 text-slate-500 border-slate-200/80"
+              ? "bg-warning hover:bg-warning text-white border-warning-border shadow-xs"
+              : "bg-surface-subtle hover:bg-surface-hover/80 text-muted border-border/80"
           }`}
         >
           <ClipboardEdit className="w-3.5 h-3.5" />
@@ -74,19 +74,19 @@ export default function OrderCardNotes({
       </div>
 
       {showCustomerNote && hasCustomerNote && (
-        <div className="bg-indigo-50/70 border border-indigo-100 rounded-2xl p-3.5 text-right space-y-1 animate-in fade-in duration-150">
-          <p className="text-xs font-extrabold text-indigo-700">
+        <div className="bg-info-light/70 border border-info-border rounded-2xl p-3.5 text-right space-y-1 animate-in fade-in duration-150">
+          <p className="text-xs font-extrabold text-info">
             ملاحظة كتبها العميل:
           </p>
-          <p className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
+          <p className="text-xs sm:text-sm text-sub font-medium leading-relaxed">
             {notes}
           </p>
         </div>
       )}
 
       {showAdminNote && (
-        <div className="bg-amber-50/70 border border-amber-200/80 rounded-2xl p-4 text-right space-y-3 animate-in fade-in duration-150">
-          <p className="text-xs font-extrabold text-amber-900">
+        <div className="bg-warning-light/70 border border-warning-border/80 rounded-2xl p-4 text-right space-y-3 animate-in fade-in duration-150">
+          <p className="text-xs font-extrabold text-warning">
             ملاحظة الأدمن الخاصة بالطلب:
           </p>
           <textarea
@@ -94,13 +94,13 @@ export default function OrderCardNotes({
             value={adminNoteText}
             onChange={(e) => setAdminNoteText(e.target.value)}
             placeholder="اكتب ملاحظات المطبخ أو النواقص أو باقي المبلغ..."
-            className="w-full p-3 bg-white border border-amber-200 rounded-xl text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-primary resize-none"
+            className="w-full p-3 bg-white border border-warning-border rounded-xl text-xs sm:text-sm text-body focus:outline-none focus:border-primary resize-none"
           />
           <div className="flex items-center justify-end gap-3">
             <button
               type="button"
               onClick={onCancelNote}
-              className="px-3 py-1.5 text-xs font-extrabold text-slate-600 hover:text-slate-900 cursor-pointer"
+              className="px-3 py-1.5 text-xs font-extrabold text-sub hover:text-heading cursor-pointer"
             >
               إلغاء
             </button>

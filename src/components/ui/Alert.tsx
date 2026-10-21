@@ -14,15 +14,15 @@ export default function Alert({
   className = "",
 }: AlertProps) {
   const styles = {
-    error: "bg-rose-50/90 border-rose-200 text-rose-900",
-    success: "bg-emerald-50/90 border-emerald-200 text-emerald-900",
-    info: "bg-blue-50/90 border-blue-200 text-blue-900",
+    error: "bg-danger-light/90 border-danger-border text-danger",
+    success: "bg-success-light/90 border-success-border text-success",
+    info: "bg-info-light/90 border-info-border text-info",
   }[type];
 
   const Icon = {
-    error: <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />,
-    success: <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />,
-    info: <Info className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />,
+    error: <AlertCircle className="w-4 h-4 text-danger shrink-0 mt-0.5" />,
+    success: <CheckCircle2 className="w-4 h-4 text-success shrink-0 mt-0.5" />,
+    info: <Info className="w-4 h-4 text-info shrink-0 mt-0.5" />,
   }[type];
 
   return (

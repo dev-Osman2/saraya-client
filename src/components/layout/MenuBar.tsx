@@ -56,19 +56,19 @@ export default function MenuBar({ isOpen, onClose }: MenuBarProps) {
         className="w-72 max-w-[82vw] bg-white h-full shadow-2xl p-5 flex flex-col justify-between animate-in slide-in-from-right duration-200"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-3 shrink-0">
+        <div className="flex items-center justify-between border-b border-border-subtle pb-4 mb-3 shrink-0">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-xl bg-primary text-white flex items-center justify-center shadow-xs">
               <UtensilsCrossed className="w-4 h-4" />
             </div>
-            <span className="font-extrabold text-slate-900 text-base">
+            <span className="font-extrabold text-heading text-base">
               أقسام المنيو
             </span>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition cursor-pointer"
+            className="w-8 h-8 rounded-full bg-surface-subtle hover:bg-surface-hover text-sub flex items-center justify-center transition cursor-pointer"
             aria-label="إغلاق القائمة"
           >
             <X className="w-4 h-4" />
@@ -79,7 +79,7 @@ export default function MenuBar({ isOpen, onClose }: MenuBarProps) {
           <button
             type="button"
             onClick={() => setIsMenuGalleryOpen(true)}
-            className="w-full px-4 py-3 rounded-xl bg-orange-50 hover:bg-orange-100 border border-primary/30 text-primary font-extrabold text-xs sm:text-sm flex items-center justify-between transition cursor-pointer shadow-2xs"
+            className="w-full px-4 py-3 rounded-xl bg-primary-light hover:bg-primary-subtle border border-primary/30 text-primary font-extrabold text-xs sm:text-sm flex items-center justify-between transition cursor-pointer shadow-2xs"
           >
             <div className="flex items-center gap-2">
               <ImagePlus className="w-4 h-4 shrink-0" />
@@ -101,7 +101,7 @@ export default function MenuBar({ isOpen, onClose }: MenuBarProps) {
           <button
             type="button"
             onClick={handleScrollToOrderSummary}
-            className="w-full px-4 py-3 rounded-xl bg-orange-50 hover:bg-orange-100 border border-primary/30 text-primary font-extrabold text-xs sm:text-sm flex items-center justify-between transition cursor-pointer shadow-2xs"
+            className="w-full px-4 py-3 rounded-xl bg-primary-light hover:bg-primary-subtle border border-primary/30 text-primary font-extrabold text-xs sm:text-sm flex items-center justify-between transition cursor-pointer shadow-2xs"
           >
             <div className="flex items-center gap-2">
               <Receipt className="w-4 h-4 shrink-0" />
@@ -122,7 +122,7 @@ export default function MenuBar({ isOpen, onClose }: MenuBarProps) {
             className={`w-full text-right px-4 py-3 rounded-xl font-bold text-sm transition flex items-center justify-between cursor-pointer ${
               !currentCategory
                 ? "bg-primary text-white shadow-xs"
-                : "bg-slate-50 hover:bg-orange-50 text-slate-700"
+                : "bg-surface-soft hover:bg-primary-light text-sub"
             }`}
           >
             <span>كل الوجبات (المنيو الكامل)</span>
@@ -139,7 +139,7 @@ export default function MenuBar({ isOpen, onClose }: MenuBarProps) {
                 className={`w-full text-right px-4 py-3 rounded-xl font-bold text-sm transition flex items-center justify-between cursor-pointer ${
                   isActive
                     ? "bg-primary text-white shadow-xs"
-                    : "bg-slate-50 hover:bg-orange-50 text-slate-700"
+                    : "bg-surface-soft hover:bg-primary-light text-sub"
                 }`}
               >
                 <span className="truncate">{category}</span>
@@ -153,7 +153,7 @@ export default function MenuBar({ isOpen, onClose }: MenuBarProps) {
           })}
         </div>
 
-        <div className="border-t border-slate-100 pt-3 mt-3 text-center text-xs text-slate-400 font-medium shrink-0">
+        <div className="border-t border-border-subtle pt-3 mt-3 text-center text-xs text-muted-light font-medium shrink-0">
           مطعم السرايا — أشهى المأكولات
         </div>
       </aside>

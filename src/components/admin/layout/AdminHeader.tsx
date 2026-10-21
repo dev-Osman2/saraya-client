@@ -99,7 +99,7 @@ export default function AdminHeader({
             />
             <div className="leading-tight text-right">
               <h1 className="font-black text-base sm:text-lg">مطعم السرايا</h1>
-              <p className="text-[11px] text-orange-100 font-medium hidden sm:block">
+              <p className="text-[11px] text-primary-subtle font-medium hidden sm:block">
                 {isCashierPage
                   ? "أشهى المأكولات والمشروبات"
                   : "لوحة تحكم المشرف وإدارة المطبخ"}
@@ -108,7 +108,7 @@ export default function AdminHeader({
           </div>
 
           {!isStoreOpen && (
-            <span className="bg-rose-600 text-white text-[11px] font-extrabold px-3 py-1 rounded-full animate-pulse hidden md:inline">
+            <span className="bg-danger text-white text-[11px] font-extrabold px-3 py-1 rounded-full animate-pulse hidden md:inline">
               المطعم مغلق للعملاء
             </span>
           )}

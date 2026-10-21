@@ -21,7 +21,7 @@ export default function CartItemRow({
     <div className="py-3 flex justify-between items-center gap-3 text-xs sm:text-sm">
       <div className="flex items-center gap-2.5 flex-1 min-w-0">
         <div
-          className="relative w-12 h-12 rounded-xl overflow-hidden bg-orange-50/50 border border-slate-200/80 shrink-0 cursor-pointer group"
+          className="relative w-12 h-12 rounded-xl overflow-hidden bg-primary-light/50 border border-border/80 shrink-0 cursor-pointer group"
           onClick={() => onZoomImage({ src: item.image, name: item.name })}
         >
           <img
@@ -37,21 +37,21 @@ export default function CartItemRow({
 
         <div className="flex-1 min-w-0 text-right">
           <div className="flex items-center gap-1.5 flex-wrap">
-            <p className="font-bold text-slate-800 truncate">{item.name}</p>
+            <p className="font-bold text-body truncate">{item.name}</p>
             {item.selectedSize && (
-              <span className="inline-block text-[10px] font-extrabold bg-orange-50 text-primary border border-primary/25 px-1.5 py-0.5 rounded-md">
+              <span className="inline-block text-[10px] font-extrabold bg-primary-light text-primary border border-primary/25 px-1.5 py-0.5 rounded-md">
                 {item.selectedSize}
               </span>
             )}
           </div>
-          <p className="text-[11px] text-slate-500 mt-0.5">
+          <p className="text-[11px] text-muted mt-0.5">
             الكمية: <span className="font-extrabold text-primary">{qty}</span> × {price} ج
           </p>
         </div>
       </div>
 
       <div className="flex items-center flex-wrap gap-2 shrink-0">
-        <div className="flex items-center gap-1 bg-slate-50 border border-slate-200 rounded-lg px-1.5 py-0.5">
+        <div className="flex items-center gap-1 bg-surface-soft border border-border rounded-lg px-1.5 py-0.5">
           <button
             type="button"
             onClick={() => onUpdateQuantity(item._id, item.cartQuantity + 1, item.selectedSize)}
@@ -65,14 +65,14 @@ export default function CartItemRow({
           <button
             type="button"
             onClick={() => onUpdateQuantity(item._id, item.cartQuantity - 1, item.selectedSize)}
-            className="w-5 h-5 rounded bg-white border border-slate-200 text-slate-600 text-xs font-bold flex items-center justify-center cursor-pointer"
+            className="w-5 h-5 rounded bg-white border border-border text-sub text-xs font-bold flex items-center justify-center cursor-pointer"
           >
             -
           </button>
         </div>
 
         <div>
-          <span className="font-extrabold text-slate-900 text-xs sm:text-sm min-w-[65px] text-left">
+          <span className="font-extrabold text-heading text-xs sm:text-sm min-w-[65px] text-left">
             {price * item.cartQuantity} ج
           </span>
         </div>

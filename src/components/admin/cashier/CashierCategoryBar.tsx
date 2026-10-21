@@ -20,7 +20,7 @@ export default function CashierCategoryBar({
         className={`px-4 py-2.5 rounded-xl font-extrabold text-xs sm:text-sm shrink-0 transition-all cursor-pointer flex items-center gap-1.5 border ${
           !currentCategory
             ? "bg-primary text-white border-primary shadow-sm"
-            : "bg-white text-slate-700 border-slate-200/80 hover:border-primary/40"
+            : "bg-white text-sub border-border/80 hover:border-primary/40"
         }`}
       >
         <Flame className="w-4 h-4" />
@@ -37,7 +37,7 @@ export default function CashierCategoryBar({
             className={`px-4 py-2.5 rounded-xl font-extrabold text-xs sm:text-sm shrink-0 transition-all cursor-pointer border ${
               active
                 ? "bg-primary text-white border-primary shadow-sm"
-                : "bg-white text-slate-700 border-slate-200/80 hover:border-primary/40"
+                : "bg-white text-sub border-border/80 hover:border-primary/40"
             }`}
           >
             {cat}

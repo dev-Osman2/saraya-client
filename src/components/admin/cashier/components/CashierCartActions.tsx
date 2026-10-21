@@ -39,7 +39,7 @@ export default function CashierCartActions({
       <button
         type="button"
         onClick={onResetCart}
-        className="w-full bg-white hover:bg-orange-50 text-primary border border-primary/40 font-extrabold py-3 rounded-xl flex items-center justify-center gap-2 text-xs sm:text-sm transition-all cursor-pointer"
+        className="w-full bg-white hover:bg-primary-light text-primary border border-primary/40 font-extrabold py-3 rounded-xl flex items-center justify-center gap-2 text-xs sm:text-sm transition-all cursor-pointer"
       >
         <RotateCcw className="w-4 h-4" />
         <span>طلب جديد / مسح السلة</span>

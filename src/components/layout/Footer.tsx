@@ -1,9 +1,9 @@
 function Footer() {
   return (
-    <footer className="print:hidden bg-orange-50 text-orange-950/80 text-center py-5 border-t border-orange-200 text-xs shadow-[0_-1px_3px_rgba(0,0,0,0.02)]">
+    <footer className="print:hidden bg-primary-light text-body/80 text-center py-5 border-t border-primary-subtle text-xs shadow-[0_-1px_3px_rgba(0,0,0,0.02)]">
       <div
         dir="ltr"
-        className="font-mono text-xs md:text-sm flex items-center justify-center gap-2 flex-wrap text-orange-900/80"
+        className="font-mono text-xs md:text-sm flex items-center justify-center gap-2 flex-wrap text-sub/80"
       >
         <span>&lt; Developed By &gt;</span>
         <a

@@ -40,7 +40,7 @@ export default function OrderFilterTabs({
             className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-extrabold transition-all shrink-0 cursor-pointer border ${
               isActive
                 ? "bg-primary text-white border-primary shadow-sm"
-                : "bg-white text-slate-700 border-slate-200 hover:border-primary/40 hover:bg-orange-50/40"
+                : "bg-white text-sub border-border hover:border-primary/40 hover:bg-primary-light/40"
             }`}
           >
             <span>{tab.label}</span>
@@ -48,7 +48,7 @@ export default function OrderFilterTabs({
               className={`px-2 py-0.5 rounded-full text-[11px] font-bold ${
                 isActive
                   ? "bg-white/25 text-white"
-                  : "bg-slate-100 text-slate-600"
+                  : "bg-surface-subtle text-sub"
               }`}
             >
               {tab.count}

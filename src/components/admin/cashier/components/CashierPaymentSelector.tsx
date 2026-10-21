@@ -13,7 +13,7 @@ export default function CashierPaymentSelector({
 }: CashierPaymentSelectorProps) {
   return (
     <div className="space-y-2">
-      <div className="flex items-center gap-1.5 text-xs font-extrabold text-slate-700">
+      <div className="flex items-center gap-1.5 text-xs font-extrabold text-sub">
         <CreditCard className="w-4 h-4 text-primary" />
         <span>طريقة الدفع</span>
       </div>
@@ -25,7 +25,7 @@ export default function CashierPaymentSelector({
           className={`py-2.5 px-2 rounded-xl font-extrabold text-xs flex items-center justify-center gap-1.5 border transition cursor-pointer ${
             paymentMode === "cash"
               ? "bg-primary text-white border-primary shadow-xs"
-              : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
+              : "bg-surface-soft text-sub border-border hover:bg-surface-subtle"
           }`}
         >
           <Banknote className="w-4 h-4" />
@@ -38,7 +38,7 @@ export default function CashierPaymentSelector({
           className={`py-2.5 px-2 rounded-xl font-extrabold text-xs flex items-center justify-center gap-1.5 border transition cursor-pointer ${
             paymentMode === "card"
               ? "bg-primary text-white border-primary shadow-xs"
-              : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
+              : "bg-surface-soft text-sub border-border hover:bg-surface-subtle"
           }`}
         >
           <CreditCard className="w-4 h-4" />
@@ -51,7 +51,7 @@ export default function CashierPaymentSelector({
           className={`py-2.5 px-2 rounded-xl font-extrabold text-xs flex items-center justify-center gap-1.5 border transition cursor-pointer ${
             paymentMode === "instapay"
               ? "bg-primary text-white border-primary shadow-xs"
-              : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
+              : "bg-surface-soft text-sub border-border hover:bg-surface-subtle"
           }`}
         >
           <Wallet className="w-4 h-4" />

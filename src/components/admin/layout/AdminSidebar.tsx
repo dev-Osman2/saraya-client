@@ -74,24 +74,24 @@ export default function AdminSidebar({
         onClick={(e) => e.stopPropagation()}
       >
         <div>
-          <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-4">
+          <div className="flex items-center justify-between border-b border-border-subtle pb-4 mb-4">
             <div className="flex items-center gap-2.5">
               <img
                 src="/logo.png"
                 alt="السرايا"
-                className="w-9 h-9 rounded-xl object-contain bg-orange-50 p-1"
+                className="w-9 h-9 rounded-xl object-contain bg-primary-light p-1"
               />
               <div>
-                <h2 className="font-black text-slate-900 text-sm">
+                <h2 className="font-black text-heading text-sm">
                   إدارة مطعم السرايا
                 </h2>
-                <p className="text-[11px] text-slate-400">قائمة المشرف</p>
+                <p className="text-[11px] text-muted-light">قائمة المشرف</p>
               </div>
             </div>
             <button
               type="button"
               onClick={onClose}
-              className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center cursor-pointer"
+              className="w-8 h-8 rounded-full bg-surface-subtle hover:bg-surface-hover text-sub flex items-center justify-center cursor-pointer"
             >
               <X className="w-4 h-4" />
             </button>
@@ -109,7 +109,7 @@ export default function AdminSidebar({
                   className={`flex items-center gap-3 px-4 py-3 rounded-xl font-bold text-xs sm:text-sm transition ${
                     isActive
                       ? "bg-primary text-white shadow-xs"
-                      : "text-slate-700 hover:bg-orange-50 hover:text-primary"
+                      : "text-sub hover:bg-primary-light hover:text-primary"
                   }`}
                 >
                   <Icon className="w-4 h-4 shrink-0" />
@@ -118,11 +118,11 @@ export default function AdminSidebar({
               );
             })}
 
-            <div className="pt-2 mt-2 border-t border-slate-100">
+            <div className="pt-2 mt-2 border-t border-border-subtle">
               <Link
                 href="/"
                 onClick={onClose}
-                className="flex items-center gap-3 px-4 py-3 rounded-xl font-bold text-xs sm:text-sm text-slate-600 hover:bg-slate-100 transition"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl font-bold text-xs sm:text-sm text-sub hover:bg-surface-subtle transition"
               >
                 <Store className="w-4 h-4 shrink-0 text-primary" />
                 <span>عرض موقع العميل الرئيسي</span>
@@ -131,7 +131,7 @@ export default function AdminSidebar({
                 href="https://web.telegram.org/a/#-1004380812989_1"
                 target="_blank"
                 onClick={onClose}
-                className="flex items-center gap-3 px-4 py-3 rounded-xl font-bold text-xs sm:text-sm text-slate-600 hover:bg-slate-100 transition"
+                className="flex items-center gap-3 px-4 py-3 rounded-xl font-bold text-xs sm:text-sm text-sub hover:bg-surface-subtle transition"
               >
                 <MessageCircle className="w-4 h-4 shrink-0 text-primary" />
                 <span>جروب تلجرام للمطبخ</span>
@@ -140,15 +140,15 @@ export default function AdminSidebar({
           </nav>
         </div>
 
-        <div className="space-y-2.5 pt-4 border-t border-slate-100">
+        <div className="space-y-2.5 pt-4 border-t border-border-subtle">
           <button
             type="button"
             disabled={togglingStore}
             onClick={onToggleStore}
             className={`w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-extrabold text-xs sm:text-sm transition cursor-pointer border ${
               isStoreOpen
-                ? "bg-amber-50 hover:bg-amber-100 text-amber-800 border-amber-200"
-                : "bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border-emerald-200"
+                ? "bg-warning-light hover:bg-warning-light text-warning border-warning-border"
+                : "bg-success-light hover:bg-success-light text-success border-success-border"
             }`}
           >
             {togglingStore ? (
@@ -167,7 +167,7 @@ export default function AdminSidebar({
             type="button"
             disabled={clearingOrders}
             onClick={onRequestClearOrders}
-            className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-100 hover:bg-rose-600 hover:text-white text-slate-700 font-extrabold text-xs sm:text-sm transition cursor-pointer"
+            className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-surface-subtle hover:bg-danger hover:text-white text-sub font-extrabold text-xs sm:text-sm transition cursor-pointer"
           >
             {clearingOrders ? (
               <Loader2 className="w-4 h-4 animate-spin" />
@@ -180,7 +180,7 @@ export default function AdminSidebar({
           <button
             type="button"
             onClick={onLogout}
-            className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 font-extrabold text-xs sm:text-sm transition cursor-pointer"
+            className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-danger-light hover:bg-danger-light text-danger font-extrabold text-xs sm:text-sm transition cursor-pointer"
           >
             <LogOut className="w-4 h-4" />
             <span>تسجيل الخروج</span>

@@ -13,8 +13,8 @@ export default function CartItemList({ onZoomImage }: CartItemListProps) {
 
   if (cart.length === 0) {
     return (
-      <div className="py-7 text-center text-slate-400 space-y-2 border-b border-slate-100">
-        <ShoppingCart className="w-7 h-7 mx-auto text-slate-300 stroke-[1.75]" />
+      <div className="py-7 text-center text-muted-light space-y-2 border-b border-border-subtle">
+        <ShoppingCart className="w-7 h-7 mx-auto text-muted-light stroke-[1.75]" />
         <p className="text-xs font-medium">
           لم تقم باختيار أي وجبة بعد، أضف وجباتك من القائمة.
         </p>
@@ -23,7 +23,7 @@ export default function CartItemList({ onZoomImage }: CartItemListProps) {
   }
 
   return (
-    <div className="max-h-60 overflow-y-auto divide-y divide-slate-100 pr-1 custom-scrollbar">
+    <div className="max-h-60 overflow-y-auto divide-y divide-border-subtle pr-1 custom-scrollbar">
       {cart.map((item) => {
         const itemKey = item.cartItemId || getCartItemKey(item._id, item.selectedSize);
         return (

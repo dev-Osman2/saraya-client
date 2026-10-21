@@ -14,10 +14,10 @@ export default function CashierCartSummary({
   totalPrice,
 }: CashierCartSummaryProps) {
   return (
-    <div className="bg-slate-50/90 rounded-2xl p-4 space-y-2.5 border border-slate-100 text-xs sm:text-sm">
+    <div className="bg-surface-soft/90 rounded-2xl p-4 space-y-2.5 border border-border-subtle text-xs sm:text-sm">
       <div>
-        <label className="flex items-center gap-1 text-xs font-bold text-slate-700 mb-1.5">
-          <FileText className="w-3.5 h-3.5 text-slate-400" />
+        <label className="flex items-center gap-1 text-xs font-bold text-sub mb-1.5">
+          <FileText className="w-3.5 h-3.5 text-muted-light" />
           <span>ملاحظات إضافية (اختياري)</span>
         </label>
         <textarea
@@ -25,11 +25,11 @@ export default function CashierCartSummary({
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
           placeholder="مثال: بدون بصل، صوص إضافي ..."
-          className="w-full p-3 bg-white border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-primary transition-all resize-none"
+          className="w-full p-3 bg-white border border-border rounded-xl text-xs sm:text-sm focus:outline-none focus:border-primary transition-all resize-none"
         />
       </div>
 
-      <div className="bg-orange-50/90 border border-primary/20 rounded-xl p-3 flex justify-between items-center pt-3">
+      <div className="bg-primary-light/90 border border-primary/20 rounded-xl p-3 flex justify-between items-center pt-3">
         <span className="font-extrabold text-primary text-sm sm:text-base flex items-center gap-1.5">
           <Wallet className="w-4 h-4" />
           <span>الإجمالي النهائي:</span>

@@ -18,15 +18,15 @@ export default function CashierCartItemList({
 }: CashierCartItemListProps) {
   if (cart.length === 0) {
     return (
-      <div className="py-8 text-center text-slate-400 space-y-2">
-        <ShoppingCart className="w-7 h-7 mx-auto text-slate-300" />
+      <div className="py-8 text-center text-muted-light space-y-2">
+        <ShoppingCart className="w-7 h-7 mx-auto text-muted-light" />
         <p className="text-xs font-medium">لم يتم تحديد أي وجبة بعد.</p>
       </div>
     );
   }
 
   return (
-    <div className="max-h-64 overflow-y-auto divide-y divide-slate-100 pr-1 custom-scrollbar">
+    <div className="max-h-64 overflow-y-auto divide-y divide-border-subtle pr-1 custom-scrollbar">
       {cart.map((item) => {
         const itemKey =
           item.cartItemId || getCartItemKey(item._id, item.selectedSize);

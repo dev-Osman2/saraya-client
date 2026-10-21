@@ -16,7 +16,7 @@ export default function PaymentMethodSelector({
     <div className="space-y-3 pt-1">
       <div className="flex items-center gap-1.5">
         <CreditCard className="w-4 h-4 text-primary" />
-        <span className="text-xs font-extrabold text-slate-800">طريقة الدفع</span>
+        <span className="text-xs font-extrabold text-body">طريقة الدفع</span>
       </div>
 
       <div className="grid grid-cols-2 gap-2.5">
@@ -25,13 +25,13 @@ export default function PaymentMethodSelector({
           onClick={() => setPaymentMethod("instapay")}
           className={`flex items-center justify-center gap-2 py-3 px-3 rounded-xl border text-xs font-extrabold transition-all cursor-pointer ${
             paymentMethod === "instapay"
-              ? "border-primary bg-orange-50/70 text-primary shadow-2xs"
-              : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+              ? "border-primary bg-primary-light/70 text-primary shadow-2xs"
+              : "border-border bg-white text-sub hover:bg-surface-soft"
           }`}
         >
           <span
             className={`w-4 h-4 rounded-full border flex items-center justify-center ${
-              paymentMethod === "instapay" ? "border-primary" : "border-slate-300"
+              paymentMethod === "instapay" ? "border-primary" : "border-border"
             }`}
           >
             {paymentMethod === "instapay" && (
@@ -46,13 +46,13 @@ export default function PaymentMethodSelector({
           onClick={() => setPaymentMethod("vodafone_cash")}
           className={`flex items-center justify-center gap-2 py-3 px-3 rounded-xl border text-xs font-extrabold transition-all cursor-pointer ${
             paymentMethod === "vodafone_cash"
-              ? "border-primary bg-orange-50/70 text-primary shadow-2xs"
-              : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+              ? "border-primary bg-primary-light/70 text-primary shadow-2xs"
+              : "border-border bg-white text-sub hover:bg-surface-soft"
           }`}
         >
           <span
             className={`w-4 h-4 rounded-full border flex items-center justify-center ${
-              paymentMethod === "vodafone_cash" ? "border-primary" : "border-slate-300"
+              paymentMethod === "vodafone_cash" ? "border-primary" : "border-border"
             }`}
           >
             {paymentMethod === "vodafone_cash" && (
