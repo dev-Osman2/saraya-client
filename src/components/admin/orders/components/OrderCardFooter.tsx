@@ -41,7 +41,7 @@ export default function OrderCardFooter({
   };
 
   return (
-    <div className="space-y-4 pt-2 border-t border-border-subtle">
+    <div className="flex flex-col gap-4 pt-2 border-t border-border-subtle">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <span className="block text-[11px] text-muted-light font-bold">
@@ -114,7 +114,7 @@ export default function OrderCardFooter({
         </button>
       </div>
 
-      <div className="grid grid-cols-2 gap-3">
+      <div className="flex gap-3">
         <button
           type="button"
           disabled={isBusy || order.status === "confirmed"}

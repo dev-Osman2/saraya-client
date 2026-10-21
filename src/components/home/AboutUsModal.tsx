@@ -37,7 +37,7 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
           </p>
         </div>
 
-        <div className="space-y-5 text-sm">
+        <div className="flex flex-col gap-5 text-sm">
           <div>
             <h3 className="font-extrabold text-heading flex items-center gap-2 mb-1.5 text-base">
               <span>✨</span> رؤيتنا وشغفنا
@@ -53,7 +53,7 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
             <h3 className="font-extrabold text-heading flex items-center gap-2 mb-2 text-base">
               <span>📍</span> المقر ومواعيد العمل
             </h3>
-            <ul className="space-y-1.5 text-xs md:text-sm text-warning">
+            <ul className="flex flex-col gap-1.5 text-xs md:text-sm text-sub">
               <li>
                 • <strong>مواعيد العمل:</strong> يومياً من الساعة 6:00 صباحا
                 وحتى 2:00 ظهراً.
@@ -73,7 +73,7 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
             <h3 className="font-extrabold text-primary-hover flex items-center gap-2 mb-2 text-base">
               <span>🛒</span> كيف تطلب عبر المنصة؟
             </h3>
-            <ol className="space-y-2 text-xs md:text-sm text-body list-decimal list-inside">
+            <ol className="flex flex-col gap-2 text-xs md:text-sm text-body list-decimal list-inside">
               <li>
                 <strong>اختر وجبتك:</strong> تصفح قائمة المشويات والمشروبات وحدد
                 الحجم والكمية، ثم أضف ملاحظاتك الخاصة.
@@ -93,7 +93,7 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
             <h3 className="font-extrabold text-primary-hover flex items-center gap-2 mb-2 text-base">
               <span>📲</span> كيفية تثبيت التطبيق؟
             </h3>
-            <ol className="space-y-2 text-xs md:text-sm text-body list-decimal list-inside">
+            <ol className="flex flex-col gap-2 text-xs md:text-sm text-body list-decimal list-inside">
               <li>الضغط على الثلاث نقاط التي في أعلى المتصفح.</li>
               <li>
                 النزول والضغط على <strong>«التثبيت وإنشاء اختصار»</strong> (أو
@@ -109,7 +109,7 @@ export default function AboutUsModal({ isOpen, onClose }: AboutUsModalProps) {
             <h3 className="font-extrabold text-heading flex items-center gap-2 mb-2 text-base">
               <span>⚠️</span> ضوابط وسياسة الطلب والتجهيز
             </h3>
-            <ul className="space-y-2.5 text-xs md:text-sm text-sub">
+            <ul className="flex flex-col gap-2.5 text-xs md:text-sm text-sub">
               <li className="flex items-start gap-2">
                 <span className="text-primary font-bold">•</span>
                 <span>

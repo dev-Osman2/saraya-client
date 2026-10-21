@@ -115,7 +115,7 @@ export default function MenuBar({ isOpen, onClose }: MenuBarProps) {
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto custom-scrollbar pr-1 space-y-2">
+        <div className="flex-1 overflow-y-auto custom-scrollbar pr-1 gap-2">
           <button
             type="button"
             onClick={() => handleCategorySelect(null)}

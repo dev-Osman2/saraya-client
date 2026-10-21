@@ -38,7 +38,7 @@ export default function CustomerInfoForm({
   useCustomerInfo({ phone, setTransferNumber });
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4 pt-1" dir="rtl">
+    <form onSubmit={onSubmit} className="flex flex-col gap-4 pt-1" dir="rtl">
       {error && <Alert message={error} />}
 
       <CustomerHeader isDineIn={isDineIn} tableNumber={tableNumber} />
@@ -63,7 +63,7 @@ export default function CustomerInfoForm({
 
       <CustomerNotesInput notes={notes} setNotes={setNotes} />
 
-      <div className="space-y-3 pt-1">
+      <div className="flex flex-col gap-3 pt-1">
         <PaymentMethodSelector
           paymentMethod={paymentMethod}
           setPaymentMethod={setPaymentMethod}

@@ -74,7 +74,7 @@ export default function OrderQuickViewModal({
           {getStatusBadge(order.status)}
         </div>
 
-        <div className="bg-primary-light/50 border border-primary-light p-4 rounded-2xl mb-4 space-y-2 text-xs md:text-sm text-sub">
+        <div className="bg-primary-light/50 border border-primary-light p-4 rounded-2xl mb-4 flex flex-col gap-2 text-xs md:text-sm text-sub">
           <p>
             <strong>الاسم:</strong> {order.customerName || "عميل السرايا"}
           </p>
@@ -108,7 +108,7 @@ export default function OrderQuickViewModal({
         <h4 className="font-extrabold text-sm text-body mb-2">
           الوجبات المطلوبة:
         </h4>
-        <div className="max-h-52 overflow-y-auto space-y-2 mb-4 pr-1 custom-scrollbar">
+        <div className="max-h-52 overflow-y-auto flex flex-col gap-2 mb-4 pr-1 custom-scrollbar">
           {order.items?.map((item: any, idx: number) => {
             const unitPrice = Number(item.price ?? item.unitPrice ?? 0);
             const qty = Number(item.quantity ?? 1);
@@ -138,7 +138,7 @@ export default function OrderQuickViewModal({
           })}
         </div>
 
-        <div className="border-t border-border-subtle pt-3 space-y-1.5 text-sm">
+        <div className="border-t border-border-subtle pt-3 flex flex-col gap-1.5 text-sm">
           <div className="flex justify-between text-sub text-xs md:text-sm">
             <span>مجموع الوجبات:</span>
             <span className="font-bold">{subtotal.toFixed(2)} ج</span>

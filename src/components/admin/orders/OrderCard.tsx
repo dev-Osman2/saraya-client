@@ -37,7 +37,7 @@ export default function OrderCard({
       className="h-full bg-white rounded-3xl border transition-all p-5 sm:p-6 flex flex-col justify-between gap-4 shadow-xs border-white"
       dir="rtl"
     >
-      <div className="space-y-3">
+      <div className="flex flex-col gap-3">
         <OrderCardHeader order={order} />
 
         <OrderCardMeta

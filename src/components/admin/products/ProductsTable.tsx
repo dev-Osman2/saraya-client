@@ -70,7 +70,7 @@ export default function ProductsTable({
                             "https://placehold.co/120x90/fff7ed/D55304?text=?";
                         }}
                       />
-                      <div className="min-w-0 space-y-1">
+                      <div className="min-w-0 flex flex-col gap-1">
                         <h3 className="font-black text-heading text-sm sm:text-base truncate">
                           {product.name}
                         </h3>
@@ -84,7 +84,7 @@ export default function ProductsTable({
                   <td className="py-4 px-4">
                     <div className="flex items-center justify-center">
                       {hasSizes ? (
-                        <div className="grid grid-cols-3 gap-2.5 w-max">
+                        <div className="flex items-center gap-2.5 w-max">
                           {(["صغير", "وسط", "كبير"] as const).map(
                             (sizeName) => {
                               const sz = product.sizes?.find(

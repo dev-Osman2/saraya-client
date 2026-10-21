@@ -71,7 +71,7 @@ export default function AdminLoginPage() {
       <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-warning/15 blur-3xl pointer-events-none" />
 
       <div
-        className={`w-full max-w-md bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl border border-primary-subtle/40 p-7 sm:p-9 space-y-6 relative z-10 ${
+        className={`w-full max-w-md bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl border border-primary-subtle/40 p-7 sm:p-9 flex flex-col gap-6 relative z-10 ${
           shake ? "animate-shake border-danger-border" : ""
         }`}
       >
@@ -90,7 +90,7 @@ export default function AdminLoginPage() {
           </Link>
         </div>
 
-        <div className="text-center space-y-2.5 pt-1">
+        <div className="text-center flex flex-col gap-2.5 pt-1">
           <div className="w-22 h-22 rounded-3xl bg-gradient-to-br from-primary to-primary-hover p-0.5 mx-auto shadow-lg shadow-primary/25">
             <div className="w-full h-full bg-white rounded-[22px] flex items-center justify-center p-2">
               <img
@@ -116,7 +116,7 @@ export default function AdminLoginPage() {
           </div>
         )}
 
-        <form onSubmit={handleLogin} className="space-y-5">
+        <form onSubmit={handleLogin} className="flex flex-col gap-5">
           <div>
             <label className="block text-xs font-extrabold text-sub mb-2">
               كلمة مرور المشرف / الكاشير

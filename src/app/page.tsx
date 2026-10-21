@@ -86,8 +86,8 @@ export default async function HomePage({
           </div>
         )}
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div className="lg:col-span-7 w-full">
+        <div className="flex flex-col lg:flex-row gap-8 items-start">
+          <div className="w-full lg:w-7/12">
             <div className="mb-4 flex justify-between items-start">
               <div>
                 <div className="flex items-center gap-2">
@@ -121,7 +121,7 @@ export default async function HomePage({
                 لا توجد وجبات متاحة في هذا القسم حالياً.
               </div>
             ) : (
-              <div className="space-y-8">
+              <div className="flex flex-col gap-8">
                 {categoriesWithProducts.map((group) => (
                   <section key={group.name}>
                     {categoriesWithProducts.length > 1 && (
@@ -129,9 +129,14 @@ export default async function HomePage({
                         {group.name}
                       </h3>
                     )}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 w-full">
+                    <div className="flex flex-wrap gap-5 sm:gap-6 w-full">
                       {group.products.map((product) => (
-                        <ProductCard key={product._id} product={product} />
+                        <div
+                          key={product._id}
+                          className="w-full sm:w-[calc(50%-0.75rem)] flex flex-col"
+                        >
+                          <ProductCard product={product} />
+                        </div>
                       ))}
                     </div>
                   </section>
@@ -140,7 +145,7 @@ export default async function HomePage({
             )}
           </div>
 
-          <div className="sticky top-20 lg:col-span-5 w-full">
+          <div className="sticky top-20 w-full lg:w-5/12">
             <CheckoutForm />
           </div>
         </div>

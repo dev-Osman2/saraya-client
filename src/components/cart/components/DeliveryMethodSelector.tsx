@@ -19,11 +19,11 @@ export default function DeliveryMethodSelector({
 }: DeliveryMethodSelectorProps) {
   return (
     <div className="flex flex-col gap-3 pt-1">
-      <div className="grid grid-cols-2 gap-2.5">
+      <div className="flex gap-2.5">
         <button
           type="button"
           onClick={() => setIsPickup(false)}
-          className={`flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs transition-all duration-300 cursor-pointer border active:scale-[0.98] ${
+          className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs transition-all duration-300 cursor-pointer border active:scale-[0.98] ${
             !isPickup
               ? "bg-primary text-white border-primary shadow-lg shadow-primary/30 ring-2 ring-primary/20"
               : "bg-surface-subtle/80 text-muted-light border-border/90 hover:bg-surface-hover/60 hover:text-sub shadow-none"
@@ -40,7 +40,7 @@ export default function DeliveryMethodSelector({
         <button
           type="button"
           onClick={() => setIsPickup(true)}
-          className={`flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs transition-all duration-300 cursor-pointer border active:scale-[0.98] ${
+          className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs transition-all duration-300 cursor-pointer border active:scale-[0.98] ${
             isPickup
               ? "bg-primary text-white border-primary shadow-lg shadow-primary/30 ring-2 ring-primary/20"
               : "bg-surface-subtle/80 text-muted-light border-border/90 hover:bg-surface-hover/60 hover:text-sub shadow-none"
@@ -65,13 +65,13 @@ export default function DeliveryMethodSelector({
       </div>
 
       <div
-        className={`grid transition-all duration-300 ease-in-out ${
+        className={`transition-all duration-300 ease-in-out overflow-hidden flex flex-col ${
           !isPickup
-            ? "grid-rows-[1fr] opacity-100 translate-y-0"
-            : "grid-rows-[0fr] opacity-0 -translate-y-2 pointer-events-none"
+            ? "max-h-96 opacity-100 translate-y-0"
+            : "max-h-0 opacity-0 -translate-y-2 pointer-events-none"
         }`}
       >
-        <div className="overflow-hidden">
+        <div>
           <label className="flex items-center gap-1 text-xs font-bold text-sub mb-1.5">
             <span>العنوان التفصيلي</span>
             <span className="text-primary">*</span>

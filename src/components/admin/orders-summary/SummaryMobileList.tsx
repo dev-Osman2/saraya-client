@@ -10,11 +10,11 @@ interface SummaryMobileListProps {
 
 export default function SummaryMobileList({ items }: SummaryMobileListProps) {
   return (
-    <div className="grid grid-cols-1 gap-3 md:hidden p-2">
+    <div className="flex flex-col gap-3 md:hidden p-2">
       {items.map((item, idx) => (
         <div
           key={idx}
-          className="bg-surface-soft/80 rounded-2xl p-4 border border-border/80 space-y-3"
+          className="bg-surface-soft/80 rounded-2xl p-4 border border-border/80 flex flex-col gap-3"
         >
           <div className="flex items-center gap-3">
             {item.image && (
@@ -32,8 +32,8 @@ export default function SummaryMobileList({ items }: SummaryMobileListProps) {
             </h3>
           </div>
 
-          <div className="grid grid-cols-3 gap-2 pt-2 border-t border-border/60 text-center">
-            <div className="bg-white p-2 rounded-xl border border-border-subtle">
+          <div className="flex gap-2 pt-2 border-t border-border/60 text-center">
+            <div className="flex-1 bg-white p-2 rounded-xl border border-border-subtle">
               <span className="text-[10px] font-bold text-muted-light block">
                 الطلبات
               </span>
@@ -42,7 +42,7 @@ export default function SummaryMobileList({ items }: SummaryMobileListProps) {
               </span>
             </div>
 
-            <div className="bg-white p-2 rounded-xl border border-border-subtle">
+            <div className="flex-1 bg-white p-2 rounded-xl border border-border-subtle">
               <span className="text-[10px] font-bold text-muted-light block">
                 الكمية
               </span>
@@ -51,7 +51,7 @@ export default function SummaryMobileList({ items }: SummaryMobileListProps) {
               </span>
             </div>
 
-            <div className="bg-white p-2 rounded-xl border border-border-subtle">
+            <div className="flex-1 bg-white p-2 rounded-xl border border-border-subtle">
               <span className="text-[10px] font-bold text-muted-light block">
                 الإجمالي
               </span>

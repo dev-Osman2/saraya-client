@@ -28,7 +28,7 @@ export default function OrderSuccessCard({
 
   return (
     <div
-      className="bg-white rounded-2xl shadow-sm border border-border/80 p-6 sticky top-24 text-center space-y-4"
+      className="bg-white rounded-2xl shadow-sm border border-border/80 p-6 sticky top-24 text-center flex flex-col gap-4"
       dir="rtl"
     >
       <div className="w-16 h-16 bg-success-light text-success rounded-full flex items-center justify-center mx-auto">

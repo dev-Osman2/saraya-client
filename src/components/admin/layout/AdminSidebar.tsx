@@ -97,7 +97,7 @@ export default function AdminSidebar({
             </button>
           </div>
 
-          <nav className="space-y-1.5">
+          <nav className="flex flex-col gap-1.5">
             {ADMIN_NAV_LINKS.map((item) => {
               const Icon = item.icon;
               const isActive = pathname === item.href;
@@ -140,7 +140,7 @@ export default function AdminSidebar({
           </nav>
         </div>
 
-        <div className="space-y-2.5 pt-4 border-t border-border-subtle">
+        <div className="flex flex-col gap-2.5 pt-4 border-t border-border-subtle">
           <button
             type="button"
             disabled={togglingStore}

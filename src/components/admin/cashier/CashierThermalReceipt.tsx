@@ -84,7 +84,7 @@ export default function CashierThermalReceipt({
           </tbody>
         </table>
 
-        <div className="space-y-1 text-xs font-bold pb-1">
+        <div className="flex flex-col gap-1 text-xs font-bold pb-1">
           <div className="flex justify-between text-sm font-black">
             <span>الإجمالي المطلوب:</span>
             <span>{receipt.totalPrice} ج</span>

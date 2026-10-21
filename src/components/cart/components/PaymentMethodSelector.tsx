@@ -13,13 +13,13 @@ export default function PaymentMethodSelector({
   setPaymentMethod,
 }: PaymentMethodSelectorProps) {
   return (
-    <div className="space-y-3 pt-1">
+    <div className="flex flex-col gap-3 pt-1">
       <div className="flex items-center gap-1.5">
         <CreditCard className="w-4 h-4 text-primary" />
         <span className="text-xs font-extrabold text-body">طريقة الدفع</span>
       </div>
 
-      <div className="grid grid-cols-2 gap-2.5">
+      <div className="flex gap-2.5">
         <button
           type="button"
           onClick={() => setPaymentMethod("instapay")}

@@ -16,8 +16,8 @@ export default function ProductPricingInputs({
   setOldPrice,
 }: ProductPricingInputsProps) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      <div>
+    <div className="flex flex-col sm:flex-row gap-4">
+      <div className="flex-1 w-full">
         <label className="block text-xs font-extrabold text-body mb-1.5">
           السعر الحالي (ج) <span className="text-primary">*</span>
         </label>

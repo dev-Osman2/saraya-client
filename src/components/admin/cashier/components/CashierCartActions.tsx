@@ -16,7 +16,7 @@ export default function CashierCartActions({
   onResetCart,
 }: CashierCartActionsProps) {
   return (
-    <div className="space-y-2.5 pt-1">
+    <div className="flex flex-col gap-2.5 pt-1">
       <button
         type="button"
         disabled={submitting || isCartEmpty}

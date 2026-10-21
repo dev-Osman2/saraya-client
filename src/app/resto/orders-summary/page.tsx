@@ -80,7 +80,7 @@ export default function AdminOrdersSummaryPage() {
   }
 
   return (
-    <div className="space-y-6" dir="rtl">
+    <div className="flex flex-col gap-6" dir="rtl">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-xl sm:text-2xl font-black text-heading">
@@ -100,8 +100,8 @@ export default function AdminOrdersSummaryPage() {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white rounded-3xl border border-border/80 p-5 space-y-2 shadow-2xs">
+      <div className="flex flex-wrap gap-4">
+        <div className="bg-white rounded-3xl border border-border/80 p-5 flex flex-col gap-2 shadow-2xs w-full sm:w-[calc(50%-0.5rem)] lg:flex-1">
           <div className="flex items-center justify-between text-muted text-xs font-bold">
             <span>إجمالي المبيعات المؤكدة</span>
             <div className="w-9 h-9 rounded-xl bg-success-light text-success flex items-center justify-center">
@@ -114,7 +114,7 @@ export default function AdminOrdersSummaryPage() {
           </p>
         </div>
 
-        <div className="bg-white rounded-3xl border border-border/80 p-5 space-y-2 shadow-2xs">
+        <div className="bg-white rounded-3xl border border-border/80 p-5 flex flex-col gap-2 shadow-2xs w-full sm:w-[calc(50%-0.5rem)] lg:flex-1">
           <div className="flex items-center justify-between text-muted text-xs font-bold">
             <span>متوسط قيمة الفاتورة</span>
             <div className="w-9 h-9 rounded-xl bg-primary-light text-primary flex items-center justify-center">
@@ -127,7 +127,7 @@ export default function AdminOrdersSummaryPage() {
           </p>
         </div>
 
-        <div className="bg-white rounded-3xl border border-border/80 p-5 space-y-2 shadow-2xs">
+        <div className="bg-white rounded-3xl border border-border/80 p-5 flex flex-col gap-2 shadow-2xs w-full sm:w-[calc(50%-0.5rem)] lg:flex-1">
           <div className="flex items-center justify-between text-muted text-xs font-bold">
             <span>الطلبات المكتملة / الإجمالي</span>
             <div className="w-9 h-9 rounded-xl bg-info-light text-info flex items-center justify-center">
@@ -142,7 +142,7 @@ export default function AdminOrdersSummaryPage() {
           </p>
         </div>
 
-        <div className="bg-white rounded-3xl border border-border/80 p-5 space-y-2 shadow-2xs">
+        <div className="bg-white rounded-3xl border border-border/80 p-5 flex flex-col gap-2 shadow-2xs w-full sm:w-[calc(50%-0.5rem)] lg:flex-1">
           <div className="flex items-center justify-between text-muted text-xs font-bold">
             <span>قيد الانتظار / الملغية</span>
             <div className="w-9 h-9 rounded-xl bg-warning-light text-warning flex items-center justify-center">
@@ -159,12 +159,12 @@ export default function AdminOrdersSummaryPage() {
         </div>
       </div>
 
-      <div className="bg-white rounded-3xl border border-border/80 p-6 space-y-4 shadow-2xs">
+      <div className="bg-white rounded-3xl border border-border/80 p-6 flex flex-col gap-4 shadow-2xs">
         <h2 className="text-base font-black text-heading">
           توزيع الطلبات حسب نوع الخدمة والتوصيل
         </h2>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-surface-soft rounded-2xl p-4 border border-border-subtle flex items-center gap-3">
+        <div className="flex flex-wrap gap-4">
+          <div className="bg-surface-soft rounded-2xl p-4 border border-border-subtle flex items-center gap-3 w-[calc(50%-0.5rem)] lg:flex-1">
             <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
               <Truck className="w-5 h-5" />
             </div>
@@ -178,7 +178,7 @@ export default function AdminOrdersSummaryPage() {
             </div>
           </div>
 
-          <div className="bg-surface-soft rounded-2xl p-4 border border-border-subtle flex items-center gap-3">
+          <div className="bg-surface-soft rounded-2xl p-4 border border-border-subtle flex items-center gap-3 w-[calc(50%-0.5rem)] lg:flex-1">
             <div className="w-10 h-10 rounded-xl bg-success/10 text-success flex items-center justify-center shrink-0">
               <Store className="w-5 h-5" />
             </div>
@@ -192,7 +192,7 @@ export default function AdminOrdersSummaryPage() {
             </div>
           </div>
 
-          <div className="bg-surface-soft rounded-2xl p-4 border border-border-subtle flex items-center gap-3">
+          <div className="bg-surface-soft rounded-2xl p-4 border border-border-subtle flex items-center gap-3 w-[calc(50%-0.5rem)] lg:flex-1">
             <div className="w-10 h-10 rounded-xl bg-info/10 text-info flex items-center justify-center shrink-0">
               <Calculator className="w-5 h-5" />
             </div>
@@ -206,7 +206,7 @@ export default function AdminOrdersSummaryPage() {
             </div>
           </div>
 
-          <div className="bg-surface-soft rounded-2xl p-4 border border-border-subtle flex items-center gap-3">
+          <div className="bg-surface-soft rounded-2xl p-4 border border-border-subtle flex items-center gap-3 w-[calc(50%-0.5rem)] lg:flex-1">
             <div className="w-10 h-10 rounded-xl bg-warning/10 text-warning flex items-center justify-center shrink-0">
               <ShoppingBag className="w-5 h-5" />
             </div>

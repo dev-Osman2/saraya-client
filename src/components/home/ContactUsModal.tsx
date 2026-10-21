@@ -100,56 +100,56 @@ export default function ContactUsModal({
           </p>
         </div>
 
-        <div className="space-y-3 mb-6">
-          <h3 className="text-xs font-extrabold text-muted uppercase">
-            قنوات التواصل المباشر
-          </h3>
+       <div className="flex flex-col gap-3 mb-6">
+  <h3 className="text-xs font-extrabold text-muted uppercase">
+    قنوات التواصل المباشر
+  </h3>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center justify-center gap-1.5 p-4 rounded-2xl bg-success-light hover:bg-success-light/80 border border-success-border/80 text-success transition-all group"
-            >
-              <div className="w-10 h-10 rounded-full bg-success text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition">
-                <MessageCircle className="w-5 h-5" />
-              </div>
-              <span className="font-extrabold text-xs">واتساب</span>
-              <span className="font-mono font-bold text-xs text-success dir-ltr">
-                {CONTACT_PHONE}
-              </span>
-            </a>
+  <div className="flex flex-col sm:flex-row justify-between gap-3">
+    <a
+      href={WHATSAPP_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="sm:flex-1 w-full flex flex-col items-center justify-center gap-1.5 p-4 rounded-2xl bg-success-light hover:bg-success-light/80 border border-success-border/80 text-success transition-all group"
+    >
+      <div className="w-10 h-10 rounded-full bg-success text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition">
+        <MessageCircle className="w-5 h-5" />
+      </div>
+      <span className="font-extrabold text-xs">واتساب</span>
+      <span className="font-mono font-bold text-xs text-success dir-ltr">
+        {CONTACT_PHONE}
+      </span>
+    </a>
 
-            <a
-              href={`tel:${CONTACT_PHONE}`}
-              className="flex flex-col items-center justify-center gap-1.5 p-4 rounded-2xl bg-primary-light hover:bg-primary-subtle/80 border border-primary/25 text-primary-hover transition-all group"
-            >
-              <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition">
-                <PhoneCall className="w-5 h-5" />
-              </div>
-              <span className="font-extrabold text-xs">اتصال هاتفي</span>
-              <span className="font-mono font-bold text-xs text-primary dir-ltr">
-                {CONTACT_PHONE}
-              </span>
-            </a>
+    <a
+      href={`tel:${CONTACT_PHONE}`}
+      className="sm:flex-1 w-full flex flex-col items-center justify-center gap-1.5 p-4 rounded-2xl bg-primary-light hover:bg-primary-subtle/80 border border-primary/25 text-primary-hover transition-all group"
+    >
+      <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition">
+        <PhoneCall className="w-5 h-5" />
+      </div>
+      <span className="font-extrabold text-xs">اتصال هاتفي</span>
+      <span className="font-mono font-bold text-xs text-primary dir-ltr">
+        {CONTACT_PHONE}
+      </span>
+    </a>
 
-            <a
-              href={TELEGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center justify-center gap-1.5 p-4 rounded-2xl bg-info-light hover:bg-info-light/80 border border-info-border/80 text-info transition-all group"
-            >
-              <div className="w-10 h-10 rounded-full bg-info text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition">
-                <Send className="w-5 h-5" />
-              </div>
-              <span className="font-extrabold text-xs">تلجرام</span>
-              <span className="font-mono font-bold text-xs text-info dir-ltr">
-                {CONTACT_PHONE}
-              </span>
-            </a>
-          </div>
-        </div>
+    <a
+      href={TELEGRAM_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="sm:flex-1 w-full flex flex-col items-center justify-center gap-1.5 p-4 rounded-2xl bg-info-light hover:bg-info-light/80 border border-info-border/80 text-info transition-all group"
+    >
+      <div className="w-10 h-10 rounded-full bg-info text-white flex items-center justify-center shadow-xs group-hover:scale-105 transition">
+        <Send className="w-5 h-5" />
+      </div>
+      <span className="font-extrabold text-xs">تلجرام</span>
+      <span className="font-mono font-bold text-xs text-info dir-ltr">
+        {CONTACT_PHONE}
+      </span>
+    </a>
+  </div>
+</div>
 
         <div className="bg-surface-soft border border-border/80 rounded-2xl p-4 md:p-5">
           <div className="flex items-center gap-2 mb-3">
@@ -167,7 +167,7 @@ export default function ContactUsModal({
           )}
 
           {submitted ? (
-            <div className="bg-success-light border border-success-border text-success rounded-xl p-4 text-center space-y-1.5 animate-in fade-in duration-200">
+            <div className="bg-success-light border border-success-border text-success rounded-xl p-4 text-center flex flex-col gap-1.5 animate-in fade-in duration-200">
               <CheckCircle2 className="w-8 h-8 text-success mx-auto" />
               <p className="font-extrabold text-sm">
                 شكراً لك! وصلت رسالتك الآن إلى إدارة مطعم السرايا.
@@ -177,8 +177,8 @@ export default function ContactUsModal({
               </p>
             </div>
           ) : (
-            <form onSubmit={handleFeedbackSubmit} className="space-y-3">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <form onSubmit={handleFeedbackSubmit} className="flex flex-col gap-3">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <div>
                   <label className="block text-xs font-bold text-sub mb-1">
                     الاسم (اختياري)

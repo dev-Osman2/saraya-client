@@ -12,7 +12,7 @@ export default function ProductsHeader({ onAddClick }: ProductsHeaderProps) {
       className="bg-white rounded-3xl border border-border/80 p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-2xs"
       dir="rtl"
     >
-      <div className="text-right space-y-1">
+      <div className="text-right flex flex-col gap-1">
         <h1 className="text-xl sm:text-2xl font-black text-heading">
           إدارة قائمة الطعام والوجبات
         </h1>

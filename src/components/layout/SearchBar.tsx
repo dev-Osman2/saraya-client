@@ -203,7 +203,7 @@ export default function SearchBar({
       </div>
 
       {filteredProducts.length > 0 && (
-        <div className="mt-3 space-y-1 divide-y divide-border-subtle max-h-64 overflow-y-auto">
+        <div className="mt-3 flex flex-col gap-1 divide-y divide-border-subtle max-h-64 overflow-y-auto">
           {filteredProducts.map((product) => (
             <button
               key={product._id}

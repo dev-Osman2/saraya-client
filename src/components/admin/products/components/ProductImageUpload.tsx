@@ -64,7 +64,7 @@ export default function ProductImageUpload({
             </span>
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center space-y-2 py-2">
+          <div className="flex flex-col items-center justify-center gap-2 py-2">
             <div className="w-14 h-14 rounded-full bg-primary-light text-primary flex items-center justify-center">
               <CloudUpload className="w-7 h-7" />
             </div>

@@ -31,7 +31,7 @@ function CheckoutFormContent() {
     <>
       <div
         id="order-summary"
-        className="bg-white rounded-2xl shadow-xs border border-border/80 p-5 sm:p-6 sticky top-24 space-y-5 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto custom-scrollbar"
+        className="bg-white rounded-2xl shadow-xs border border-border/80 p-5 sm:p-6 sticky top-24 flex flex-col gap-5 lg:max-h-[calc(100vh-6rem)] lg:overflow-y-auto custom-scrollbar"
         dir="rtl"
       >
         <div className="flex items-center gap-2 text-heading border-b border-border-subtle pb-3">

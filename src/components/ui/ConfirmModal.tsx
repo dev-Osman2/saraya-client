@@ -63,7 +63,7 @@ export default function ConfirmModal({
             )}
           </div>
 
-          <div className="space-y-1.5 flex-1 pt-0.5">
+          <div className="gap-1.5 flex-1 pt-0.5">
             <h3 className="text-base sm:text-lg font-black text-heading">
               {title}
             </h3>

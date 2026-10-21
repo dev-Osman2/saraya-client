@@ -18,7 +18,7 @@ export default function CashierCartItemList({
 }: CashierCartItemListProps) {
   if (cart.length === 0) {
     return (
-      <div className="py-8 text-center text-muted-light space-y-2">
+      <div className="py-8 text-center text-muted-light flex flex-col gap-2">
         <ShoppingCart className="w-7 h-7 mx-auto text-muted-light" />
         <p className="text-xs font-medium">لم يتم تحديد أي وجبة بعد.</p>
       </div>

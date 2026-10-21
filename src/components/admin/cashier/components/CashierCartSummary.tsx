@@ -14,7 +14,7 @@ export default function CashierCartSummary({
   totalPrice,
 }: CashierCartSummaryProps) {
   return (
-    <div className="bg-surface-soft/90 rounded-2xl p-4 space-y-2.5 border border-border-subtle text-xs sm:text-sm">
+    <div className="bg-surface-soft/90 rounded-2xl p-4 flex flex-col gap-2.5 border border-border-subtle text-xs sm:text-sm">
       <div>
         <label className="flex items-center gap-1 text-xs font-bold text-sub mb-1.5">
           <FileText className="w-3.5 h-3.5 text-muted-light" />

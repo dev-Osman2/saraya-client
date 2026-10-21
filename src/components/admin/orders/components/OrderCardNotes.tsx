@@ -32,7 +32,7 @@ export default function OrderCardNotes({
   onCancelNote,
 }: OrderCardNotesProps) {
   return (
-    <div className="space-y-3">
+    <div className="flex flex-col gap-3">
       <div className="pt-2 border-t border-border-subtle flex items-center justify-start gap-2 flex-wrap">
         {hasCustomerNote && (
           <button
@@ -74,7 +74,7 @@ export default function OrderCardNotes({
       </div>
 
       {showCustomerNote && hasCustomerNote && (
-        <div className="bg-info-light/70 border border-info-border rounded-2xl p-3.5 text-right space-y-1 animate-in fade-in duration-150">
+        <div className="bg-info-light/70 border border-info-border rounded-2xl p-3.5 text-right flex flex-col gap-1 animate-in fade-in duration-150">
           <p className="text-xs font-extrabold text-info">
             ملاحظة كتبها العميل:
           </p>
@@ -85,7 +85,7 @@ export default function OrderCardNotes({
       )}
 
       {showAdminNote && (
-        <div className="bg-warning-light/70 border border-warning-border/80 rounded-2xl p-4 text-right space-y-3 animate-in fade-in duration-150">
+        <div className="bg-warning-light/70 border border-warning-border/80 rounded-2xl p-4 text-right flex flex-col gap-3 animate-in fade-in duration-150">
           <p className="text-xs font-extrabold text-warning">
             ملاحظة الأدمن الخاصة بالطلب:
           </p>

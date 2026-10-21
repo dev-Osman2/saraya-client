@@ -24,7 +24,7 @@ export default function ProductForm({
   const form = useProductForm({ initialData, onSubmit });
 
   return (
-    <form onSubmit={form.handleSubmit} className="space-y-5" dir="rtl">
+    <form onSubmit={form.handleSubmit} className="flex flex-col gap-5" dir="rtl">
       {form.error && (
         <div className="p-3.5 bg-danger-light border border-danger-border text-danger rounded-2xl text-xs font-bold flex items-center gap-2">
           <AlertCircle className="w-4 h-4 shrink-0" />

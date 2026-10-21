@@ -18,7 +18,7 @@ export default function OrderPricingSummary({
   finalTotal,
 }: OrderPricingSummaryProps) {
   return (
-    <div className="bg-surface-soft/90 p-4 rounded-xl space-y-2.5 border border-border-subtle">
+    <div className="bg-surface-soft/90 p-4 rounded-xl flex flex-col gap-2.5 border border-border-subtle">
       <div className="flex justify-between items-center text-sub text-xs sm:text-sm">
         <span>مجموع الوجبات:</span>
         <span className="font-bold text-body">{totalPrice} ج</span>

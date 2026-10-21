@@ -157,7 +157,7 @@ export default function AdminProductsPage() {
   }, [products, activeCategory, searchQuery]);
 
   return (
-    <div className="space-y-6" dir="rtl">
+    <div className="flex flex-col gap-6" dir="rtl">
       <ProductsHeader
         onAddClick={() => {
           setEditingProduct(null);

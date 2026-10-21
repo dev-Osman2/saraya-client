@@ -12,13 +12,13 @@ export default function CashierPaymentSelector({
   setPaymentMode,
 }: CashierPaymentSelectorProps) {
   return (
-    <div className="space-y-2">
+    <div className="flex flex-col gap-2">
       <div className="flex items-center gap-1.5 text-xs font-extrabold text-sub">
         <CreditCard className="w-4 h-4 text-primary" />
         <span>طريقة الدفع</span>
       </div>
 
-      <div className="grid grid-cols-3 gap-2">
+      <div className="flex gap-2">
         <button
           type="button"
           onClick={() => setPaymentMode("cash")}

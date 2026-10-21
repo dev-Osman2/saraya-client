@@ -93,52 +93,52 @@ export default function QuickServicesBar() {
           <h2 className="font-extrabold text-heading">خدمات سريعة</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
-          <button
-            type="button"
-            onClick={() => setIsAboutOpen(true)}
-            className="w-full h-14 bg-primary-light hover:bg-primary-subtle border border-primary/20 text-primary-hover rounded-2xl px-5 flex items-center justify-start gap-2.5 font-extrabold text-sm transition-all duration-200 cursor-pointer shadow-2xs active:scale-[0.99]"
-          >
-            <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-              <Info className="w-4 h-4" />
-            </div>
-            <span>عن مطعم السرايا</span>
-          </button>
+        <div className="flex flex-col md:flex-row gap-3 md:gap-4">
+  <button
+    type="button"
+    onClick={() => setIsAboutOpen(true)}
+    className="md:flex-1 w-full h-14 bg-primary-light hover:bg-primary-subtle border border-primary/20 text-primary-hover rounded-2xl px-5 flex items-center justify-start gap-2.5 font-extrabold text-sm transition-all duration-200 cursor-pointer shadow-2xs active:scale-[0.99]"
+  >
+    <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+      <Info className="w-4 h-4" />
+    </div>
+    <span>عن مطعم السرايا</span>
+  </button>
 
-          <button
-            type="button"
-            onClick={toggleTrackAccordion}
-            className="w-full h-14 bg-success-light hover:bg-success-light border border-success-border/60 text-success rounded-2xl px-5 flex items-center justify-between font-extrabold text-sm transition-all duration-200 cursor-pointer shadow-2xs active:scale-[0.99]"
-          >
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-success/10 flex items-center justify-center text-success">
-                <CheckCircle2 className="w-4 h-4" />
-              </div>
-              <span>تتبع طلبك</span>
-            </div>
-            <ChevronDown
-              className={`w-4 h-4 text-success transition-transform duration-300 ${
-                activeAccordion === "track" ? "rotate-180" : ""
-              }`}
-            />
-          </button>
+  <button
+    type="button"
+    onClick={toggleTrackAccordion}
+    className="md:flex-1 w-full h-14 bg-success-light hover:bg-success-light border border-success-border/60 text-success rounded-2xl px-5 flex items-center justify-between font-extrabold text-sm transition-all duration-200 cursor-pointer shadow-2xs active:scale-[0.99]"
+  >
+    <div className="flex items-center gap-2.5">
+      <div className="w-8 h-8 rounded-xl bg-success/10 flex items-center justify-center text-success">
+        <CheckCircle2 className="w-4 h-4" />
+      </div>
+      <span>تتبع طلبك</span>
+    </div>
+    <ChevronDown
+      className={`w-4 h-4 text-success transition-transform duration-300 ${
+        activeAccordion === "track" ? "rotate-180" : ""
+      }`}
+    />
+  </button>
 
-          <button
-            type="button"
-            onClick={() => setIsContactOpen(true)}
-            className="w-full h-14 bg-info-light hover:bg-info-light border border-info-border/70 text-info rounded-2xl px-5 flex items-center justify-between font-extrabold text-sm transition-all duration-200 cursor-pointer shadow-2xs active:scale-[0.99]"
-          >
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-info/10 flex items-center justify-center text-info">
-                <Headset className="w-4 h-4" />
-              </div>
-              <span>تواصل معنا وشاركنا رأيك</span>
-            </div>
-            <span className="text-[11px] bg-info-light text-info px-2.5 py-0.5 rounded-full font-bold">
-              دعم وآراء
-            </span>
-          </button>
-        </div>
+  <button
+    type="button"
+    onClick={() => setIsContactOpen(true)}
+    className="md:flex-1 w-full h-14 bg-info-light hover:bg-info-light border border-info-border/70 text-info rounded-2xl px-5 flex items-center justify-between font-extrabold text-sm transition-all duration-200 cursor-pointer shadow-2xs active:scale-[0.99]"
+  >
+    <div className="flex items-center gap-2.5">
+      <div className="w-8 h-8 rounded-xl bg-info/10 flex items-center justify-center text-info">
+        <Headset className="w-4 h-4" />
+      </div>
+      <span>تواصل معنا وشاركنا رأيك</span>
+    </div>
+    <span className="text-[11px] bg-info/10 text-info px-2.5 py-0.5 rounded-full font-bold">
+      دعم وآراء
+    </span>
+  </button>
+</div>
 
         {activeAccordion === "track" && (
           <div className="mt-5 pt-4 border-t border-border-subtle animate-in fade-in slide-in-from-top-3 duration-200">
@@ -156,7 +156,7 @@ export default function QuickServicesBar() {
                 </div>
               )}
 
-              <form onSubmit={handleTrackSubmit} className="space-y-4">
+              <form onSubmit={handleTrackSubmit} className="flex flex-col gap-4">
                 <div>
                   <label className="block text-xs font-bold text-sub mb-1.5 text-right">
                     رقم الهاتف <span className="text-danger">*</span>

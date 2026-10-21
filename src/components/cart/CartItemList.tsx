@@ -13,7 +13,7 @@ export default function CartItemList({ onZoomImage }: CartItemListProps) {
 
   if (cart.length === 0) {
     return (
-      <div className="py-7 text-center text-muted-light space-y-2 border-b border-border-subtle">
+      <div className="py-7 text-center text-muted-light flex flex-col gap-2 border-b border-border-subtle">
         <ShoppingCart className="w-7 h-7 mx-auto text-muted-light stroke-[1.75]" />
         <p className="text-xs font-medium">
           لم تقم باختيار أي وجبة بعد، أضف وجباتك من القائمة.

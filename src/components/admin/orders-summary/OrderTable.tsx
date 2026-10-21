@@ -72,7 +72,7 @@ export default function OrderTable({
   });
 
   return (
-    <div className="space-y-6">
+    <div className="flex flex-col gap-6">
       <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
         <div className="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0">
           {[
@@ -125,11 +125,11 @@ export default function OrderTable({
           لا توجد طلبات مطابقة لمعايير البحث
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex flex-wrap gap-4">
           {filteredOrders.map((order) => (
             <div
               key={order._id}
-              className="bg-white rounded-3xl border border-border/90 shadow-sm p-5 flex flex-col justify-between space-y-4 hover:shadow-md transition-shadow"
+              className="bg-white rounded-3xl border border-border/90 shadow-sm p-5 flex flex-col justify-between gap-4 hover:shadow-md transition-shadow w-full md:w-[calc(50%-0.5rem)]"
             >
               <div className="flex items-start justify-between gap-2 border-b border-border-subtle pb-3">
                 <div>
@@ -172,7 +172,7 @@ export default function OrderTable({
                 </span>
               </div>
 
-              <div className="bg-surface-soft rounded-2xl p-3 space-y-1.5 max-h-32 overflow-y-auto custom-scrollbar text-xs">
+              <div className="bg-surface-soft rounded-2xl p-3 flex flex-col gap-1.5 max-h-32 overflow-y-auto custom-scrollbar text-xs">
                 {order.items?.map((item, idx) => (
                   <div
                     key={idx}
@@ -222,12 +222,12 @@ export default function OrderTable({
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-2 pt-1">
+              <div className="flex gap-2 pt-1">
                 <button
                   type="button"
                   onClick={() => onStatusChange(order._id, "confirmed")}
                   disabled={order.status === "confirmed"}
-                  className="py-2 bg-success hover:bg-success disabled:opacity-40 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-colors"
+                  className="flex-1 py-2 bg-success hover:bg-success disabled:opacity-40 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-colors"
                 >
                   <Check className="w-3.5 h-3.5" />
                   <span>تأكيد</span>

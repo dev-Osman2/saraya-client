@@ -18,8 +18,8 @@ export default function SummaryStatsCards({
   averageOrderValue,
 }: SummaryStatsCardsProps) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      <div className="bg-white p-5 rounded-3xl border border-border/80 shadow-sm flex items-center gap-4">
+    <div className="flex flex-wrap gap-4">
+      <div className="bg-white p-5 rounded-3xl border border-border/80 shadow-sm flex items-center gap-4 w-full sm:w-[calc(50%-0.5rem)] lg:flex-1">
         <div className="w-12 h-12 rounded-2xl bg-danger-light text-danger flex items-center justify-center shrink-0">
           <Flame className="w-6 h-6" />
         </div>
@@ -45,7 +45,7 @@ export default function SummaryStatsCards({
         </div>
       </div>
 
-      <div className="bg-white p-5 rounded-3xl border border-border/80 shadow-sm flex items-center gap-4">
+      <div className="bg-white p-5 rounded-3xl border border-border/80 shadow-sm flex items-center gap-4 w-full sm:w-[calc(50%-0.5rem)] lg:flex-1">
         <div className="w-12 h-12 rounded-2xl bg-info-light text-info flex items-center justify-center shrink-0">
           <Truck className="w-6 h-6" />
         </div>
@@ -61,7 +61,7 @@ export default function SummaryStatsCards({
         </div>
       </div>
 
-      <div className="bg-white p-5 rounded-3xl border border-border/80 shadow-sm flex items-center gap-4">
+      <div className="bg-white p-5 rounded-3xl border border-border/80 shadow-sm flex items-center gap-4 w-full sm:w-[calc(50%-0.5rem)] lg:flex-1">
         <div className="w-12 h-12 rounded-2xl bg-warning-light text-warning flex items-center justify-center shrink-0">
           <Wallet className="w-6 h-6" />
         </div>
@@ -75,7 +75,7 @@ export default function SummaryStatsCards({
         </div>
       </div>
 
-      <div className="bg-white p-5 rounded-3xl border border-border/80 shadow-sm flex items-center gap-4">
+      <div className="bg-white p-5 rounded-3xl border border-border/80 shadow-sm flex items-center gap-4 w-full sm:w-[calc(50%-0.5rem)] lg:flex-1">
         <div className="w-12 h-12 rounded-2xl bg-info-light text-info flex items-center justify-center shrink-0">
           <Receipt className="w-6 h-6" />
         </div>

@@ -17,8 +17,8 @@ export default function ProductBasicInfo({
   setCategory,
 }: ProductBasicInfoProps) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      <div>
+    <div className="flex flex-col sm:flex-row gap-4">
+      <div className="flex-1 w-full">
         <label className="block text-xs font-extrabold text-body mb-1.5">
           اسم الوجبة <span className="text-primary">*</span>
         </label>
@@ -32,7 +32,7 @@ export default function ProductBasicInfo({
         />
       </div>
 
-      <div>
+      <div className="flex-1 w-full">
         <label className="block text-xs font-extrabold text-body mb-1.5">
           القسم <span className="text-primary">*</span>
         </label>

@@ -161,7 +161,7 @@ export default function AdminOrdersPage() {
   }, [orders, activeFilter, searchQuery]);
 
   return (
-    <div className="space-y-6" dir="rtl">
+    <div className="flex flex-col gap-6" dir="rtl">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <OrderStatsHeader />
 
@@ -201,16 +201,20 @@ export default function AdminOrdersPage() {
           لا توجد طلبات مطابقة للعرض في هذا التبويب حالياً.
         </div>
       ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+        <div className="flex flex-wrap gap-6 items-start">
           {filteredOrders.map((order) => (
-            <OrderCard
+            <div
               key={order._id}
-              order={order}
-              onUpdateStatus={handleUpdateStatus}
-              onTogglePayment={handleTogglePayment}
-              onUpdateAdminNote={handleUpdateAdminNote}
-              updatingId={updatingId}
-            />
+              className="w-full lg:w-[calc(50%-0.75rem)] flex flex-col"
+            >
+              <OrderCard
+                order={order}
+                onUpdateStatus={handleUpdateStatus}
+                onTogglePayment={handleTogglePayment}
+                onUpdateAdminNote={handleUpdateAdminNote}
+                updatingId={updatingId}
+              />
+            </div>
           ))}
         </div>
       )}

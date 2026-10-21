@@ -24,7 +24,7 @@ export default function PaymentInstructionCard({
     : "رقم محفظة فودافون كاش للتحويل (اضغط للدفع السريع):";
 
   return (
-    <div className="space-y-3">
+    <div className="flex flex-col gap-3">
       <a
         href={link}
         target="_blank"

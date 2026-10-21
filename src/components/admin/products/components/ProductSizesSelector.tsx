@@ -20,16 +20,16 @@ export default function ProductSizesSelector({
   onUpdateSizePrice,
 }: ProductSizesSelectorProps) {
   return (
-    <div className="bg-primary-light/70 border border-primary-light rounded-2xl p-4 space-y-3">
+    <div className="bg-primary-light/70 border border-primary-light rounded-2xl p-4 flex flex-col gap-3">
       <label className="block text-xs font-extrabold text-body">
         أحجام الوجبة (اختياري)
       </label>
 
-      <div className="grid grid-cols-3 gap-3">
+      <div className="flex gap-3">
         {AVAILABLE_SIZES.map((sz) => {
           const active = sizesState[sz].enabled;
           return (
-            <div key={sz} className="space-y-2">
+            <div key={sz} className="flex-1 flex flex-col gap-2">
               <button
                 type="button"
                 onClick={() => onToggleSize(sz)}
