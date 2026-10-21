@@ -128,7 +128,7 @@ export default function AdminSidebar({
                 <span>عرض موقع العميل الرئيسي</span>
               </Link>
               <Link
-                href="https://web.telegram.org/a/#-1004380812989"
+                href="https://web.telegram.org/a/#-1004380812989_1"
                 target="_blank"
                 onClick={onClose}
                 className="flex items-center gap-3 px-4 py-3 rounded-xl font-bold text-xs sm:text-sm text-slate-600 hover:bg-slate-100 transition"

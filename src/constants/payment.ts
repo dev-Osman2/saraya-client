@@ -5,7 +5,6 @@ export const INSTAPAY_LINK =
 export const VODAFONE_CASH_DISPLAY =
   process.env.NEXT_PUBLIC_VODAFONE_CASH || "01080859921";
 
-export const VODAFONE_CASH_LINK =
   process.env.NEXT_PUBLIC_VODAFONE_CASH_LINK ||
   "http://vf.eg/vfcash?id=mt&qrId=HKeNQu";
 

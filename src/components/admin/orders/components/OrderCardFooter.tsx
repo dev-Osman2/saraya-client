@@ -1,6 +1,7 @@
 "use client";
 
-import { Wallet, Check, X } from "lucide-react";
+import { useState } from "react";
+import { Wallet, Check, X, Copy } from "lucide-react";
 import { Order } from "@/src/types";
 
 interface OrderCardFooterProps {
@@ -21,6 +22,24 @@ export default function OrderCardFooter({
   onTogglePayment,
   onUpdateStatus,
 }: OrderCardFooterProps) {
+  const [copied, setCopied] = useState(false);
+
+  // التحقق من أن القيمة تحتوي على رقم (مثل رقم فودافون كاش أو InstaPay) وليست مجرد نص مثل "نقدي للصالة"
+  const isCopyableReceipt = Boolean(
+    order.paymentReceipt && /\d/.test(order.paymentReceipt),
+  );
+
+  const handleCopyReceipt = async () => {
+    if (!order.paymentReceipt || !isCopyableReceipt) return;
+    try {
+      await navigator.clipboard.writeText(order.paymentReceipt);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (error) {
+      console.error("Failed to copy receipt:", error);
+    }
+  };
+
   return (
     <div className="space-y-4 pt-2 border-t border-slate-100">
       <div className="flex flex-wrap items-center justify-between gap-3">
@@ -42,11 +61,30 @@ export default function OrderCardFooter({
             <span className="text-xs sm:text-sm font-black text-indigo-950">
               {paymentLabel}
             </span>
-            {order.paymentReceipt && (
-              <span className="text-[11px] font-mono font-bold bg-orange-50 text-primary px-2 py-0.5 rounded-md border border-[#D55304]/20">
-                {order.paymentReceipt}
-              </span>
-            )}
+            {order.paymentReceipt &&
+              (isCopyableReceipt ? (
+                <button
+                  type="button"
+                  onClick={handleCopyReceipt}
+                  title="اضغط لنسخ الرقم"
+                  className={`inline-flex items-center gap-1 text-[11px] font-mono font-bold px-2 py-0.5 rounded-md border transition-all cursor-pointer active:scale-95 ${
+                    copied
+                      ? "bg-emerald-50 text-emerald-700 border-emerald-300"
+                      : "bg-orange-50 text-primary border-[#D55304]/20 hover:bg-orange-100/70"
+                  }`}
+                >
+                  <span>{order.paymentReceipt}</span>
+                  {copied ? (
+                    <Check className="w-3 h-3 text-emerald-600 stroke-[2.5]" />
+                  ) : (
+                    <Copy className="w-3 h-3 opacity-70" />
+                  )}
+                </button>
+              ) : (
+                <span className="text-[11px] font-mono font-bold bg-orange-50 text-primary px-2 py-0.5 rounded-md border border-[#D55304]/20">
+                  {order.paymentReceipt}
+                </span>
+              ))}
           </div>
         </div>
 
