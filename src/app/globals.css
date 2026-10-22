@@ -1,90 +1,32 @@
 @import "tailwindcss";
 
-:root {
-  /* ========================================
-     1. الهوية الأساسية (Brand Identity)
-     ======================================== */
-  --color-primary: #d55304;
-  --color-primary-hover: #b84403;
-  --color-primary-light: #fff7ed;
-  --color-primary-subtle: #ffedd5;
-  --color-secondary: #ffc107;
-  --color-dark: #1e1e2d;
-  --color-lightBg: #f3f4f6;
-
-  /* ========================================
-     2. ألوان النصوص (Typography)
-     ======================================== */
-  --color-heading: #0f172a;
-  --color-body: #1e293b;
-  --color-sub: #475569;
-  --color-muted: #64748b;
-  --color-muted-light: #94a3b8;
-
-  /* ========================================
-     3. ألوان الأسطح والخلفيات (Surfaces)
-     ======================================== */
-  --color-surface-soft: #f8fafc;
-  --color-surface-subtle: #f1f5f9;
-  --color-surface-hover: #e2e8f0;
-
-  /* ========================================
-     4. ألوان الحدود والفواصل (Borders)
-     ======================================== */
-  --color-border: #e2e8f0;
-  --color-border-subtle: #f1f5f9;
-
-  /* ========================================
-     5. ألوان الحالات والإشعارات (Status Colors)
-     ======================================== */
-  --color-success: #059669;
-  --color-success-hover: #047857;
-  --color-success-light: #ecfdf5;
-  --color-success-border: #a7f3d0;
-
-  --color-warning: #f59e0b;
-  --color-warning-hover: #d97706;
-  --color-warning-light: #fffbeb;
-  --color-warning-border: #fde68a;
-
-  --color-danger: #e11d48;
-  --color-danger-hover: #be123c;
-  --color-danger-light: #fff1f2;
-  --color-danger-border: #fecdd3;
-
-  --color-info: #4f46e5;
-  --color-info-hover: #4338ca;
-  --color-info-light: #eef2ff;
-  --color-info-border: #c7d2fe;
-  --color-info-dark: #312e81;
-}
 
 @theme {
-  --color-primary: #d55304;
-  --color-primary-hover: #b84403;
-  --color-primary-light: #fff7ed;
-  --color-primary-subtle: #ffedd5;
-  --color-secondary: #ffc107;
-  --color-dark: #1e1e2d;
-  --color-lightBg: #f3f4f6;
+  --color-primary: #0fa396;
+  --color-primary-hover: #0c857a;
+  --color-primary-light: #f0fdfa;
+  --color-primary-subtle: #ccfbf1;
+  --color-secondary: #f59e0b;
+  --color-dark: #041220;
+  --color-lightBg: #f0f7f9;
 
-  --color-heading: #0f172a;
-  --color-body: #1e293b;
-  --color-sub: #475569;
-  --color-muted: #64748b;
-  --color-muted-light: #94a3b8;
+  --color-heading: #041220;
+  --color-body: #0b2239;
+  --color-sub: #334e68;
+  --color-muted: #627d98;
+  --color-muted-light: #829ab1;
 
-  --color-surface-soft: #f8fafc;
-  --color-surface-subtle: #f1f5f9;
-  --color-surface-hover: #e2e8f0;
+  --color-surface-soft: #f8fbfc;
+  --color-surface-subtle: #eef5f8;
+  --color-surface-hover: #d9e8ef;
 
-  --color-border: #e2e8f0;
-  --color-border-subtle: #f1f5f9;
+  --color-border: #d9e8ef;
+  --color-border-subtle: #eef5f8;
 
-  --color-success: #059669;
-  --color-success-hover: #047857;
-  --color-success-light: #ecfdf5;
-  --color-success-border: #a7f3d0;
+  --color-success: #0d9488;
+  --color-success-hover: #0f766e;
+  --color-success-light: #f0fdfa;
+  --color-success-border: #99f6e4;
 
   --color-warning: #f59e0b;
   --color-warning-hover: #d97706;
@@ -96,11 +38,11 @@
   --color-danger-light: #fff1f2;
   --color-danger-border: #fecdd3;
 
-  --color-info: #4f46e5;
-  --color-info-hover: #4338ca;
-  --color-info-light: #eef2ff;
-  --color-info-border: #c7d2fe;
-  --color-info-dark: #312e81;
+  --color-info: #0284c7;
+  --color-info-hover: #0369a1;
+  --color-info-light: #f0f9ff;
+  --color-info-border: #bae6fd;
+  --color-info-dark: #0c4a6e;
 }
 
 @utility container {

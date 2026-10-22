@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, Suspense } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import ProductCard from "@/src/components/product/ProductCard";
 import CashierCategoryBar from "@/src/components/admin/cashier/CashierCategoryBar";
